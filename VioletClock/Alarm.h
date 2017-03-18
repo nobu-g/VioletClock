@@ -5,9 +5,9 @@
 #include "Button.h"
 #include "Config.h"
 
-#define ALMTIME_X   170     // 設定時刻のx座標
-#define ALMTIME_Y   150     // 設定時刻のy座標
-#define FSIZE_T     120     // 設定時刻のフォントサイズ
+#define ALMTIME_X       170     // 設定時刻のx座標
+#define ALMTIME_Y       150     // 設定時刻のy座標
+#define FSIZE_T         120     // 設定時刻のフォントサイズ
 
 #define ALARMVALID_X    (MAINAREA_X + 15)
 #define ALARMVALID_Y    (MAINAREA_Y + 297)

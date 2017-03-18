@@ -31,7 +31,7 @@ enum eTmData { None, Year, Month, Day, Week, Noon, Hour, TimeSignal, Minute, Tai
 class Words {
     int hWord;              // 台詞音声へのハンドル
 
-                            // min_hour時min_minute分から、max_hour時max_minute分の間、台詞を喋ることができる
+    // min_hour時min_minute分から、max_hour時max_minute分の間、台詞を喋ることができる
     int min_hour;
     int min_minute;
     int max_hour;

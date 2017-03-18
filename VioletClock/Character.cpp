@@ -14,16 +14,16 @@ Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
 
     if (hFace.empty()) {
         hFace.insert(pair<eFace, int>(Confident, LoadGraph("image\\kurei_kei\\confident.png")));
-        hFace.insert(pair<eFace, int>(Doya, LoadGraph("image\\kurei_kei\\doya.png")));
-        hFace.insert(pair<eFace, int>(Excited, LoadGraph("image\\kurei_kei\\excited.png")));
-        hFace.insert(pair<eFace, int>(Kyoton, LoadGraph("image\\kurei_kei\\kyoton.png")));
-        hFace.insert(pair<eFace, int>(Laugh, LoadGraph("image\\kurei_kei\\laugh.png")));
-        hFace.insert(pair<eFace, int>(Normal, LoadGraph("image\\kurei_kei\\normal.png")));
-        hFace.insert(pair<eFace, int>(Shocked, LoadGraph("image\\kurei_kei\\shocked.png")));
-        hFace.insert(pair<eFace, int>(Speaking, LoadGraph("image\\kurei_kei\\speaking.png")));
-        hFace.insert(pair<eFace, int>(Tearful, LoadGraph("image\\kurei_kei\\tearful.png")));
-        hFace.insert(pair<eFace, int>(Wink, LoadGraph("image\\kurei_kei\\wink.png")));
-        hFace.insert(pair<eFace, int>(Blink, LoadGraph("image\\kurei_kei\\blink.png")));
+        hFace.insert(pair<eFace, int>(Doya,      LoadGraph("image\\kurei_kei\\doya.png")));
+        hFace.insert(pair<eFace, int>(Excited,   LoadGraph("image\\kurei_kei\\excited.png")));
+        hFace.insert(pair<eFace, int>(Kyoton,    LoadGraph("image\\kurei_kei\\kyoton.png")));
+        hFace.insert(pair<eFace, int>(Laugh,     LoadGraph("image\\kurei_kei\\laugh.png")));
+        hFace.insert(pair<eFace, int>(Normal,    LoadGraph("image\\kurei_kei\\normal.png")));
+        hFace.insert(pair<eFace, int>(Shocked,   LoadGraph("image\\kurei_kei\\shocked.png")));
+        hFace.insert(pair<eFace, int>(Speaking,  LoadGraph("image\\kurei_kei\\speaking.png")));
+        hFace.insert(pair<eFace, int>(Tearful,   LoadGraph("image\\kurei_kei\\tearful.png")));
+        hFace.insert(pair<eFace, int>(Wink,      LoadGraph("image\\kurei_kei\\wink.png")));
+        hFace.insert(pair<eFace, int>(Blink,     LoadGraph("image\\kurei_kei\\blink.png")));
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 0);
     }
 }

@@ -27,7 +27,7 @@ enum eFace { Confident, Doya, Excited, Kyoton, Laugh, Normal, Shocked, Speaking,
 // キャラクタクラス
 class Chr : public Area {
     static int hBase;                   // ベース画像へのハンドル
-    static map<eFace, int> hFace;       // 表情の画像へのハンドル
+    static map<eFace, int> hFace;       // 表情の差分画像へのハンドル
 public:
     Chr();
     void Draw();

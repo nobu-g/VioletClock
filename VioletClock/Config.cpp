@@ -103,8 +103,8 @@ void Choice<DataType>::Draw(DataType &data)
     if (data == value)
         DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);     // 選択されていることを示す影を表示
 
-                                                    // カーソルが上にあるとき影を表示
-                                                    // 他の場所をクリックしながら移動してきた場合は表示しない
+    // カーソルが上にあるとき影を表示
+    // 他の場所をクリックしながら移動してきた場合は表示しない
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET4, FALSE);
 
@@ -122,7 +122,7 @@ void ConfigTime::Update()
 {
     TimeSrc::Update();      // 時刻を更新
 
-                            // 日付がクリックされたとき
+    // 日付がクリックされたとき
     if (Area(DATE_X, DATE_Y, FSIZE_D / 2 * (16 + (local.tm_mon >= 9) + (local.tm_mday >= 10)), FSIZE_D).IsClicked())
         switch (status) {
         case Invariable:
@@ -171,7 +171,7 @@ void ConfigTime::Update()
         break;
     case YVariable:
         local.tm_year += val;
-        if (local.tm_year < 70)     local.tm_year = 70;
+        if (local.tm_year < 70)         local.tm_year = 70;
         else if (local.tm_year > 1100)  local.tm_year = 1100;
         break;
     case MonVariable:
@@ -211,7 +211,7 @@ void ConfigTime::Draw()
 {
     static int cnt = 15;    // 初期位相は周期の1/4にしておく
 
-                            // 日付を表示
+    // 日付を表示
     DrawFormatStringToHandle(DATE_X, DATE_Y, BLACK, hFont_d, "%4d年%d月%d日(%s)", local.tm_year + 1900, local.tm_mon + 1, local.tm_mday, week_name[local.tm_wday]);
     // 時、分を表示
     DrawFormatStringToHandle(TIME_X, TIME_Y, BLACK, hFont_hm, "%2d:%02d", local.tm_hour, local.tm_min);
@@ -350,21 +350,21 @@ void SetBirthday::Draw()
 
 FontMaker::FontMaker()
 {
-    hFont_main = CreateFontToHandle(NULL, FSIZE_MAIN, 5, DX_FONTTYPE_ANTIALIASING_4X4);
+    hFont_main   = CreateFontToHandle(NULL, FSIZE_MAIN,   5, DX_FONTTYPE_ANTIALIASING_4X4);
     hFont_choice = CreateFontToHandle(NULL, FSIZE_CHOICE, 3, DX_FONTTYPE_ANTIALIASING_4X4);
-    hFont_d = CreateFontToHandle(NULL, FSIZE_D, -1, DX_FONTTYPE_ANTIALIASING_4X4);
-    hFont_hm = CreateFontToHandle(NULL, FSIZE_HM, -1, DX_FONTTYPE_ANTIALIASING_4X4);
-    hFont_bd = CreateFontToHandle(NULL, FSIZE_BD, -1, DX_FONTTYPE_ANTIALIASING_4X4);
+    hFont_d      = CreateFontToHandle(NULL, FSIZE_D,     -1, DX_FONTTYPE_ANTIALIASING_4X4);
+    hFont_hm     = CreateFontToHandle(NULL, FSIZE_HM,    -1, DX_FONTTYPE_ANTIALIASING_4X4);
+    hFont_bd     = CreateFontToHandle(NULL, FSIZE_BD,    -1, DX_FONTTYPE_ANTIALIASING_4X4);
 }
 
 Config::Config(ISceneChanger *changer) : BaseScene(changer), tab(Tab_MainCfg), set_bd(temp.dcfg),
 h_form(HFORM_X, HFORM_Y, 280, 65, "時刻表示形式", temp.tcfg.h_form),
-auto_repro(AUTOREPRO_X, AUTOREPRO_Y, 280, 65, "自動再生", temp.vcfg.auto_repro),
-sound_year(SOUNDYEAR_X, SOUNDYEAR_Y, 280, 65, "年読み上げ", temp.dcfg.sound_year),
-sound_week(SOUNDWEEK_X, SOUNDWEEK_Y, 280, 65, "曜日読み上げ", temp.dcfg.sound_week),
-tail_date(TAILDATE_X, TAILDATE_Y, 280, 130, "語尾(日付)", temp.dcfg.tail),
-tail_time(TAILTIME_X, TAILTIME_Y, 280, 130, "語尾(時刻)", temp.tcfg.tail),
-for_prg(FORPRG_X, FORPRG_Y, 280, 57, "プログラマ用", temp.vcfg.for_prg),
+auto_repro(AUTOREPRO_X, AUTOREPRO_Y, 280, 65,  "自動再生",     temp.vcfg.auto_repro),
+sound_year(SOUNDYEAR_X, SOUNDYEAR_Y, 280, 65,  "年読み上げ",   temp.dcfg.sound_year),
+sound_week(SOUNDWEEK_X, SOUNDWEEK_Y, 280, 65,  "曜日読み上げ", temp.dcfg.sound_week),
+tail_date (TAILDATE_X,  TAILDATE_Y,  280, 130, "語尾(日付)",   temp.dcfg.tail),
+tail_time (TAILTIME_X,  TAILTIME_Y,  280, 130, "語尾(時刻)",   temp.tcfg.tail),
+for_prg   (FORPRG_X,    FORPRG_Y,    280, 57,  "プログラマ用", temp.vcfg.for_prg),
 
 reset(RESET_X, RESET_Y, RESET_W, "既定値に戻す", hFont_main),
 complete(COMP_X, COMP_Y, COMP_W, "完了", hFont_main),
@@ -385,32 +385,32 @@ void Config::Initialize()
 {
     pVoice->SoundSys(2);                        // 設定画面へ移るときの音声を再生
 
-                                                // 各項目に選択肢を登録
-    h_form.PushBack(new Choice<eHourForm>(HFORM_X + 30, HFORM_Y + 26, 100, "0-24 表示", Form24h));
+    // 各項目に選択肢を登録
+    h_form.PushBack(new Choice<eHourForm>(HFORM_X + 30,  HFORM_Y + 26, 100, "0-24 表示", Form24h));
     h_form.PushBack(new Choice<eHourForm>(HFORM_X + 170, HFORM_Y + 26, 100, "0-12 表示", Form12h));
 
-    auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + 30, AUTOREPRO_Y + 26, 100, "ON", true));
+    auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + 30,  AUTOREPRO_Y + 26, 100, "ON",  true));
     auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + 170, AUTOREPRO_Y + 26, 100, "OFF", false));
 
-    sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + 30, SOUNDYEAR_Y + 26, 100, "ON", true));
+    sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + 30,  SOUNDYEAR_Y + 26, 100, "ON",  true));
     sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + 170, SOUNDYEAR_Y + 26, 100, "OFF", false));
 
-    sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + 30, SOUNDWEEK_Y + 26, 100, "ON", true));
+    sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + 30,  SOUNDWEEK_Y + 26, 100, "ON",  true));
     sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + 170, SOUNDWEEK_Y + 26, 100, "OFF", false));
 
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30, TAILDATE_Y + 25, 100, "…だね！", Tail_Dane));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30, TAILDATE_Y + 62, 100, "…だよ！", Tail_Dayo));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30,  TAILDATE_Y + 25, 100, "…だね！", Tail_Dane));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30,  TAILDATE_Y + 62, 100, "…だよ！", Tail_Dayo));
     tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 155, TAILDATE_Y + 25, 130, "…になったよ！", Tail_Ninattayo));
     tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 155, TAILDATE_Y + 62, 130, "…だって！", Tail_Datte));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30, TAILDATE_Y + 99, 100, "なし", Tail_None));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30,  TAILDATE_Y + 99, 100, "なし", Tail_None));
 
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30, TAILTIME_Y + 25, 100, "…だね！", Tail_Dane));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30, TAILTIME_Y + 62, 100, "…だよ！", Tail_Dayo));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30,  TAILTIME_Y + 25, 100, "…だね！", Tail_Dane));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30,  TAILTIME_Y + 62, 100, "…だよ！", Tail_Dayo));
     tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 155, TAILTIME_Y + 25, 130, "…になったよ！", Tail_Ninattayo));
     tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 155, TAILTIME_Y + 62, 130, "…だって！", Tail_Datte));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30, TAILTIME_Y + 99, 100, "なし", Tail_None));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30,  TAILTIME_Y + 99, 100, "なし", Tail_None));
 
-    for_prg.PushBack(new Choice<bool>(FORPRG_X + 30, FORPRG_Y + 25, 100, "ON", true));
+    for_prg.PushBack(new Choice<bool>(FORPRG_X + 30,  FORPRG_Y + 25, 100, "ON",  true));
     for_prg.PushBack(new Choice<bool>(FORPRG_X + 170, FORPRG_Y + 25, 100, "OFF", false));
 }
 
@@ -463,13 +463,13 @@ void Config::Update()
     if (reset.IsClicked())
         switch (tab) {
         case Tab_MainCfg:
-            temp.Default();                         // 設定をデフォルトに戻す
+            temp.Default();                 // 設定をデフォルトに戻す
             break;
         case Tab_TimeAdj:
-            cfg_time.SetCfg(0);                     // 時差をゼロに戻す
+            cfg_time.SetCfg(0);             // 時差をゼロに戻す
             break;
         case Tab_SetBirthday:
-            temp.DefaultBd();                       // 設定をデフォルトに戻す
+            temp.DefaultBd();               // 設定をデフォルトに戻す
             break;
         }
     // 完了ボタンが押されたとき

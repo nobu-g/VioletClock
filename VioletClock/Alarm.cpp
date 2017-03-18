@@ -44,7 +44,7 @@ void AlarmTime::Update()
         if (val != 0)       changing = 1;
 
         temp.alarm_h += val;
-        if (temp.alarm_h < 0)      temp.alarm_h += 24;
+        if (temp.alarm_h < 0)           temp.alarm_h += 24;
         else if (temp.alarm_h >= 24)    temp.alarm_h -= 24;
         break;
     case MVariable:
@@ -56,7 +56,7 @@ void AlarmTime::Update()
         if (val != 0)       changing = 1;
 
         temp.alarm_m += val;
-        if (temp.alarm_m < 0)      temp.alarm_m += 60;
+        if (temp.alarm_m < 0)           temp.alarm_m += 60;
         else if (temp.alarm_m >= 60)    temp.alarm_m -= 60;
         break;
     }
@@ -188,7 +188,7 @@ void Alarm::Update()
         else
             pVoice->SoundAlarm();       // 通常アラームを鳴らす
 
-                                        // 画面のどこかがクリックされるか、いずれかのキーが押されたとき
+        // 画面のどこかがクリックされるか、いずれかのキーが押されたとき
         if ((!Area::pre_lclick_status && (GetMouseInput() & MOUSE_INPUT_LEFT)) ||
             (!Area::pre_hitkey_status && CheckHitKeyAll())) {
             pVoice->StopSound();        // アラームを止める

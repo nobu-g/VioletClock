@@ -25,4 +25,4 @@ public:
     void End();
 };
 
-#endif
+#endif // !MAIN_H

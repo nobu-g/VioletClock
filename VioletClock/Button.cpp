@@ -105,7 +105,7 @@ void AlmButton::Draw()
     // アラームボタンを表示
     if (pAlarm->GetCfg().is_alarm_valid) {
         DrawGraph(x1, y1, hBase, TRUE);         // 針以外を表示
-                                                // 時針を表示
+        // 時針を表示
         DrawRotaGraph2(x1 + 20, y1 + 23, 20, 23, 1.0, (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
         // 分針を表示
         DrawRotaGraph2(x1 + 20, y1 + 23, 20, 23, 1.0, (pAlarm->GetCfg().alarm_m) * PI / 30, hHand, TRUE);

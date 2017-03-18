@@ -221,7 +221,7 @@ void Time::SetCfg(eCfg cfg, int value)
 {
     switch (cfg) {
     case HForm:    config.h_form = (eHourForm)value; break;
-    case TailTime: config.tail = (eTail)value;     break;
+    case TailTime: config.tail   = (eTail)value;     break;
     }
     config.Check();
 }
