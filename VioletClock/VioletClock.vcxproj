@@ -20,6 +20,27 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Alarm.cpp" />
+    <ClCompile Include="Base.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Voice.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Alarm.h" />
+    <ClInclude Include="Base.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Clock.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Exception.h" />
+    <ClInclude Include="Main.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Voice.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58E6587D-F491-4CF9-B022-56FFAE3B8682}</ProjectGuid>
