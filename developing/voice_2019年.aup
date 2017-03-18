@@ -1,0 +1,87 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="voice_2019年_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="0.0000000000" vpos="32" h="0.0000000000" zoom="155.2456315411" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="Coderium SoundEngine 5.10"/>
+	</tags>
+	<wavetrack name="kei2_voice_002" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="25083">
+				<waveblock start="0">
+					<simpleblockfile filename="e000062a.au" len="25083" min="-0.848825" max="0.708583" rms="0.097456"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.05932982">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="22168">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000f2c.au" len="22168" min="-0.926232" max="0.751064" rms="0.09521"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="kei2_voice_034" channel="2" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.53239583">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="19141">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000ac0.au" len="19141" min="-0.855019" max="0.66812" rms="0.092633"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="0.93116667">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="7093">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000778.au" len="7093" min="-0.840016" max="0.567081" rms="0.072783"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="1">
+				<controlpoint t="0.147750000000" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+		<waveclip offset="1.07893750">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="149">
+				<waveblock start="0">
+					<simpleblockfile filename="e00004d3.au" len="149" min="0.0" max="0.0" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="1">
+				<controlpoint t="0.000000000000" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+		<waveclip offset="1.28477083">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="26526">
+				<waveblock start="0">
+					<simpleblockfile filename="e000082c.au" len="26526" min="-0.844991" max="0.706219" rms="0.092063"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="kei2_voice_075" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.52256250">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="37964">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000ec5.au" len="26332" min="-0.819947" max="0.963475" rms="0.116648"/>
+				</waveblock>
+				<waveblock start="26332">
+					<simpleblockfile filename="e000064c.au" len="11632" min="0.0" max="0.0" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="kei2_voice_125" channel="2" linked="0" mute="1" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.53239583">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="34105">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006be.au" len="34105" min="-0.966052" max="0.943354" rms="0.152129"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="kei2_voice_003" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0"/>
+</project>

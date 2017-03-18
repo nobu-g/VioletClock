@@ -42,6 +42,9 @@
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Voice.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58E6587D-F491-4CF9-B022-56FFAE3B8682}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

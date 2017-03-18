@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="voice_2020年_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0049105868" sel1="0.0049105868" vpos="0" h="0.7012318017" zoom="1018.2082419195" rate="48000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="Software" value="Coderium SoundEngine 5.10"/>
+	</tags>
+	<wavetrack name="kei2_voice_076" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.56570833">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="25457">
+				<waveblock start="0">
+					<simpleblockfile filename="e00004e2.au" len="25457" min="-0.927882" max="0.757213" rms="0.13118"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="kei2_voice_003" channel="2" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="48000" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="25174">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000cdc.au" len="25174" min="-0.816478" max="0.737789" rms="0.098099"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="1.07052083">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="22062">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a96.au" len="22062" min="-0.926232" max="0.751064" rms="0.095123"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
