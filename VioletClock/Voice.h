@@ -4,11 +4,11 @@
 #include "Base.h"
 #include "Character.h"
 #include <array>
-#include <map>
+#include <unordered_map>
 using std::ofstream;
 using std::ifstream;
 using std::array;
-using std::map;
+using std::unordered_map;
 
 enum eTmData { None, Year, Month, Day, Week, Noon, Hour, TimeSignal, Minute, Tail };
 
@@ -78,7 +78,7 @@ class Voice : public IOBase<VoiceCfg> {
     array<int, TIMER>   hTimer;
 
     typedef unsigned char KeyCode;
-    map<KeyCode, int>   keyboard;
+    unordered_map<KeyCode, int> keyboard;
 
     array<Words, WORDS> words;
 

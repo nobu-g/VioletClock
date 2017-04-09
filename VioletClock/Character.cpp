@@ -5,7 +5,7 @@
 using std::pair;
 
 int Chr::hBase = -1;
-map<eFace, int> Chr::hFace;
+unordered_map<eFace, int> Chr::hFace;
 
 Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
 {

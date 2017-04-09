@@ -2,8 +2,8 @@
 #define CHARACTER_H
 
 #include "Base.h"
-#include <map>
-using std::map;
+#include <unordered_map>
+using std::unordered_map;
 
 // キャラクタ関係の定数
 #define CHR_X               10          // キャラクタ左上のx座標
@@ -26,8 +26,8 @@ enum eFace { Confident, Doya, Excited, Kyoton, Laugh, Normal, Shocked, Speaking,
 
 // キャラクタクラス
 class Chr : public Area {
-    static int hBase;                   // ベース画像へのハンドル
-    static map<eFace, int> hFace;       // 表情の差分画像へのハンドル
+    static int hBase;                           // ベース画像へのハンドル
+    static unordered_map<eFace, int> hFace;     // 表情の差分画像へのハンドル
 public:
     Chr();
     void Draw();
