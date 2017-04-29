@@ -8,15 +8,15 @@
 #include <ctime>
 
 // Time, Date関係の定数
-#define DATE_X      270     // 日付左上のx座標
-#define DATE_Y      330     // 日付左上のy座標
-#define TIME_X      150     // 時刻左上のx座標
-#define TIME_Y      150     // 時刻左上のy座標
-#define FSIZE_D     30      // 日付表示用フォントのサイズ
-#define FSIZE_HM    150     // 時、分用フォントのサイズ
-#define FSIZE_S     50      // 秒用フォントのサイズ
-#define FSIZE_AP    35      // AM/PM用フォントのサイズ
-#define SPACE_MS    10      // 分と秒の間の間隔(ピクセル)
+#define DATE_X      SCALEX(270)     // 日付左上のx座標
+#define DATE_Y      SCALEY(330)     // 日付左上のy座標
+#define TIME_X      SCALEX(150)     // 時刻左上のx座標
+#define TIME_Y      SCALEY(150)     // 時刻左上のy座標
+#define FSIZE_D     SCALEY(30)      // 日付表示用フォントのサイズ
+#define FSIZE_HM    SCALEY(150)     // 時、分用フォントのサイズ
+#define FSIZE_S     SCALEY(50)      // 秒用フォントのサイズ
+#define FSIZE_AP    SCALEY(35)      // AM/PM用フォントのサイズ
+#define SPACE_MS    SCALEX(10)      // 分と秒の間の間隔(ピクセル)
 
 enum eHourForm { Form12h, Form24h };
 enum eTail { Tail_Dane, Tail_Dayo, Tail_Ninattayo, Tail_Datte, Tail_None };

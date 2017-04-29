@@ -1,6 +1,9 @@
 #include "DxLib.h"
 #include "Base.h"
 
+double scaleX;
+double scaleY;
+
 bool Area::pre_lclick_status = true;
 bool Area::pre_hitkey_status = true;
 void Area::Update()

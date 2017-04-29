@@ -358,13 +358,13 @@ FontMaker::FontMaker()
 }
 
 Config::Config(ISceneChanger *changer) : BaseScene(changer), tab(Tab_MainCfg), set_bd(temp.dcfg),
-h_form(HFORM_X, HFORM_Y, 280, 65, "時刻表示形式", temp.tcfg.h_form),
-auto_repro(AUTOREPRO_X, AUTOREPRO_Y, 280, 65,  "自動再生",     temp.vcfg.auto_repro),
-sound_year(SOUNDYEAR_X, SOUNDYEAR_Y, 280, 65,  "年読み上げ",   temp.dcfg.sound_year),
-sound_week(SOUNDWEEK_X, SOUNDWEEK_Y, 280, 65,  "曜日読み上げ", temp.dcfg.sound_week),
-tail_date (TAILDATE_X,  TAILDATE_Y,  280, 130, "語尾(日付)",   temp.dcfg.tail),
-tail_time (TAILTIME_X,  TAILTIME_Y,  280, 130, "語尾(時刻)",   temp.tcfg.tail),
-for_prg   (FORPRG_X,    FORPRG_Y,    280, 57,  "プログラマ用", temp.vcfg.for_prg),
+h_form(HFORM_X, HFORM_Y, HFORM_W, HFORM_H, "時刻表示形式", temp.tcfg.h_form),
+auto_repro(AUTOREPRO_X, AUTOREPRO_Y, AUTOREPRO_W, AUTOREPRO_H, "自動再生",     temp.vcfg.auto_repro),
+sound_year(SOUNDYEAR_X, SOUNDYEAR_Y, SOUNDYEAR_W, SOUNDYEAR_H, "年読み上げ",   temp.dcfg.sound_year),
+sound_week(SOUNDWEEK_X, SOUNDWEEK_Y, SOUNDWEEK_W, SOUNDWEEK_H, "曜日読み上げ", temp.dcfg.sound_week),
+tail_date (TAILDATE_X,  TAILDATE_Y,  TAILDATE_W,  TAILDATE_H,  "語尾(日付)",   temp.dcfg.tail),
+tail_time (TAILTIME_X,  TAILTIME_Y,  TAILTIME_W,  TAILTIME_H,  "語尾(時刻)",   temp.tcfg.tail),
+for_prg   (FORPRG_X,    FORPRG_Y,    FORPRG_W,    FORPRG_H,    "プログラマ用", temp.vcfg.for_prg),
 
 reset(RESET_X, RESET_Y, RESET_W, "既定値に戻す", hFont_main),
 complete(COMP_X, COMP_Y, COMP_W, "完了", hFont_main),
@@ -386,32 +386,32 @@ void Config::Initialize()
     pVoice->SoundSys(2);                        // 設定画面へ移るときの音声を再生
 
     // 各項目に選択肢を登録
-    h_form.PushBack(new Choice<eHourForm>(HFORM_X + 30,  HFORM_Y + 26, 100, "0-24 表示", Form24h));
-    h_form.PushBack(new Choice<eHourForm>(HFORM_X + 170, HFORM_Y + 26, 100, "0-12 表示", Form12h));
+    h_form.PushBack(new Choice<eHourForm>(HFORM_X    + SCALEX(30),  HFORM_Y     + SCALEY(26), SCALEX(100), "0-24 表示", Form24h));
+    h_form.PushBack(new Choice<eHourForm>(HFORM_X    + SCALEX(170), HFORM_Y     + SCALEY(26), SCALEX(100), "0-12 表示", Form12h));
 
-    auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + 30,  AUTOREPRO_Y + 26, 100, "ON",  true));
-    auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + 170, AUTOREPRO_Y + 26, 100, "OFF", false));
+    auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + SCALEX(30),  AUTOREPRO_Y + SCALEY(26), SCALEX(100), "ON",  true));
+    auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + SCALEX(170), AUTOREPRO_Y + SCALEY(26), SCALEX(100), "OFF", false));
 
-    sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + 30,  SOUNDYEAR_Y + 26, 100, "ON",  true));
-    sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + 170, SOUNDYEAR_Y + 26, 100, "OFF", false));
+    sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + SCALEX(30),  SOUNDYEAR_Y + SCALEY(26), SCALEX(100), "ON",  true));
+    sound_year.PushBack(new Choice<bool>(SOUNDYEAR_X + SCALEX(170), SOUNDYEAR_Y + SCALEY(26), SCALEX(100), "OFF", false));
 
-    sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + 30,  SOUNDWEEK_Y + 26, 100, "ON",  true));
-    sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + 170, SOUNDWEEK_Y + 26, 100, "OFF", false));
+    sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + SCALEX(30),  SOUNDWEEK_Y + SCALEY(26), SCALEX(100), "ON",  true));
+    sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + SCALEX(170), SOUNDWEEK_Y + SCALEY(26), SCALEX(100), "OFF", false));
 
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30,  TAILDATE_Y + 25, 100, "…だね！", Tail_Dane));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30,  TAILDATE_Y + 62, 100, "…だよ！", Tail_Dayo));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 155, TAILDATE_Y + 25, 130, "…になったよ！", Tail_Ninattayo));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 155, TAILDATE_Y + 62, 130, "…だって！", Tail_Datte));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X + 30,  TAILDATE_Y + 99, 100, "なし", Tail_None));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(25), SCALEX(100), "…だね！", Tail_Dane));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(62), SCALEX(100), "…だよ！", Tail_Dayo));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(155), TAILDATE_Y  + SCALEY(25), SCALEX(130), "…になったよ！", Tail_Ninattayo));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(155), TAILDATE_Y  + SCALEY(62), SCALEX(130), "…だって！", Tail_Datte));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(99), SCALEX(100), "なし", Tail_None));
 
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30,  TAILTIME_Y + 25, 100, "…だね！", Tail_Dane));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30,  TAILTIME_Y + 62, 100, "…だよ！", Tail_Dayo));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 155, TAILTIME_Y + 25, 130, "…になったよ！", Tail_Ninattayo));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 155, TAILTIME_Y + 62, 130, "…だって！", Tail_Datte));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X + 30,  TAILTIME_Y + 99, 100, "なし", Tail_None));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(25), SCALEX(100), "…だね！", Tail_Dane));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(62), SCALEX(100), "…だよ！", Tail_Dayo));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(155), TAILTIME_Y  + SCALEY(25), SCALEX(130), "…になったよ！", Tail_Ninattayo));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(155), TAILTIME_Y  + SCALEY(62), SCALEX(130), "…だって！", Tail_Datte));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(99), SCALEX(100), "なし", Tail_None));
 
-    for_prg.PushBack(new Choice<bool>(FORPRG_X + 30,  FORPRG_Y + 25, 100, "ON",  true));
-    for_prg.PushBack(new Choice<bool>(FORPRG_X + 170, FORPRG_Y + 25, 100, "OFF", false));
+    for_prg.PushBack(new Choice<bool>(FORPRG_X       + SCALEX(30),  FORPRG_Y    + SCALEY(25), SCALEX(100), "ON",  true));
+    for_prg.PushBack(new Choice<bool>(FORPRG_X       + SCALEX(170), FORPRG_Y    + SCALEY(25), SCALEX(100), "OFF", false));
 }
 
 void Config::Update()
@@ -427,20 +427,20 @@ void Config::Update()
         for_prg.Update();
 
         // タブ切り替え
-        if (Area(77, 7, 189 - 77, MAINAREA_Y - 7).IsClicked())
+        if (Area(TAB_TIMEADG_X, TAB_Y, TAB_TIMEADG_W, TAB_H).IsClicked())
             tab = Tab_TimeAdj;
-        else if (Area(189, 7, 321 - 189, MAINAREA_Y - 7).IsClicked())
+        else if (Area(TAB_SETBIRTHDAY_X, TAB_Y, TAB_SETBIRTHDAY_W, TAB_H).IsClicked())
             tab = Tab_SetBirthday;
         break;
     case Tab_TimeAdj:
         cfg_time.Update();
 
         // タブ切り替え
-        if (Area(189, 7, 321 - 189, MAINAREA_Y - 7).IsClicked()) {
+        if (Area(TAB_SETBIRTHDAY_X, TAB_Y, TAB_SETBIRTHDAY_W, TAB_H).IsClicked()) {
             cfg_time.ResetStatus();
             tab = Tab_SetBirthday;
         }
-        else if (Area(MAINAREA_X, 7, 77 - MAINAREA_X, MAINAREA_Y - 7).IsClicked()) {
+        else if (Area(TAB_X, TAB_Y, TAB_MAINCFG_W, TAB_H).IsClicked()) {
             cfg_time.ResetStatus();
             tab = Tab_MainCfg;
         }
@@ -449,11 +449,11 @@ void Config::Update()
         set_bd.Update();
 
         // タブ切り替え
-        if (Area(MAINAREA_X, 7, 77 - MAINAREA_X, MAINAREA_Y - 7).IsClicked()) {
+        if (Area(TAB_X, TAB_Y, TAB_MAINCFG_W, TAB_H).IsClicked()) {
             set_bd.ResetStatus();
             tab = Tab_MainCfg;
         }
-        else if (Area(77, 7, 189 - 77, MAINAREA_Y - 7).IsClicked()) {
+        else if (Area(TAB_TIMEADG_X, TAB_Y, TAB_TIMEADG_W, TAB_H).IsClicked()) {
             set_bd.ResetStatus();
             tab = Tab_TimeAdj;
         }
@@ -486,20 +486,20 @@ void Config::Update()
 
 void Config::Draw()
 {
-    // 背景を描画
-    DrawBox(MAINAREA_X, 7, 321, MAINAREA_Y, 0xC4A9E8, TRUE);
-    DrawLine(77, 7, 77, MAINAREA_Y, 0xD9BEF8);     // 他の色候補VIOLET1 0xD3BEED 0x82709a
-    DrawLine(189, 7, 189, MAINAREA_Y, 0xD9BEF8);
-    DrawStringToHandle(20, 14, "設定", GetColor(50, 50, 50), hFont_main);
-    DrawStringToHandle(93, 14, "時刻設定", GetColor(50, 50, 50), hFont_main);
-    DrawStringToHandle(205, 14, "誕生日設定", GetColor(50, 50, 50), hFont_main);
+    // タブ全体の背景を描画
+    DrawBox(TAB_X, TAB_Y, TAB_SETBIRTHDAY_X + TAB_SETBIRTHDAY_W, MAINAREA_Y, 0xC4A9E8, TRUE);
+    DrawLine(TAB_TIMEADG_X,     TAB_Y, TAB_TIMEADG_X,     MAINAREA_Y, 0xD9BEF8, SCALEX(1.5));     // 他の色候補VIOLET1 0xD3BEED 0x82709a
+    DrawLine(TAB_SETBIRTHDAY_X, TAB_Y, TAB_SETBIRTHDAY_X, MAINAREA_Y, 0xD9BEF8, SCALEX(1.5));
+    DrawStringToHandle(TAB_X             + TAB_SPACE, TAB_STRING_Y, "設定",       GetColor(70, 70, 70), hFont_main);
+    DrawStringToHandle(TAB_TIMEADG_X     + TAB_SPACE, TAB_STRING_Y, "時刻設定",   GetColor(70, 70, 70), hFont_main);
+    DrawStringToHandle(TAB_SETBIRTHDAY_X + TAB_SPACE, TAB_STRING_Y, "誕生日設定", GetColor(70, 70, 70), hFont_main);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
 
     switch (tab) {
     case Tab_MainCfg:
         // 背景を描画
-        DrawBox(MAINAREA_X, 5, 78, MAINAREA_Y, VIOLET1, TRUE);
-        DrawStringToHandle(20, 13, "設定", BLACK, hFont_main);
+        DrawBox(TAB_MAINCFG_X, TAB_Y - SCALEY(2), TAB_MAINCFG_X + TAB_MAINCFG_W + SCALEX(1.5), MAINAREA_Y, VIOLET1, TRUE);
+        DrawStringToHandle(TAB_MAINCFG_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "設定", BLACK, hFont_main);
 
         h_form.Draw();
         auto_repro.Draw();
@@ -511,15 +511,15 @@ void Config::Draw()
         break;
     case Tab_TimeAdj:
         // 背景を描画
-        DrawBox(77, 5, 190, MAINAREA_Y, VIOLET1, TRUE);
-        DrawStringToHandle(93, 13, "時刻設定", BLACK, hFont_main);
+        DrawBox(TAB_TIMEADG_X, TAB_Y - SCALEY(2), TAB_TIMEADG_X + TAB_TIMEADG_W + SCALEX(1.5), MAINAREA_Y, VIOLET1, TRUE);
+        DrawStringToHandle(TAB_TIMEADG_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "時刻設定", BLACK, hFont_main);
 
         cfg_time.Draw();
         break;
     case Tab_SetBirthday:
         // 背景を描画
-        DrawBox(189, 5, 322, MAINAREA_Y, VIOLET1, TRUE);
-        DrawStringToHandle(205, 13, "誕生日設定", BLACK, hFont_main);
+        DrawBox(TAB_SETBIRTHDAY_X, TAB_Y - SCALEY(2), TAB_SETBIRTHDAY_X + TAB_SETBIRTHDAY_W + SCALEX(1.5), MAINAREA_Y, VIOLET1, TRUE);
+        DrawStringToHandle(TAB_SETBIRTHDAY_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "誕生日設定", BLACK, hFont_main);
 
         set_bd.Draw();
         break;

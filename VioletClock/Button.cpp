@@ -183,7 +183,7 @@ void TmrResetButton::Draw()
 
 TmrVoiceChgButton::TmrVoiceChgButton() : Area::Area(TMRCHANGE_X, TMRCHANGE_Y, TMRCHANGE_W, TMRCHANGE_H)
 {
-    hFont = CreateFontToHandle(NULL, 14, 1, DX_FONTTYPE_ANTIALIASING_4X4);
+    hFont = CreateFontToHandle(NULL, SCALEY(14), 1, DX_FONTTYPE_ANTIALIASING_4X4);
 }
 
 TmrVoiceChgButton::~TmrVoiceChgButton()
@@ -198,7 +198,7 @@ void TmrVoiceChgButton::Draw()
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);
 
-    DrawStringToHandle((x1 + x2) / 2 - 14, y1 + 3, "êÿë÷", BLACK, hFont);
+    DrawStringToHandle((x1 + x2) / 2 - SCALEX(14), y1 + SCALEY(3), "êÿë÷", BLACK, hFont);
 }
 
 Button::Button(int x, int y, int w, string str, int hF) : Area::Area(x, y, w, 0)

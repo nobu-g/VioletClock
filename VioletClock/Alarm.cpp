@@ -98,8 +98,8 @@ FontMakerAlarm::FontMakerAlarm()
 AlarmScreen::AlarmScreen(ISceneChanger *changer) : BaseScene(changer), FontMakerAlarm(),
 temp(pAlarm->GetCfg()),
 alarm_time(temp),
-alarm_valid(ALARMVALID_X, ALARMVALID_Y, 280, 65, "アラーム", temp.is_alarm_valid),
-mode(MODE_X, MODE_Y, 280, 65, "モード", temp.is_wakeup_mode),
+alarm_valid(ALARMVALID_X, ALARMVALID_Y, ALARMVALID_W, ALARMVALID_H, "アラーム", temp.is_alarm_valid),
+mode(MODE_X, MODE_Y, MODE_W, MODE_H, "モード", temp.is_wakeup_mode),
 
 complete(COMP_X, COMP_Y, COMP_W, "完了", hFont_main),
 cancel(CANCEL_X, CANCEL_Y, CANCEL_W, "キャンセル", hFont_main)
@@ -114,11 +114,11 @@ AlarmScreen::~AlarmScreen()
 
 void AlarmScreen::Initialize()
 {
-    alarm_valid.PushBack(new Choice<bool>(ALARMVALID_X + 30, ALARMVALID_Y + 26, 100, "ON", true));
-    alarm_valid.PushBack(new Choice<bool>(ALARMVALID_X + 170, ALARMVALID_Y + 26, 100, "OFF", false));
+    alarm_valid.PushBack(new Choice<bool>(ALARMVALID_X + SCALEX(30),  ALARMVALID_Y + SCALEY(26), SCALEX(100), "ON", true));
+    alarm_valid.PushBack(new Choice<bool>(ALARMVALID_X + SCALEX(170), ALARMVALID_Y + SCALEY(26), SCALEX(100), "OFF", false));
 
-    mode.PushBack(new Choice<bool>(MODE_X + 30, MODE_Y + 26, 100, "目覚まし", true));
-    mode.PushBack(new Choice<bool>(MODE_X + 170, MODE_Y + 26, 100, "ノーマル", false));
+    mode.PushBack(new Choice<bool>(MODE_X + SCALEX(30),  MODE_Y + SCALEY(26), SCALEX(100), "目覚まし", true));
+    mode.PushBack(new Choice<bool>(MODE_X + SCALEX(170), MODE_Y + SCALEY(26), SCALEX(100), "ノーマル", false));
 }
 
 void AlarmScreen::Update()
@@ -142,9 +142,9 @@ void AlarmScreen::Update()
 
 void AlarmScreen::Draw()
 {
-    DrawBox(MAINAREA_X, 5, 157, MAINAREA_Y, VIOLET1, TRUE);
+    DrawBox(MAINAREA_X, SCALEY(5), SCALEX(157), MAINAREA_Y, VIOLET1, TRUE);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
-    DrawStringToHandle(20, 13, "アラーム設定", BLACK, hFont_main);
+    DrawStringToHandle(SCALEX(20), SCALEY(13), "アラーム設定", BLACK, hFont_main);
 
     alarm_time.Draw();
 

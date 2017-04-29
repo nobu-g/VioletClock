@@ -6,13 +6,12 @@
 #include "Button.h"
 
 // フォントサイズ
-#define FSIZE_HMS       100
-#define FSIZE_MAIN      20
-#define FSIZE_VSELECT   16
+#define FSIZE_HMS       SCALEY(100)
+#define FSIZE_VSELECT   SCALEY(16)
 
 // 時間表示部分関係の定数
-#define TMRTIME_X       145
-#define TMRTIME_Y       150
+#define TMRTIME_X       SCALEX(145)
+#define TMRTIME_Y       SCALEY(150)
 #define TMRTIME_W       (FSIZE_HMS * 7 / 2)
 #define TMRTIME_H       FSIZE_HMS
 

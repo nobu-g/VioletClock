@@ -122,7 +122,7 @@ void Date::Update()
 
     const int year_offset = 2014;   // ‰¹º‚Í2014”N‚©‚ç
 
-                                    // Œ»Ý‚Ì“ú•t‚Ì‰¹º‚ðÄ¶‚·‚é
+    // Œ»Ý‚Ì“ú•t‚Ì‰¹º‚ðÄ¶‚·‚é
     if (!pVoice->IsPlaying()) {
         if (IsClicked() && speaking == None) {
             if (config.sound_year)

@@ -5,6 +5,7 @@
 #include "Alarm.h"
 #include "Timer.h"
 #include "Exception.h"
+#include <Windows.h>
 #include <fstream>
 #include <new>
 
@@ -66,6 +67,12 @@ void SceneMgr::Update()
 void Main::Init()
 {
     try {
+        // デバイスのDPIを取得
+        HDC screen = GetDC(0);
+        scaleX = GetDeviceCaps(screen, LOGPIXELSX) / 96.0;
+        scaleY = GetDeviceCaps(screen, LOGPIXELSY) / 96.0;
+        ReleaseDC(0, screen);
+
         // バックグラウンドでも動作させる
         if (SetAlwaysRunFlag(TRUE) == -1)
             throw Exception(Exception::FuncError, "SetAlwaysRunFlag()");
@@ -80,13 +87,15 @@ void Main::Init()
             throw Exception(Exception::FuncError, "SetBackgroundColor()");
         if (ChangeWindowMode(TRUE) == -1)
             throw Exception(Exception::FuncError, "ChangeWindowMode()");
+        if (SetGraphMode(SCALEX(640), SCALEY(480), 16) != DX_CHANGESCREEN_OK)
+            throw Exception(Exception::FuncError, "SetGraphMode()");
         if (DxLib_Init() == -1)
             throw Exception(Exception::FuncError, "DxLib_Init()");
         if (SetDrawScreen(DX_SCREEN_BACK) == -1)
             throw Exception(Exception::FuncError, "SetDrawScreen()");
 
         // ロード中...
-        LoadGraphScreen(188, 220, "image\\Now Loading!!!!.png", TRUE);
+        LoadGraphScreen(SCALEX(188), SCALEY(220), "image\\Now Loading!!!!.png", TRUE);
         ScreenFlip();
 
         SetWindowText("時計");

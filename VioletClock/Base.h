@@ -5,6 +5,12 @@
 using std::ofstream;
 using std::ifstream;
 
+// DPIに応じてパーツをスケーリング
+extern double scaleX;
+extern double scaleY;
+#define SCALEX(argX)    ((int) ((argX) * scaleX))
+#define SCALEY(argY)    ((int) ((argY) * scaleY))
+
 // 色指定
 #define BLACK               0x000000    // 文字色
 #define VIOLET1             0xE5D7F7    // 設定エリアの背景色(229, 215, 247)
@@ -68,7 +74,7 @@ public:
 // 挿入子と抽出子をテンプレート関数として宣言する
 template<class CfgType> class IOBase;
 template<class CfgType>
-ofstream& operator<<(ofstream &stream, const IOBase<CfgType> &rhs);
+ofstream& operator << (ofstream &stream, const IOBase<CfgType> &rhs);
 template<class CfgType>
 ifstream& operator >> (ifstream &stream, IOBase<CfgType> &rhs);
 
@@ -77,13 +83,13 @@ template<class CfgType> class IOBase {
 protected:
     CfgType config;
 public:
-    friend ofstream& operator<< <CfgType> (ofstream &stream, const IOBase<CfgType> &rhs);
+    friend ofstream& operator << <CfgType> (ofstream &stream, const IOBase<CfgType> &rhs);
     friend ifstream& operator >> <CfgType> (ifstream&, IOBase<CfgType>&);
     CfgType GetCfg() { return config; }                                 // 設定を返す
 };
 
 template<class CfgType>
-ofstream &operator<<(ofstream& stream, const IOBase<CfgType>& rhs)
+ofstream &operator << (ofstream& stream, const IOBase<CfgType>& rhs)
 {
     stream.write((char *)&rhs.config, sizeof(CfgType));
 

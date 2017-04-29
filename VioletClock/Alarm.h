@@ -5,14 +5,18 @@
 #include "Button.h"
 #include "Config.h"
 
-#define ALMTIME_X       170     // 設定時刻のx座標
-#define ALMTIME_Y       150     // 設定時刻のy座標
-#define FSIZE_T         120     // 設定時刻のフォントサイズ
+#define ALMTIME_X       SCALEX(170)     // 設定時刻のx座標
+#define ALMTIME_Y       SCALEY(150)     // 設定時刻のy座標
+#define FSIZE_T         SCALEY(120)     // 設定時刻のフォントサイズ
 
-#define ALARMVALID_X    (MAINAREA_X + 15)
-#define ALARMVALID_Y    (MAINAREA_Y + 297)
-#define MODE_X          (MAINAREA_X + MAINAREA_W/2 + 15)
-#define MODE_Y          (MAINAREA_Y + 297)
+#define ALARMVALID_X    (MAINAREA_X + SCALEX(15))
+#define ALARMVALID_Y    (MAINAREA_Y + SCALEY(297))
+#define ALARMVALID_W    SCALEX(280)
+#define ALARMVALID_H    SCALEY(65)
+#define MODE_X          (MAINAREA_X + MAINAREA_W/2 + SCALEX(15))
+#define MODE_Y          (MAINAREA_Y + SCALEY(297))
+#define MODE_W          SCALEX(280)
+#define MODE_H          SCALEY(65)
 
 // アラーム設定保存構造体
 struct AlarmCfg {

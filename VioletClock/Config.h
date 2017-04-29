@@ -11,46 +11,73 @@ using std::string;
 using std::vector;
 
 // ボタンの座標関係の定数
-#define COMP_X              370         // 完了ボタンのx座標
-#define COMP_Y              435         // 完了ボタンのy座標
-#define COMP_W              120         // 完了ボタンの幅
-#define CANCEL_X            500         // キャンセルボタンのx座標
-#define CANCEL_Y            435         // キャンセルボタンのy座標
-#define CANCEL_W            120         // キャンセルボタンの幅
-#define RESET_X             25          // 既定値に戻すボタンのx座標
-#define RESET_Y             435         // 既定値に戻すボタンのy座標
-#define RESET_W             150         // 既定値に戻すボタンの幅
-
-// 選択項目の座標関係の定数
-#define HFORM_X             (MAINAREA_X + 15)
-#define HFORM_Y             (MAINAREA_Y + 15)
-#define AUTOREPRO_X         (MAINAREA_X + 15)
-#define AUTOREPRO_Y         (MAINAREA_Y + 109)
-#define SOUNDYEAR_X         (MAINAREA_X + 15)
-#define SOUNDYEAR_Y         (MAINAREA_Y + 203)
-#define SOUNDWEEK_X         (MAINAREA_X + 15)
-#define SOUNDWEEK_Y         (MAINAREA_Y + 297)
-#define TAILDATE_X          (MAINAREA_X + MAINAREA_W/2 + 15)
-#define TAILDATE_Y          (MAINAREA_Y + 15)
-#define TAILTIME_X          (MAINAREA_X + MAINAREA_W/2 + 15)
-#define TAILTIME_Y          (MAINAREA_Y + 165)
-#define FORPRG_X            (MAINAREA_X + MAINAREA_W/2 + 15)
-#define FORPRG_Y            (MAINAREA_Y + 315)
+#define COMP_X              SCALEX(370)         // 完了ボタンのx座標
+#define COMP_Y              SCALEY(435)         // 完了ボタンのy座標
+#define COMP_W              SCALEX(120)         // 完了ボタンの幅
+#define CANCEL_X            SCALEX(500)         // キャンセルボタンのx座標
+#define CANCEL_Y            SCALEY(435)         // キャンセルボタンのy座標
+#define CANCEL_W            SCALEX(120)         // キャンセルボタンの幅
+#define RESET_X             SCALEX(25)          // 既定値に戻すボタンのx座標
+#define RESET_Y             SCALEY(435)         // 既定値に戻すボタンのy座標
+#define RESET_W             SCALEX(150)         // 既定値に戻すボタンの幅
 
 // 設定画面等の作業領域(色が薄いエリア)関係の定数
-#define MAINAREA_X          5           // 作業領域のx座標
-#define MAINAREA_Y          37          // 作業領域のy座標
-#define MAINAREA_W          630         // 作業領域の幅
-#define MAINAREA_H          389         // 作業領域の高さ
+#define MAINAREA_X          SCALEX(5)           // 作業領域のx座標
+#define MAINAREA_Y          SCALEY(37)          // 作業領域のy座標
+#define MAINAREA_W          SCALEX(630)         // 作業領域の幅
+#define MAINAREA_H          SCALEY(389)         // 作業領域の高さ
+
+// 選択項目の座標関係の定数
+#define HFORM_X             (MAINAREA_X + SCALEX(15))
+#define HFORM_Y             (MAINAREA_Y + SCALEY(15))
+#define HFORM_W             SCALEX(280)
+#define HFORM_H             SCALEY(65)
+#define AUTOREPRO_X         (MAINAREA_X + SCALEX(15))
+#define AUTOREPRO_Y         (MAINAREA_Y + SCALEY(109))
+#define AUTOREPRO_W         SCALEX(280)
+#define AUTOREPRO_H         SCALEY(65)
+#define SOUNDYEAR_X         (MAINAREA_X + SCALEX(15))
+#define SOUNDYEAR_Y         (MAINAREA_Y + SCALEY(203))
+#define SOUNDYEAR_W         SCALEX(280)
+#define SOUNDYEAR_H         SCALEY(65)
+#define SOUNDWEEK_X         (MAINAREA_X + SCALEX(15))
+#define SOUNDWEEK_Y         (MAINAREA_Y + SCALEY(297))
+#define SOUNDWEEK_W         SCALEX(280)
+#define SOUNDWEEK_H         SCALEY(65)
+#define TAILDATE_X          (MAINAREA_X + MAINAREA_W/2 + SCALEX(15))
+#define TAILDATE_Y          (MAINAREA_Y + SCALEY(15))
+#define TAILDATE_W          SCALEX(280)
+#define TAILDATE_H          SCALEY(130)
+#define TAILTIME_X          (MAINAREA_X + MAINAREA_W/2 + SCALEX(15))
+#define TAILTIME_Y          (MAINAREA_Y + SCALEY(165))
+#define TAILTIME_W          SCALEX(280)
+#define TAILTIME_H          SCALEY(130)
+#define FORPRG_X            (MAINAREA_X + MAINAREA_W/2 + SCALEX(15))
+#define FORPRG_Y            (MAINAREA_Y + SCALEY(315))
+#define FORPRG_W            SCALEX(280)
+#define FORPRG_H            SCALEY(57)
+
+// タブ関係の定数
+#define TAB_X               MAINAREA_X
+#define TAB_Y               SCALEY(7)
+#define TAB_H               (MAINAREA_Y - TAB_Y)
+#define TAB_SPACE           SCALEX(16)
+#define TAB_MAINCFG_X       TAB_X
+#define TAB_MAINCFG_W       (TAB_SPACE * 2 + FSIZE_MAIN * 2)
+#define TAB_TIMEADG_X       (TAB_MAINCFG_X + TAB_MAINCFG_W)
+#define TAB_TIMEADG_W       (TAB_SPACE * 2 + FSIZE_MAIN * 4)
+#define TAB_SETBIRTHDAY_X   (TAB_TIMEADG_X + TAB_TIMEADG_W)
+#define TAB_SETBIRTHDAY_W   (TAB_SPACE * 2 + FSIZE_MAIN * 5)
+#define TAB_STRING_Y        SCALEY(14)
 
 // デザイン関係の定数
-#define FSIZE_CHOICE        17          // 選択肢ボタンのフォントサイズ
-#define FSIZE_MAIN          20          // 設定画面等で使う主要フォントサイズ
+#define FSIZE_CHOICE        SCALEY(17)          // 選択肢ボタンのフォントサイズ
+#define FSIZE_MAIN          SCALEY(20)          // 設定画面等で使う主要フォントサイズ
 
 // 誕生日設定関係の定数
-#define BIRTHDAY_X          95          // 表示された誕生日のx座標
-#define BIRTHDAY_Y          181         // 表示された誕生日のy座標
-#define FSIZE_BD            100         // 誕生日のフォントサイズ
+#define BIRTHDAY_X          SCALEX(95)          // 表示された誕生日のx座標
+#define BIRTHDAY_Y          SCALEY(181)         // 表示された誕生日のy座標
+#define FSIZE_BD            SCALEY(100)         // 誕生日のフォントサイズ
 
 // 設定データ一時保存クラス
 class CfgData {

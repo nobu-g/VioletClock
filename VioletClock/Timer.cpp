@@ -121,7 +121,7 @@ void VoiceSelect::Update()
 
 void VoiceSelect::Draw()
 {
-    DrawFormatStringToHandle(300, 390, BLACK, hFont_vselect, "終了時: 「%s」", words[pTimer->GetCfg().voice_index].c_str());
+    DrawFormatStringToHandle(SCALEX(300), SCALEY(390), BLACK, hFont_vselect, "終了時: 「%s」", words[pTimer->GetCfg().voice_index].c_str());
 
     chg_btn.Draw();
 }
@@ -175,9 +175,9 @@ void TimerScreen::Update()
 
 void TimerScreen::Draw()
 {
-    DrawBox(MAINAREA_X, 5, 117, MAINAREA_Y, VIOLET1, TRUE);
+    DrawBox(MAINAREA_X, SCALEY(5), SCALEX(117), MAINAREA_Y, VIOLET1, TRUE);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
-    DrawStringToHandle(20, 13, "タイマー", BLACK, hFont_main);
+    DrawStringToHandle(SCALEX(20), SCALEY(13), "タイマー", BLACK, hFont_main);
 
     timer_time.Draw();
     start_btn.Draw();
