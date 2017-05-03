@@ -20,7 +20,6 @@ RptButton::RptButton() : Area(RPT_X, RPT_Y, RPT_W, RPT_H)
         case 480:   hImage = LoadGraph("image\\96dpi\\repeat_button.png");      break;
         case 600:   hImage = LoadGraph("image\\120dpi\\repeat_button.png");     break;
         case 720:   hImage = LoadGraph("image\\144dpi\\repeat_button.png");     break;
-        default:    throw Exception(Exception::DPIError, "repeat_button.png");  break;
         }
 }
 
@@ -48,7 +47,6 @@ CfgButton::CfgButton() : Area(CFG_X, CFG_Y, CFG_W, CFG_H)
         case 480:   hImage = LoadGraph("image\\96dpi\\config_button.png");      break;
         case 600:   hImage = LoadGraph("image\\120dpi\\config_button.png");     break;
         case 720:   hImage = LoadGraph("image\\144dpi\\config_button.png");     break;
-        default:    throw Exception(Exception::DPIError, "config_button.png");  break;
         }
 }
 
@@ -70,14 +68,12 @@ MuteButton::MuteButton() : Area(MUTE_X, MUTE_Y, MUTE_W, MUTE_H)
         case 480:   hSnd_img = LoadGraph("image\\96dpi\\sound_icon.png");   break;
         case 600:   hSnd_img = LoadGraph("image\\120dpi\\sound_icon.png");  break;
         case 720:   hSnd_img = LoadGraph("image\\144dpi\\sound_icon.png");  break;
-        default:    throw Exception(Exception::DPIError, "sound_icon.png"); break;
         }
     if (hMute_img == -1)
         switch (SCALEY(480)){
         case 480:   hMute_img = LoadGraph("image\\96dpi\\mute_icon.png");   break;
         case 600:   hMute_img = LoadGraph("image\\120dpi\\mute_icon.png");  break;
         case 720:   hMute_img = LoadGraph("image\\144dpi\\mute_icon.png");  break;
-        default:    throw Exception(Exception::DPIError, "mute_icon.png");  break;
         }
 }
 
@@ -115,14 +111,12 @@ AlmButton::AlmButton() : Area(ALM_X, ALM_Y, ALM_W, ALM_H)
         case 480:   hBase = LoadGraph("image\\96dpi\\clock_base.png");      break;
         case 600:   hBase = LoadGraph("image\\120dpi\\clock_base.png");     break;
         case 720:   hBase = LoadGraph("image\\144dpi\\clock_base.png");     break;
-        default:    throw Exception(Exception::DPIError, "clock_base.png"); break;
         }
     if (hHand == -1)
         switch (SCALEY(480)){
         case 480:   hHand = LoadGraph("image\\96dpi\\clock_hand.png");      break;
         case 600:   hHand = LoadGraph("image\\120dpi\\clock_hand.png");     break;
         case 720:   hHand = LoadGraph("image\\144dpi\\clock_hand.png");     break;
-        default:    throw Exception(Exception::DPIError, "clock_hand.png"); break;
         }
 }
 
@@ -161,7 +155,6 @@ TmrButton::TmrButton() : Area(TMR_X, TMR_Y, TMR_W, TMR_H)
         case 480:   hImage = LoadGraph("image\\96dpi\\timer_button.png");       break;
         case 600:   hImage = LoadGraph("image\\120dpi\\timer_button.png");      break;
         case 720:   hImage = LoadGraph("image\\144dpi\\timer_button.png");      break;
-        default:    throw Exception(Exception::DPIError, "timer_button.png");   break;
         }
 }
 

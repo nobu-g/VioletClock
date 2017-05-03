@@ -14,7 +14,6 @@ Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
         case 480:   hBase = LoadGraph("image\\96dpi\\kurei_kei\\base.png");     break;
         case 600:   hBase = LoadGraph("image\\120dpi\\kurei_kei\\base.png");    break;
         case 720:   hBase = LoadGraph("image\\144dpi\\kurei_kei\\base.png");    break;
-        default:    throw Exception(Exception::DPIError, "base.png");           break;
         }
 
     if (hFace.empty()) {
@@ -60,9 +59,6 @@ Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
             hFace.insert(pair<eFace, int>(Wink,      LoadGraph("image\\144dpi\\kurei_kei\\wink.png")));
             hFace.insert(pair<eFace, int>(Blink,     LoadGraph("image\\144dpi\\kurei_kei\\blink.png")));
             if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 0);
-            break;
-        default:
-            throw Exception(Exception::DPIError, "faces");
             break;
         }
     }

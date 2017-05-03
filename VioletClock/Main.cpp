@@ -80,8 +80,20 @@ void Main::Init()
         if (SetDoubleStartValidFlag(TRUE) == -1)
             throw Exception(Exception::FuncError, "SetDoubleStartValidFlag()");
         // ウインドウのアイコンを設定
-        if (SetWindowIconID(101) == -1)
-            throw Exception(Exception::FuncError, "SetWindowIconID()");
+        switch (SCALEY(480)) {
+        case 480:
+            if (SetWindowIconID(101) == -1) throw Exception(Exception::FuncError, "SetWindowIconID()");
+            break;
+        case 600:
+            if (SetWindowIconID(102) == -1) throw Exception(Exception::FuncError, "SetWindowIconID()");
+            break;
+        case 720:
+            if (SetWindowIconID(103) == -1) throw Exception(Exception::FuncError, "SetWindowIconID()");
+            break;
+        default:
+            throw Exception(Exception::OtherError, "Unsupported DPI");
+            break;
+        }
         // 背景をすみれ色に
         if (SetBackgroundColor(217, 190, 248) == -1)
             throw Exception(Exception::FuncError, "SetBackgroundColor()");
@@ -99,7 +111,6 @@ void Main::Init()
         case 480:   LoadGraphScreen(188, 220, "image\\96dpi\\Now Loading!!!!.png", TRUE);   break;
         case 600:   LoadGraphScreen(235, 275, "image\\120dpi\\Now Loading!!!!.png", TRUE);  break;
         case 720:   LoadGraphScreen(282, 330, "image\\144dpi\\Now Loading!!!!.png", TRUE);  break;
-        default:    throw Exception(Exception::DPIError, "Now Loading!!!!.png");            break;
         }
         ScreenFlip();
 
