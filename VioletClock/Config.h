@@ -10,6 +10,10 @@
 using std::string;
 using std::vector;
 
+// デザイン関係の定数
+#define FSIZE_CHOICE        SCALEY(17)          // 選択肢ボタンのフォントサイズ
+#define FSIZE_MAIN          SCALEY(20)          // 設定画面等で使う主要フォントサイズ
+
 // ボタンの座標関係の定数
 #define COMP_X              SCALEX(370)         // 完了ボタンのx座標
 #define COMP_Y              SCALEY(435)         // 完了ボタンのy座標
@@ -69,10 +73,6 @@ using std::vector;
 #define TAB_SETBIRTHDAY_X   (TAB_TIMEADG_X + TAB_TIMEADG_W)
 #define TAB_SETBIRTHDAY_W   (TAB_SPACE * 2 + FSIZE_MAIN * 5)
 #define TAB_STRING_Y        SCALEY(14)
-
-// デザイン関係の定数
-#define FSIZE_CHOICE        SCALEY(17)          // 選択肢ボタンのフォントサイズ
-#define FSIZE_MAIN          SCALEY(20)          // 設定画面等で使う主要フォントサイズ
 
 // 誕生日設定関係の定数
 #define BIRTHDAY_X          SCALEX(95)          // 表示された誕生日のx座標

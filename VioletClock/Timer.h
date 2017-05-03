@@ -12,7 +12,7 @@
 // ŽžŠÔ•\Ž¦•”•ªŠÖŒW‚Ì’è”
 #define TMRTIME_X       SCALEX(145)
 #define TMRTIME_Y       SCALEY(150)
-#define TMRTIME_W       (FSIZE_HMS * 7 / 2)
+#define TMRTIME_W       (STOW(FSIZE_HMS) * 7)
 #define TMRTIME_H       FSIZE_HMS
 
 // –ß‚éƒ{ƒ^ƒ“ŠÖŒW‚Ì’è”

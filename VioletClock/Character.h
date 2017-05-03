@@ -28,10 +28,12 @@ enum eFace { Confident, Doya, Excited, Kyoton, Laugh, Normal, Shocked, Speaking,
 class Chr : public Area {
     static int hBase;                           // ベース画像へのハンドル
     static unordered_map<eFace, int> hFace;     // 表情の差分画像へのハンドル
+    static int hBackground;                     // 背景画像へのハンドル
 public:
     Chr();
     void Draw();
     void Update();
+    static void DrawBackImg();
 };
 
 extern Chr *pChr;

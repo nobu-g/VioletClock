@@ -123,7 +123,7 @@ void ConfigTime::Update()
     TimeSrc::Update();      // 時刻を更新
 
     // 日付がクリックされたとき
-    if (Area(DATE_X, DATE_Y, FSIZE_D / 2 * (16 + (local.tm_mon >= 9) + (local.tm_mday >= 10)), FSIZE_D).IsClicked())
+    if (Area(DATE_X, DATE_Y, STOW(FSIZE_D) * (16 + (local.tm_mon >= 9) + (local.tm_mday >= 10)), FSIZE_D).IsClicked())
         switch (status) {
         case Invariable:
         case HVariable:
@@ -133,7 +133,7 @@ void ConfigTime::Update()
         case DVariable:     status = Invariable;    break;
         }
     // 時刻がクリックされたとき
-    else if (Area(TIME_X, TIME_Y, FSIZE_HM * 5 / 2, FSIZE_HM).IsClicked())
+    else if (Area(TIME_X, TIME_Y, STOW(FSIZE_HM) * 5, FSIZE_HM).IsClicked())
         switch (status) {
         case Invariable:    status = HVariable;     break;
         case HVariable:     status = MinVariable;   break;
@@ -225,24 +225,24 @@ void ConfigTime::Draw()
             cnt = 15;
             break;
         case HVariable:
-            DrawBox(TIME_X, TIME_Y, TIME_X + FSIZE_HM, TIME_Y + FSIZE_HM, VIOLET1, TRUE);
+            DrawBox(TIME_X, TIME_Y, TIME_X + STOW(FSIZE_HM) * 2, TIME_Y + FSIZE_HM, VIOLET1, TRUE);
             break;
         case MinVariable:
-            DrawBox(TIME_X + FSIZE_HM * 3 / 2, TIME_Y, TIME_X + FSIZE_HM * 5 / 2, TIME_Y + FSIZE_HM, VIOLET1, TRUE);
+            DrawBox(TIME_X + STOW(FSIZE_HM) * 3, TIME_Y, TIME_X + STOW(FSIZE_HM) * 5, TIME_Y + FSIZE_HM, VIOLET1, TRUE);
             break;
         case YVariable:
-            DrawBox(DATE_X, DATE_Y, DATE_X + FSIZE_D * 2, DATE_Y + FSIZE_D, VIOLET1, TRUE);
+            DrawBox(DATE_X, DATE_Y, DATE_X + STOW(FSIZE_D) * 4, DATE_Y + FSIZE_D, VIOLET1, TRUE);
             break;
         case MonVariable:
-            DrawBox(DATE_X + FSIZE_D * 3,
+            DrawBox(DATE_X + STOW(FSIZE_D) * 4 + FSIZE_D,
                 DATE_Y,
-                DATE_X + FSIZE_D / 2 * (7 + (local.tm_mon >= 9)),
+                DATE_X + STOW(FSIZE_D) * (5 + (local.tm_mon >= 9)) + FSIZE_D,
                 DATE_Y + FSIZE_D, VIOLET1, TRUE);
             break;
         case DVariable:
-            DrawBox(DATE_X + FSIZE_D / 2 * (9 + (local.tm_mon >= 9)),
+            DrawBox(DATE_X + STOW(FSIZE_D) * (5 + (local.tm_mon >= 9)) + FSIZE_D * 2,
                 DATE_Y,
-                DATE_X + FSIZE_D / 2 * (10 + (local.tm_mon >= 9) + (local.tm_mday >= 10)),
+                DATE_X + STOW(FSIZE_D) * (6 + (local.tm_mon >= 9) + (local.tm_mday >= 10)) + FSIZE_D * 2,
                 DATE_Y + FSIZE_D, VIOLET1, TRUE);
             break;
         }
@@ -259,7 +259,7 @@ SetBirthday::SetBirthday(DateCfg &ref) : Area(BIRTHDAY_X, BIRTHDAY_Y, 0, FSIZE_B
 
 void SetBirthday::Update()
 {
-    SetWidth((7 + (dcfg.birthday >= 10)) * FSIZE_BD / 2);
+    SetWidth(STOW(FSIZE_BD) * (7 + (dcfg.birthday >= 10)));
 
     if (IsClicked()) {
         switch (status) {
@@ -335,13 +335,13 @@ void SetBirthday::Draw()
         case MVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x1, y1, x1 + FSIZE_BD, y2, VIOLET1, TRUE);
+            DrawBox(x1, y1, x1 + STOW(FSIZE_BD) * 2, y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         case DVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x1 + FSIZE_BD * 2, y1, x2 - FSIZE_BD, y2, VIOLET1, TRUE);
+            DrawBox(x1 + STOW(FSIZE_BD) * 2 + FSIZE_BD, y1, x2 - FSIZE_BD, y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         }
@@ -524,6 +524,8 @@ void Config::Draw()
         set_bd.Draw();
         break;
     }
+
+    Chr::DrawBackImg();
 
     reset.Draw();
     complete.Draw();

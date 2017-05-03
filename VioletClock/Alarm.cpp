@@ -5,7 +5,7 @@
 extern int hFont_main;
 extern int hFont_choice;
 
-AlarmTime::AlarmTime(AlarmCfg &ref) : Area(ALMTIME_X, ALMTIME_Y, FSIZE_T / 2 * 5, FSIZE_T), temp(ref)
+AlarmTime::AlarmTime(AlarmCfg &ref) : Area(ALMTIME_X, ALMTIME_Y, STOW(FSIZE_T) * 5, FSIZE_T), temp(ref)
 {
     status = Invariable;
     changing = 0;
@@ -77,18 +77,19 @@ void AlarmTime::Draw()
         case HVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x1, y1, x1 + FSIZE_T, y2, VIOLET1, TRUE);
+            DrawBox(x1, y1, x1 + STOW(FSIZE_T) * 2, y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         case MVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x2 - FSIZE_T, y1, x2, y2, VIOLET1, TRUE);
+            DrawBox(x2 - STOW(FSIZE_T) * 2, y1, x2, y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         }
     }
 }
+
 FontMakerAlarm::FontMakerAlarm()
 {
     hFont_main = CreateFontToHandle(NULL, FSIZE_MAIN, 5, DX_FONTTYPE_ANTIALIASING_4X4);
@@ -147,12 +148,12 @@ void AlarmScreen::Draw()
     DrawStringToHandle(SCALEX(20), SCALEY(13), "ÉAÉâÅ[ÉÄê›íË", BLACK, hFont_main);
 
     alarm_time.Draw();
-
     complete.Draw();
     cancel.Draw();
-
     alarm_valid.Draw();
     mode.Draw();
+
+    Chr::DrawBackImg();
 }
 
 void AlarmScreen::Reflect()

@@ -6,6 +6,7 @@ using std::pair;
 
 int Chr::hBase = -1;
 unordered_map<eFace, int> Chr::hFace;
+int Chr::hBackground = -1;
 
 Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
 {
@@ -62,6 +63,13 @@ Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
             break;
         }
     }
+
+    if(hBackground == -1)
+        switch (SCALEY(480)){
+        case 480:   hBackground = LoadGraph("image\\96dpi\\kurei_kei\\lie-down.png");   break;
+        case 600:   hBackground = LoadGraph("image\\120dpi\\kurei_kei\\lie-down.png");  break;
+        case 720:   hBackground = LoadGraph("image\\144dpi\\kurei_kei\\lie-down.png");  break;
+        }
 }
 
 void Chr::Draw()
@@ -103,6 +111,13 @@ void Chr::Draw()
             quiet_cnt = 1;
         }
     }
+}
+
+void Chr::DrawBackImg()
+{
+    SetDrawBlendMode(DX_BLENDMODE_ALPHA, 40);
+    DrawGraph(SCALEX(10), SCALEY(49), hBackground, TRUE);
+    SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
 // 現在のバッテリー残量を%で返す

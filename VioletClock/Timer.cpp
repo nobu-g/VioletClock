@@ -74,19 +74,19 @@ void TimerTime::Draw()
         case HVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x1, y1, x1 + FSIZE_HMS / 2, y2, VIOLET1, TRUE);
+            DrawBox(x1, y1, x1 + STOW(FSIZE_HMS), y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         case MVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x1 + FSIZE_HMS, y1, x1 + FSIZE_HMS * 2, y2, VIOLET1, TRUE);
+            DrawBox(x1 + STOW(FSIZE_HMS) * 2, y1, x1 + STOW(FSIZE_HMS) * 4, y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         case SVariable:
             cnt++;
             SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
-            DrawBox(x1 + FSIZE_HMS * 5 / 2, y1, x1 + FSIZE_HMS * 7 / 2, y2, VIOLET1, TRUE);
+            DrawBox(x1 + STOW(FSIZE_HMS) * 5, y1, x1 + STOW(FSIZE_HMS) * 7, y2, VIOLET1, TRUE);
             SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
             break;
         }
@@ -178,12 +178,14 @@ void TimerScreen::Draw()
     DrawBox(MAINAREA_X, SCALEY(5), SCALEX(117), MAINAREA_Y, VIOLET1, TRUE);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
     DrawStringToHandle(SCALEX(20), SCALEY(13), "タイマー", BLACK, hFont_main);
-
-    timer_time.Draw();
+        
     start_btn.Draw();
     reset_btn.Draw();
     vselect.Draw();
     back.Draw();
+    timer_time.Draw();
+
+    Chr::DrawBackImg();
 }
 
 Timer::Timer()

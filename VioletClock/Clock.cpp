@@ -80,7 +80,7 @@ Date::Date() :
 }
 
 Time::Time() :
-    Area::Area(TIME_X, TIME_Y, FSIZE_HM * 5 / 2 + SPACE_MS + FSIZE_S, FSIZE_HM)
+    Area::Area(TIME_X, TIME_Y, STOW(FSIZE_HM) * 5 + SPACE_MS + STOW(FSIZE_S) * 2, FSIZE_HM)
 {
     hFont_hm = CreateFontToHandle(NULL, FSIZE_HM, -1, DX_FONTTYPE_ANTIALIASING_4X4);
     hFont_s = CreateFontToHandle(NULL, FSIZE_S, 4, DX_FONTTYPE_ANTIALIASING_4X4);
@@ -106,13 +106,13 @@ void Time::Draw()
             hour -= HOUR / 2;
 
         // AM/PMを表示
-        DrawFormatStringToHandle(x1 + FSIZE_HM * 5 / 2 + SPACE_MS, y1 + 10, BLACK, hFont_ap, Getn() ? "PM" : "AM");
+        DrawFormatStringToHandle(x1 + STOW(FSIZE_HM) * 5 + SPACE_MS, y1 + 10, BLACK, hFont_ap, Getn() ? "PM" : "AM");
     }
 
     // 時、分を表示
     DrawFormatStringToHandle(x1, y1, BLACK, hFont_hm, "%2d:%02d", hour, Getm());
     // 秒を表示
-    DrawFormatStringToHandle(x1 + FSIZE_HM * 5 / 2 + SPACE_MS, y1 + FSIZE_HM - FSIZE_S - 15, BLACK, hFont_s, "%02d", Gets());
+    DrawFormatStringToHandle(x1 + STOW(FSIZE_HM) * 5 + SPACE_MS, y1 + FSIZE_HM - FSIZE_S - 15, BLACK, hFont_s, "%02d", Gets());
 }
 
 void Date::Update()

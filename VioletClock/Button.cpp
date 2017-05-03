@@ -209,7 +209,7 @@ void TmrResetButton::Draw()
 
     // タイマーがIdleステータスの時は文字色を灰色に
     if (pTimer->GetStatus() == Timer::Idle)
-        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "リセット", GetColor(183, 172, 198), hFont);
+        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "リセット", GetColor(131, 123, 141), hFont);    // 背景色÷1.75
     else
         DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "リセット", BLACK, hFont);
 }

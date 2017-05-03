@@ -11,6 +11,9 @@ extern double scaleY;
 #define SCALEX(argX)    ((int) ((argX) * scaleX))
 #define SCALEY(argY)    ((int) ((argY) * scaleY))
 
+// フォントサイズ→半角文字幅
+#define STOW(arg)       ((int) (((arg) + 1) / 2))
+
 // 色指定
 #define BLACK               0x000000    // 文字色
 #define VIOLET1             0xE5D7F7    // 設定エリアの背景色(229, 215, 247)
