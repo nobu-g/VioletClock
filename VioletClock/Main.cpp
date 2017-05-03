@@ -95,7 +95,12 @@ void Main::Init()
             throw Exception(Exception::FuncError, "SetDrawScreen()");
 
         // ÉçÅ[ÉhíÜ...
-        LoadGraphScreen(SCALEX(188), SCALEY(220), "image\\Now Loading!!!!.png", TRUE);
+        switch (SCALEY(480)){
+        case 480:   LoadGraphScreen(188, 220, "image\\96dpi\\Now Loading!!!!.png", TRUE);   break;
+        case 600:   LoadGraphScreen(235, 275, "image\\120dpi\\Now Loading!!!!.png", TRUE);  break;
+        case 720:   LoadGraphScreen(282, 330, "image\\144dpi\\Now Loading!!!!.png", TRUE);  break;
+        default:    throw Exception(Exception::DPIError, "Now Loading!!!!.png");            break;
+        }
         ScreenFlip();
 
         SetWindowText("éûåv");

@@ -3,6 +3,7 @@
 #include "Voice.h"
 #include "Alarm.h"
 #include "Timer.h"
+#include "Exception.h"
 
 int RptButton::hImage = -1;
 int CfgButton::hImage = -1;
@@ -15,7 +16,12 @@ int TmrButton::hImage = -1;
 RptButton::RptButton() : Area(RPT_X, RPT_Y, RPT_W, RPT_H)
 {
     if (hImage == -1)
-        hImage = LoadGraph("image\\repeat_button.png");
+        switch (SCALEY(480)){
+        case 480:   hImage = LoadGraph("image\\96dpi\\repeat_button.png");      break;
+        case 600:   hImage = LoadGraph("image\\120dpi\\repeat_button.png");     break;
+        case 720:   hImage = LoadGraph("image\\144dpi\\repeat_button.png");     break;
+        default:    throw Exception(Exception::DPIError, "repeat_button.png");  break;
+        }
 }
 
 void RptButton::Draw()
@@ -38,7 +44,12 @@ void RptButton::Update()
 CfgButton::CfgButton() : Area(CFG_X, CFG_Y, CFG_W, CFG_H)
 {
     if (hImage == -1)
-        hImage = LoadGraph("image\\config_button.png");
+        switch (SCALEY(480)){
+        case 480:   hImage = LoadGraph("image\\96dpi\\config_button.png");      break;
+        case 600:   hImage = LoadGraph("image\\120dpi\\config_button.png");     break;
+        case 720:   hImage = LoadGraph("image\\144dpi\\config_button.png");     break;
+        default:    throw Exception(Exception::DPIError, "config_button.png");  break;
+        }
 }
 
 void CfgButton::Draw()
@@ -55,9 +66,19 @@ void CfgButton::Draw()
 MuteButton::MuteButton() : Area(MUTE_X, MUTE_Y, MUTE_W, MUTE_H)
 {
     if (hSnd_img == -1)
-        hSnd_img = LoadGraph("image\\sound_icon.png");
+        switch (SCALEY(480)){
+        case 480:   hSnd_img = LoadGraph("image\\96dpi\\sound_icon.png");   break;
+        case 600:   hSnd_img = LoadGraph("image\\120dpi\\sound_icon.png");  break;
+        case 720:   hSnd_img = LoadGraph("image\\144dpi\\sound_icon.png");  break;
+        default:    throw Exception(Exception::DPIError, "sound_icon.png"); break;
+        }
     if (hMute_img == -1)
-        hMute_img = LoadGraph("image\\mute_icon.png");
+        switch (SCALEY(480)){
+        case 480:   hMute_img = LoadGraph("image\\96dpi\\mute_icon.png");   break;
+        case 600:   hMute_img = LoadGraph("image\\120dpi\\mute_icon.png");  break;
+        case 720:   hMute_img = LoadGraph("image\\144dpi\\mute_icon.png");  break;
+        default:    throw Exception(Exception::DPIError, "mute_icon.png");  break;
+        }
 }
 
 void MuteButton::Draw()
@@ -90,9 +111,19 @@ void MuteButton::Update()
 AlmButton::AlmButton() : Area(ALM_X, ALM_Y, ALM_W, ALM_H)
 {
     if (hBase == -1)
-        hBase = LoadGraph("image\\clock_base.png");
+        switch (SCALEY(480)){
+        case 480:   hBase = LoadGraph("image\\96dpi\\clock_base.png");      break;
+        case 600:   hBase = LoadGraph("image\\120dpi\\clock_base.png");     break;
+        case 720:   hBase = LoadGraph("image\\144dpi\\clock_base.png");     break;
+        default:    throw Exception(Exception::DPIError, "clock_base.png"); break;
+        }
     if (hHand == -1)
-        hHand = LoadGraph("image\\clock_hand.png");
+        switch (SCALEY(480)){
+        case 480:   hHand = LoadGraph("image\\96dpi\\clock_hand.png");      break;
+        case 600:   hHand = LoadGraph("image\\120dpi\\clock_hand.png");     break;
+        case 720:   hHand = LoadGraph("image\\144dpi\\clock_hand.png");     break;
+        default:    throw Exception(Exception::DPIError, "clock_hand.png"); break;
+        }
 }
 
 void AlmButton::Draw()
@@ -106,15 +137,19 @@ void AlmButton::Draw()
     if (pAlarm->GetCfg().is_alarm_valid) {
         DrawGraph(x1, y1, hBase, TRUE);         // 針以外を表示
         // 時針を表示
-        DrawRotaGraph2(x1 + 20, y1 + 23, 20, 23, 1.0, (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
+        DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0,
+            (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
         // 分針を表示
-        DrawRotaGraph2(x1 + 20, y1 + 23, 20, 23, 1.0, (pAlarm->GetCfg().alarm_m) * PI / 30, hHand, TRUE);
+        DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0, 
+            (pAlarm->GetCfg().alarm_m) * PI / 30, hHand, TRUE);
     }
     else {
         SetDrawBlendMode(DX_BLENDMODE_ALPHA, 70);   // アラームオフのときは半透過して表示
         DrawGraph(x1, y1, hBase, TRUE);
-        DrawRotaGraph2(x1 + 20, y1 + 23, 20, 23, 1.0, (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
-        DrawRotaGraph2(x1 + 20, y1 + 23, 20, 23, 1.0, (pAlarm->GetCfg().alarm_m) * PI / 30, hHand, TRUE);
+        DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0,
+            (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
+        DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0,
+            (pAlarm->GetCfg().alarm_m) * PI / 30, hHand, TRUE);
         SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
     }
 }
@@ -122,7 +157,12 @@ void AlmButton::Draw()
 TmrButton::TmrButton() : Area(TMR_X, TMR_Y, TMR_W, TMR_H)
 {
     if (hImage == -1)
-        hImage = LoadGraph("image\\timer_button.png");
+        switch (SCALEY(480)){
+        case 480:   hImage = LoadGraph("image\\96dpi\\timer_button.png");       break;
+        case 600:   hImage = LoadGraph("image\\120dpi\\timer_button.png");      break;
+        case 720:   hImage = LoadGraph("image\\144dpi\\timer_button.png");      break;
+        default:    throw Exception(Exception::DPIError, "timer_button.png");   break;
+        }
 }
 
 void TmrButton::Draw()

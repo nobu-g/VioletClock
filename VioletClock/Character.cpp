@@ -10,21 +10,61 @@ unordered_map<eFace, int> Chr::hFace;
 Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
 {
     if (hBase == -1)
-        hBase = LoadGraph("image\\kurei_kei\\base.png");
+        switch (SCALEY(480)){
+        case 480:   hBase = LoadGraph("image\\96dpi\\kurei_kei\\base.png");     break;
+        case 600:   hBase = LoadGraph("image\\120dpi\\kurei_kei\\base.png");    break;
+        case 720:   hBase = LoadGraph("image\\144dpi\\kurei_kei\\base.png");    break;
+        default:    throw Exception(Exception::DPIError, "base.png");           break;
+        }
 
     if (hFace.empty()) {
-        hFace.insert(pair<eFace, int>(Confident, LoadGraph("image\\kurei_kei\\confident.png")));
-        hFace.insert(pair<eFace, int>(Doya,      LoadGraph("image\\kurei_kei\\doya.png")));
-        hFace.insert(pair<eFace, int>(Excited,   LoadGraph("image\\kurei_kei\\excited.png")));
-        hFace.insert(pair<eFace, int>(Kyoton,    LoadGraph("image\\kurei_kei\\kyoton.png")));
-        hFace.insert(pair<eFace, int>(Laugh,     LoadGraph("image\\kurei_kei\\laugh.png")));
-        hFace.insert(pair<eFace, int>(Normal,    LoadGraph("image\\kurei_kei\\normal.png")));
-        hFace.insert(pair<eFace, int>(Shocked,   LoadGraph("image\\kurei_kei\\shocked.png")));
-        hFace.insert(pair<eFace, int>(Speaking,  LoadGraph("image\\kurei_kei\\speaking.png")));
-        hFace.insert(pair<eFace, int>(Tearful,   LoadGraph("image\\kurei_kei\\tearful.png")));
-        hFace.insert(pair<eFace, int>(Wink,      LoadGraph("image\\kurei_kei\\wink.png")));
-        hFace.insert(pair<eFace, int>(Blink,     LoadGraph("image\\kurei_kei\\blink.png")));
-        if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 0);
+        switch (SCALEY(480)) {
+        case 480:
+            hFace.insert(pair<eFace, int>(Confident, LoadGraph("image\\96dpi\\kurei_kei\\confident.png")));
+            hFace.insert(pair<eFace, int>(Doya,      LoadGraph("image\\96dpi\\kurei_kei\\doya.png")));
+            hFace.insert(pair<eFace, int>(Excited,   LoadGraph("image\\96dpi\\kurei_kei\\excited.png")));
+            hFace.insert(pair<eFace, int>(Kyoton,    LoadGraph("image\\96dpi\\kurei_kei\\kyoton.png")));
+            hFace.insert(pair<eFace, int>(Laugh,     LoadGraph("image\\96dpi\\kurei_kei\\laugh.png")));
+            hFace.insert(pair<eFace, int>(Normal,    LoadGraph("image\\96dpi\\kurei_kei\\normal.png")));
+            hFace.insert(pair<eFace, int>(Shocked,   LoadGraph("image\\96dpi\\kurei_kei\\shocked.png")));
+            hFace.insert(pair<eFace, int>(Speaking,  LoadGraph("image\\96dpi\\kurei_kei\\speaking.png")));
+            hFace.insert(pair<eFace, int>(Tearful,   LoadGraph("image\\96dpi\\kurei_kei\\tearful.png")));
+            hFace.insert(pair<eFace, int>(Wink,      LoadGraph("image\\96dpi\\kurei_kei\\wink.png")));
+            hFace.insert(pair<eFace, int>(Blink,     LoadGraph("image\\96dpi\\kurei_kei\\blink.png")));
+            if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 0);
+            break;
+        case 600:
+            hFace.insert(pair<eFace, int>(Confident, LoadGraph("image\\120dpi\\kurei_kei\\confident.png")));
+            hFace.insert(pair<eFace, int>(Doya,      LoadGraph("image\\120dpi\\kurei_kei\\doya.png")));
+            hFace.insert(pair<eFace, int>(Excited,   LoadGraph("image\\120dpi\\kurei_kei\\excited.png")));
+            hFace.insert(pair<eFace, int>(Kyoton,    LoadGraph("image\\120dpi\\kurei_kei\\kyoton.png")));
+            hFace.insert(pair<eFace, int>(Laugh,     LoadGraph("image\\120dpi\\kurei_kei\\laugh.png")));
+            hFace.insert(pair<eFace, int>(Normal,    LoadGraph("image\\120dpi\\kurei_kei\\normal.png")));
+            hFace.insert(pair<eFace, int>(Shocked,   LoadGraph("image\\120dpi\\kurei_kei\\shocked.png")));
+            hFace.insert(pair<eFace, int>(Speaking,  LoadGraph("image\\120dpi\\kurei_kei\\speaking.png")));
+            hFace.insert(pair<eFace, int>(Tearful,   LoadGraph("image\\120dpi\\kurei_kei\\tearful.png")));
+            hFace.insert(pair<eFace, int>(Wink,      LoadGraph("image\\120dpi\\kurei_kei\\wink.png")));
+            hFace.insert(pair<eFace, int>(Blink,     LoadGraph("image\\120dpi\\kurei_kei\\blink.png")));
+            if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 0);
+            break;
+        case 720:
+            hFace.insert(pair<eFace, int>(Confident, LoadGraph("image\\144dpi\\kurei_kei\\confident.png")));
+            hFace.insert(pair<eFace, int>(Doya,      LoadGraph("image\\144dpi\\kurei_kei\\doya.png")));
+            hFace.insert(pair<eFace, int>(Excited,   LoadGraph("image\\144dpi\\kurei_kei\\excited.png")));
+            hFace.insert(pair<eFace, int>(Kyoton,    LoadGraph("image\\144dpi\\kurei_kei\\kyoton.png")));
+            hFace.insert(pair<eFace, int>(Laugh,     LoadGraph("image\\144dpi\\kurei_kei\\laugh.png")));
+            hFace.insert(pair<eFace, int>(Normal,    LoadGraph("image\\144dpi\\kurei_kei\\normal.png")));
+            hFace.insert(pair<eFace, int>(Shocked,   LoadGraph("image\\144dpi\\kurei_kei\\shocked.png")));
+            hFace.insert(pair<eFace, int>(Speaking,  LoadGraph("image\\144dpi\\kurei_kei\\speaking.png")));
+            hFace.insert(pair<eFace, int>(Tearful,   LoadGraph("image\\144dpi\\kurei_kei\\tearful.png")));
+            hFace.insert(pair<eFace, int>(Wink,      LoadGraph("image\\144dpi\\kurei_kei\\wink.png")));
+            hFace.insert(pair<eFace, int>(Blink,     LoadGraph("image\\144dpi\\kurei_kei\\blink.png")));
+            if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 0);
+            break;
+        default:
+            throw Exception(Exception::DPIError, "faces");
+            break;
+        }
     }
 }
 

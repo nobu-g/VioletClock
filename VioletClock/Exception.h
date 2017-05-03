@@ -13,6 +13,7 @@ public:
         FuncError,          // 関数エラー
         InputError,         // 入力エラー
         OutputError,        // 出力エラー
+        DPIError,           // サポートされていないDPI
         OtherError          // その他のエラー
     };
 private:
