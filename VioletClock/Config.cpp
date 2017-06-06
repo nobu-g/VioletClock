@@ -1,19 +1,19 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Config.h"
 #include "Voice.h"
 
 extern std::ofstream ferr;
 extern const array<char *, WEEK> week_name;
 
-int hFont_main;         // İ’è‰æ–Ê‚Åg‚¤å—vƒtƒHƒ“ƒg
-int hFont_choice;       // ‘I‘ğˆ‚ğ•\¦‚·‚éƒtƒHƒ“ƒg
-int hFont_d;            // “ú•t•\¦—pƒtƒHƒ“ƒg
-int hFont_hm;           // A•ª—pƒtƒHƒ“ƒg
-int hFont_bd;           // ’a¶“ú—pƒtƒHƒ“ƒg
+int hFont_main;         // è¨­å®šç”»é¢ã§ä½¿ã†ä¸»è¦ãƒ•ã‚©ãƒ³ãƒˆ
+int hFont_choice;       // é¸æŠè‚¢ã‚’è¡¨ç¤ºã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆ
+int hFont_d;            // æ—¥ä»˜è¡¨ç¤ºç”¨ãƒ•ã‚©ãƒ³ãƒˆ
+int hFont_hm;           // æ™‚ã€åˆ†ç”¨ãƒ•ã‚©ãƒ³ãƒˆ
+int hFont_bd;           // èª•ç”Ÿæ—¥ç”¨ãƒ•ã‚©ãƒ³ãƒˆ
 
 CfgData::CfgData()
 {
-    // Œ»İ‚Ìİ’è‚ğƒRƒs[
+    // ç¾åœ¨ã®è¨­å®šã‚’ã‚³ãƒ”ãƒ¼
     vcfg = pVoice->GetCfg();
     dcfg = pDate->GetCfg();
     tcfg = pTime->GetCfg();
@@ -68,16 +68,16 @@ void Item<DataType>::Update()
 template <class DataType>
 void Item<DataType>::Draw()
 {
-    // €–Ú‚ğˆÍ‚Ş˜g‚ğ•\¦
+    // é …ç›®ã‚’å›²ã‚€æ ã‚’è¡¨ç¤º
     DrawBox(x1, y1, x2, y2, 0x80a0ff, FALSE);
 
-    // €–Ú–¼‚Ì”wŒi
+    // é …ç›®åã®èƒŒæ™¯
     DrawBox(x, y, x + GetDrawStringWidthToHandle(name.c_str(), name.length(), hFont_main), y + FSIZE_MAIN, VIOLET1, TRUE);
 
-    // İ’è€–Ú–¼‚ğ•\¦
+    // è¨­å®šé …ç›®åã‚’è¡¨ç¤º
     DrawStringToHandle(x, y, name.c_str(), BLACK, hFont_main);
 
-    // Še‘I‘ğˆ‚ğ•\¦
+    // å„é¸æŠè‚¢ã‚’è¡¨ç¤º
     for (int i = 0; i < (int)pChoice.size(); i++)
         pChoice[i]->Draw(data);
 }
@@ -101,10 +101,10 @@ template <class DataType>
 void Choice<DataType>::Draw(DataType &data)
 {
     if (data == value)
-        DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);     // ‘I‘ğ‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ğ¦‚·‰e‚ğ•\¦
+        DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);     // é¸æŠã•ã‚Œã¦ã„ã‚‹ã“ã¨ã‚’ç¤ºã™å½±ã‚’è¡¨ç¤º
 
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET4, FALSE);
 
@@ -120,9 +120,9 @@ ConfigTime::ConfigTime() : TimeSrc::TimeSrc()
 
 void ConfigTime::Update()
 {
-    TimeSrc::Update();      // ‚ğXV
+    TimeSrc::Update();      // æ™‚åˆ»ã‚’æ›´æ–°
 
-    // “ú•t‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«
+    // æ—¥ä»˜ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ã
     if (Area(DATE_X, DATE_Y, STOW(FSIZE_D) * (16 + (local.tm_mon >= 9) + (local.tm_mday >= 10)), FSIZE_D).IsClicked())
         switch (status) {
         case Invariable:
@@ -132,7 +132,7 @@ void ConfigTime::Update()
         case MonVariable:   status = DVariable;     break;
         case DVariable:     status = Invariable;    break;
         }
-    // ‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«
+    // æ™‚åˆ»ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ã
     else if (Area(TIME_X, TIME_Y, STOW(FSIZE_HM) * 5, FSIZE_HM).IsClicked())
         switch (status) {
         case Invariable:    status = HVariable;     break;
@@ -143,7 +143,7 @@ void ConfigTime::Update()
         case DVariable:     status = HVariable;     break;
         }
 
-    // changing‚ª0‚Å‚È‚¢‚Æ‚«‚Í30‚Ü‚ÅƒJƒEƒ“ƒg
+    // changingãŒ0ã§ãªã„ã¨ãã¯30ã¾ã§ã‚«ã‚¦ãƒ³ãƒˆ
     if (changing > 30)      changing = 0;
     else if (changing > 0)  changing++;
 
@@ -155,7 +155,7 @@ void ConfigTime::Update()
     if (status != Invariable && val != 0)
         changing = 1;
 
-    // ƒ}ƒEƒXƒzƒC[ƒ‹‰ñ“]—Ê‚É‰‚¶‚Ä“ú‚ğ•ÏX
+    // ãƒã‚¦ã‚¹ãƒ›ã‚¤ãƒ¼ãƒ«å›è»¢é‡ã«å¿œã˜ã¦æ—¥æ™‚ã‚’å¤‰æ›´
     switch (status) {
     case Invariable:
         break;
@@ -180,7 +180,7 @@ void ConfigTime::Update()
         else if (local.tm_mon >= 12)    local.tm_mon -= 12;
         break;
     case DVariable:
-        int day_max;        // ¡Œ‚ª‰½“ú‚Ü‚Å‚ ‚é‚©
+        int day_max;        // ä»ŠæœˆãŒä½•æ—¥ã¾ã§ã‚ã‚‹ã‹
         switch (local.tm_mon + 1) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12:
             day_max = 31;
@@ -203,22 +203,22 @@ void ConfigTime::Update()
     }
 
     time_t t = mktime(&local);
-    if (t < 0)  t = 0;                  // ’è‹`ŠO‚É‚Í‚İo‚µ‚½ê‡‚Í0s‚Éİ’è
+    if (t < 0)  t = 0;                  // å®šç¾©å¤–ã«ã¯ã¿å‡ºã—ãŸå ´åˆã¯0sã«è¨­å®š
     TimeSrc::SetCfg(t - time(NULL));
 }
 
 void ConfigTime::Draw()
 {
-    static int cnt = 15;    // ‰ŠúˆÊ‘Š‚ÍüŠú‚Ì1/4‚É‚µ‚Ä‚¨‚­
+    static int cnt = 15;    // åˆæœŸä½ç›¸ã¯å‘¨æœŸã®1/4ã«ã—ã¦ãŠã
 
-    // “ú•t‚ğ•\¦
-    DrawFormatStringToHandle(DATE_X, DATE_Y, BLACK, hFont_d, "%4d”N%dŒ%d“ú(%s)", local.tm_year + 1900, local.tm_mon + 1, local.tm_mday, week_name[local.tm_wday]);
-    // A•ª‚ğ•\¦
+    // æ—¥ä»˜ã‚’è¡¨ç¤º
+    DrawFormatStringToHandle(DATE_X, DATE_Y, BLACK, hFont_d, "%4då¹´%dæœˆ%dæ—¥(%s)", local.tm_year + 1900, local.tm_mon + 1, local.tm_mday, week_name[local.tm_wday]);
+    // æ™‚ã€åˆ†ã‚’è¡¨ç¤º
     DrawFormatStringToHandle(TIME_X, TIME_Y, BLACK, hFont_hm, "%2d:%02d", local.tm_hour, local.tm_min);
 
-    // •ÏX’†‚Í“_–Å‚³‚¹‚È‚¢
+    // å¤‰æ›´ä¸­ã¯ç‚¹æ»…ã•ã›ãªã„
     if (changing == 0) {
-        // •ÏX‚·‚é•”•ª‚ğ“_–Å‚³‚¹‚é
+        // å¤‰æ›´ã™ã‚‹éƒ¨åˆ†ã‚’ç‚¹æ»…ã•ã›ã‚‹
         SetDrawBlendMode(DX_BLENDMODE_ALPHA, (int)(255 / (exp(4 * sin(cnt * PI / 30)) + 1)));
         switch (status) {
         case Invariable:
@@ -297,7 +297,7 @@ void SetBirthday::Update()
         }
         if (val != 0)       changing = 1;
 
-        int day_max;        // ’a¶Œ‚ª‰½“ú‚Ü‚Å‚ ‚é‚©
+        int day_max;        // èª•ç”ŸæœˆãŒä½•æ—¥ã¾ã§ã‚ã‚‹ã‹
         switch (dcfg.birthmonth) {
         case 1: case 3: case 5: case 7: case 8: case 10: case 12:
             day_max = 31;
@@ -322,12 +322,12 @@ void SetBirthday::Update()
 
 void SetBirthday::Draw()
 {
-    static int cnt;     // ‰ŠúˆÊ‘Š‚ÍüŠú‚Ì1/4‚É‚µ‚Ä‚¨‚­
+    static int cnt;     // åˆæœŸä½ç›¸ã¯å‘¨æœŸã®1/4ã«ã—ã¦ãŠã
 
-    DrawFormatStringToHandle(x1, y1, BLACK, hFont_bd, "%2dŒ%d“ú", dcfg.birthmonth, dcfg.birthday);
-    // •ÏX’†‚Í“_–Å‚³‚¹‚È‚¢
+    DrawFormatStringToHandle(x1, y1, BLACK, hFont_bd, "%2dæœˆ%dæ—¥", dcfg.birthmonth, dcfg.birthday);
+    // å¤‰æ›´ä¸­ã¯ç‚¹æ»…ã•ã›ãªã„
     if (changing == 0) {
-        // •ÏX‚·‚é•”•ª‚ğ“_–Å‚³‚¹‚é
+        // å¤‰æ›´ã™ã‚‹éƒ¨åˆ†ã‚’ç‚¹æ»…ã•ã›ã‚‹
         switch (status) {
         case Invariable:
             cnt = 15;
@@ -358,17 +358,17 @@ FontMaker::FontMaker()
 }
 
 Config::Config(ISceneChanger *changer) : BaseScene(changer), tab(Tab_MainCfg), set_bd(temp.dcfg),
-h_form(HFORM_X, HFORM_Y, HFORM_W, HFORM_H, "•\¦Œ`®", temp.tcfg.h_form),
-auto_repro(AUTOREPRO_X, AUTOREPRO_Y, AUTOREPRO_W, AUTOREPRO_H, "©“®Ä¶",     temp.vcfg.auto_repro),
-sound_year(SOUNDYEAR_X, SOUNDYEAR_Y, SOUNDYEAR_W, SOUNDYEAR_H, "”N“Ç‚İã‚°",   temp.dcfg.sound_year),
-sound_week(SOUNDWEEK_X, SOUNDWEEK_Y, SOUNDWEEK_W, SOUNDWEEK_H, "—j“ú“Ç‚İã‚°", temp.dcfg.sound_week),
-tail_date (TAILDATE_X,  TAILDATE_Y,  TAILDATE_W,  TAILDATE_H,  "Œê”ö(“ú•t)",   temp.dcfg.tail),
-tail_time (TAILTIME_X,  TAILTIME_Y,  TAILTIME_W,  TAILTIME_H,  "Œê”ö()",   temp.tcfg.tail),
-for_prg   (FORPRG_X,    FORPRG_Y,    FORPRG_W,    FORPRG_H,    "ƒvƒƒOƒ‰ƒ}—p", temp.vcfg.for_prg),
+h_form(HFORM_X, HFORM_Y, HFORM_W, HFORM_H, "æ™‚åˆ»è¡¨ç¤ºå½¢å¼", temp.tcfg.h_form),
+auto_repro(AUTOREPRO_X, AUTOREPRO_Y, AUTOREPRO_W, AUTOREPRO_H, "è‡ªå‹•å†ç”Ÿ",     temp.vcfg.auto_repro),
+sound_year(SOUNDYEAR_X, SOUNDYEAR_Y, SOUNDYEAR_W, SOUNDYEAR_H, "å¹´èª­ã¿ä¸Šã’",   temp.dcfg.sound_year),
+sound_week(SOUNDWEEK_X, SOUNDWEEK_Y, SOUNDWEEK_W, SOUNDWEEK_H, "æ›œæ—¥èª­ã¿ä¸Šã’", temp.dcfg.sound_week),
+tail_date (TAILDATE_X,  TAILDATE_Y,  TAILDATE_W,  TAILDATE_H,  "èªå°¾(æ—¥ä»˜)",   temp.dcfg.tail),
+tail_time (TAILTIME_X,  TAILTIME_Y,  TAILTIME_W,  TAILTIME_H,  "èªå°¾(æ™‚åˆ»)",   temp.tcfg.tail),
+for_prg   (FORPRG_X,    FORPRG_Y,    FORPRG_W,    FORPRG_H,    "ãƒ—ãƒ­ã‚°ãƒ©ãƒç”¨", temp.vcfg.for_prg),
 
-reset(RESET_X, RESET_Y, RESET_W, "Šù’è’l‚É–ß‚·", hFont_main),
-complete(COMP_X, COMP_Y, COMP_W, "Š®—¹", hFont_main),
-cancel(CANCEL_X, CANCEL_Y, CANCEL_W, "ƒLƒƒƒ“ƒZƒ‹", hFont_main)
+reset(RESET_X, RESET_Y, RESET_W, "æ—¢å®šå€¤ã«æˆ»ã™", hFont_main),
+complete(COMP_X, COMP_Y, COMP_W, "å®Œäº†", hFont_main),
+cancel(CANCEL_X, CANCEL_Y, CANCEL_W, "ã‚­ãƒ£ãƒ³ã‚»ãƒ«", hFont_main)
 {
 }
 
@@ -383,11 +383,11 @@ Config::~Config()
 
 void Config::Initialize()
 {
-    pVoice->SoundSys(2);                        // İ’è‰æ–Ê‚ÖˆÚ‚é‚Æ‚«‚Ì‰¹º‚ğÄ¶
+    pVoice->SoundSys(2);                        // è¨­å®šç”»é¢ã¸ç§»ã‚‹ã¨ãã®éŸ³å£°ã‚’å†ç”Ÿ
 
-    // Še€–Ú‚É‘I‘ğˆ‚ğ“o˜^
-    h_form.PushBack(new Choice<eHourForm>(HFORM_X    + SCALEX(30),  HFORM_Y     + SCALEY(26), SCALEX(100), "0-24 •\¦", Form24h));
-    h_form.PushBack(new Choice<eHourForm>(HFORM_X    + SCALEX(170), HFORM_Y     + SCALEY(26), SCALEX(100), "0-12 •\¦", Form12h));
+    // å„é …ç›®ã«é¸æŠè‚¢ã‚’ç™»éŒ²
+    h_form.PushBack(new Choice<eHourForm>(HFORM_X    + SCALEX(30),  HFORM_Y     + SCALEY(26), SCALEX(100), "0-24 è¡¨ç¤º", Form24h));
+    h_form.PushBack(new Choice<eHourForm>(HFORM_X    + SCALEX(170), HFORM_Y     + SCALEY(26), SCALEX(100), "0-12 è¡¨ç¤º", Form12h));
 
     auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + SCALEX(30),  AUTOREPRO_Y + SCALEY(26), SCALEX(100), "ON",  true));
     auto_repro.PushBack(new Choice<bool>(AUTOREPRO_X + SCALEX(170), AUTOREPRO_Y + SCALEY(26), SCALEX(100), "OFF", false));
@@ -398,17 +398,17 @@ void Config::Initialize()
     sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + SCALEX(30),  SOUNDWEEK_Y + SCALEY(26), SCALEX(100), "ON",  true));
     sound_week.PushBack(new Choice<bool>(SOUNDWEEK_X + SCALEX(170), SOUNDWEEK_Y + SCALEY(26), SCALEX(100), "OFF", false));
 
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(25), SCALEX(100), "c‚¾‚ËI", Tail_Dane));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(62), SCALEX(100), "c‚¾‚æI", Tail_Dayo));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(155), TAILDATE_Y  + SCALEY(25), SCALEX(130), "c‚É‚È‚Á‚½‚æI", Tail_Ninattayo));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(155), TAILDATE_Y  + SCALEY(62), SCALEX(130), "c‚¾‚Á‚ÄI", Tail_Datte));
-    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(99), SCALEX(100), "‚È‚µ", Tail_None));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(25), SCALEX(100), "â€¦ã ã­ï¼", Tail_Dane));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(62), SCALEX(100), "â€¦ã ã‚ˆï¼", Tail_Dayo));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(155), TAILDATE_Y  + SCALEY(25), SCALEX(130), "â€¦ã«ãªã£ãŸã‚ˆï¼", Tail_Ninattayo));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(155), TAILDATE_Y  + SCALEY(62), SCALEX(130), "â€¦ã ã£ã¦ï¼", Tail_Datte));
+    tail_date.PushBack(new Choice<eTail>(TAILDATE_X  + SCALEX(30),  TAILDATE_Y  + SCALEY(99), SCALEX(100), "ãªã—", Tail_None));
 
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(25), SCALEX(100), "c‚¾‚ËI", Tail_Dane));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(62), SCALEX(100), "c‚¾‚æI", Tail_Dayo));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(155), TAILTIME_Y  + SCALEY(25), SCALEX(130), "c‚É‚È‚Á‚½‚æI", Tail_Ninattayo));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(155), TAILTIME_Y  + SCALEY(62), SCALEX(130), "c‚¾‚Á‚ÄI", Tail_Datte));
-    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(99), SCALEX(100), "‚È‚µ", Tail_None));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(25), SCALEX(100), "â€¦ã ã­ï¼", Tail_Dane));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(62), SCALEX(100), "â€¦ã ã‚ˆï¼", Tail_Dayo));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(155), TAILTIME_Y  + SCALEY(25), SCALEX(130), "â€¦ã«ãªã£ãŸã‚ˆï¼", Tail_Ninattayo));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(155), TAILTIME_Y  + SCALEY(62), SCALEX(130), "â€¦ã ã£ã¦ï¼", Tail_Datte));
+    tail_time.PushBack(new Choice<eTail>(TAILTIME_X  + SCALEX(30),  TAILTIME_Y  + SCALEY(99), SCALEX(100), "ãªã—", Tail_None));
 
     for_prg.PushBack(new Choice<bool>(FORPRG_X       + SCALEX(30),  FORPRG_Y    + SCALEY(25), SCALEX(100), "ON",  true));
     for_prg.PushBack(new Choice<bool>(FORPRG_X       + SCALEX(170), FORPRG_Y    + SCALEY(25), SCALEX(100), "OFF", false));
@@ -426,7 +426,7 @@ void Config::Update()
         tail_time.Update();
         for_prg.Update();
 
-        // ƒ^ƒuØ‚è‘Ö‚¦
+        // ã‚¿ãƒ–åˆ‡ã‚Šæ›¿ãˆ
         if (Area(TAB_TIMEADG_X, TAB_Y, TAB_TIMEADG_W, TAB_H).IsClicked())
             tab = Tab_TimeAdj;
         else if (Area(TAB_SETBIRTHDAY_X, TAB_Y, TAB_SETBIRTHDAY_W, TAB_H).IsClicked())
@@ -435,7 +435,7 @@ void Config::Update()
     case Tab_TimeAdj:
         cfg_time.Update();
 
-        // ƒ^ƒuØ‚è‘Ö‚¦
+        // ã‚¿ãƒ–åˆ‡ã‚Šæ›¿ãˆ
         if (Area(TAB_SETBIRTHDAY_X, TAB_Y, TAB_SETBIRTHDAY_W, TAB_H).IsClicked()) {
             cfg_time.ResetStatus();
             tab = Tab_SetBirthday;
@@ -448,7 +448,7 @@ void Config::Update()
     case Tab_SetBirthday:
         set_bd.Update();
 
-        // ƒ^ƒuØ‚è‘Ö‚¦
+        // ã‚¿ãƒ–åˆ‡ã‚Šæ›¿ãˆ
         if (Area(TAB_X, TAB_Y, TAB_MAINCFG_W, TAB_H).IsClicked()) {
             set_bd.ResetStatus();
             tab = Tab_MainCfg;
@@ -459,47 +459,47 @@ void Config::Update()
         }
     }
 
-    // Šù’è’l‚É–ß‚·ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+    // æ—¢å®šå€¤ã«æˆ»ã™ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
     if (reset.IsClicked())
         switch (tab) {
         case Tab_MainCfg:
-            temp.Default();                 // İ’è‚ğƒfƒtƒHƒ‹ƒg‚É–ß‚·
+            temp.Default();                 // è¨­å®šã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã™
             break;
         case Tab_TimeAdj:
-            cfg_time.SetCfg(0);             // ·‚ğƒ[ƒ‚É–ß‚·
+            cfg_time.SetCfg(0);             // æ™‚å·®ã‚’ã‚¼ãƒ­ã«æˆ»ã™
             break;
         case Tab_SetBirthday:
-            temp.DefaultBd();               // İ’è‚ğƒfƒtƒHƒ‹ƒg‚É–ß‚·
+            temp.DefaultBd();               // è¨­å®šã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã™
             break;
         }
-    // Š®—¹ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+    // å®Œäº†ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
     else if (complete.IsClicked()) {
         pVoice->StopSound();
         pVoice->SoundSys(3);
-        Reflect();                                  // İ’è‚ğ”½‰f
-        pScene_changer->ChangeScene(eScene_Clock);  // ƒV[ƒ“‚ğƒƒCƒ“‰æ–Ê‚É•ÏX
+        Reflect();                                  // è¨­å®šã‚’åæ˜ 
+        pScene_changer->ChangeScene(eScene_Clock);  // ã‚·ãƒ¼ãƒ³ã‚’ãƒ¡ã‚¤ãƒ³ç”»é¢ã«å¤‰æ›´
     }
-    // ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+    // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸã¨ã
     else if (cancel.IsClicked())
-        pScene_changer->ChangeScene(eScene_Clock);  // ƒV[ƒ“‚ğƒƒCƒ“‰æ–Ê‚É•ÏX
+        pScene_changer->ChangeScene(eScene_Clock);  // ã‚·ãƒ¼ãƒ³ã‚’ãƒ¡ã‚¤ãƒ³ç”»é¢ã«å¤‰æ›´
 }
 
 void Config::Draw()
 {
-    // ƒ^ƒu‘S‘Ì‚Ì”wŒi‚ğ•`‰æ
+    // ã‚¿ãƒ–å…¨ä½“ã®èƒŒæ™¯ã‚’æç”»
     DrawBox(TAB_X, TAB_Y, TAB_SETBIRTHDAY_X + TAB_SETBIRTHDAY_W, MAINAREA_Y, 0xC4A9E8, TRUE);
-    DrawLine(TAB_TIMEADG_X,     TAB_Y, TAB_TIMEADG_X,     MAINAREA_Y, 0xD9BEF8, SCALEX(1.5));     // ‘¼‚ÌFŒó•âVIOLET1 0xD3BEED 0x82709a
+    DrawLine(TAB_TIMEADG_X,     TAB_Y, TAB_TIMEADG_X,     MAINAREA_Y, 0xD9BEF8, SCALEX(1.5));     // ä»–ã®è‰²å€™è£œVIOLET1 0xD3BEED 0x82709a
     DrawLine(TAB_SETBIRTHDAY_X, TAB_Y, TAB_SETBIRTHDAY_X, MAINAREA_Y, 0xD9BEF8, SCALEX(1.5));
-    DrawStringToHandle(TAB_X             + TAB_SPACE, TAB_STRING_Y, "İ’è",       GetColor(70, 70, 70), hFont_main);
-    DrawStringToHandle(TAB_TIMEADG_X     + TAB_SPACE, TAB_STRING_Y, "İ’è",   GetColor(70, 70, 70), hFont_main);
-    DrawStringToHandle(TAB_SETBIRTHDAY_X + TAB_SPACE, TAB_STRING_Y, "’a¶“úİ’è", GetColor(70, 70, 70), hFont_main);
+    DrawStringToHandle(TAB_X             + TAB_SPACE, TAB_STRING_Y, "è¨­å®š",       GetColor(70, 70, 70), hFont_main);
+    DrawStringToHandle(TAB_TIMEADG_X     + TAB_SPACE, TAB_STRING_Y, "æ™‚åˆ»è¨­å®š",   GetColor(70, 70, 70), hFont_main);
+    DrawStringToHandle(TAB_SETBIRTHDAY_X + TAB_SPACE, TAB_STRING_Y, "èª•ç”Ÿæ—¥è¨­å®š", GetColor(70, 70, 70), hFont_main);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
 
     switch (tab) {
     case Tab_MainCfg:
-        // ”wŒi‚ğ•`‰æ
+        // èƒŒæ™¯ã‚’æç”»
         DrawBox(TAB_MAINCFG_X, TAB_Y - SCALEY(2), TAB_MAINCFG_X + TAB_MAINCFG_W + SCALEX(1.5), MAINAREA_Y, VIOLET1, TRUE);
-        DrawStringToHandle(TAB_MAINCFG_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "İ’è", BLACK, hFont_main);
+        DrawStringToHandle(TAB_MAINCFG_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "è¨­å®š", BLACK, hFont_main);
 
         h_form.Draw();
         auto_repro.Draw();
@@ -510,16 +510,16 @@ void Config::Draw()
         for_prg.Draw();
         break;
     case Tab_TimeAdj:
-        // ”wŒi‚ğ•`‰æ
+        // èƒŒæ™¯ã‚’æç”»
         DrawBox(TAB_TIMEADG_X, TAB_Y - SCALEY(2), TAB_TIMEADG_X + TAB_TIMEADG_W + SCALEX(1.5), MAINAREA_Y, VIOLET1, TRUE);
-        DrawStringToHandle(TAB_TIMEADG_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "İ’è", BLACK, hFont_main);
+        DrawStringToHandle(TAB_TIMEADG_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "æ™‚åˆ»è¨­å®š", BLACK, hFont_main);
 
         cfg_time.Draw();
         break;
     case Tab_SetBirthday:
-        // ”wŒi‚ğ•`‰æ
+        // èƒŒæ™¯ã‚’æç”»
         DrawBox(TAB_SETBIRTHDAY_X, TAB_Y - SCALEY(2), TAB_SETBIRTHDAY_X + TAB_SETBIRTHDAY_W + SCALEX(1.5), MAINAREA_Y, VIOLET1, TRUE);
-        DrawStringToHandle(TAB_SETBIRTHDAY_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "’a¶“úİ’è", BLACK, hFont_main);
+        DrawStringToHandle(TAB_SETBIRTHDAY_X + TAB_SPACE, TAB_STRING_Y - SCALEY(2), "èª•ç”Ÿæ—¥è¨­å®š", BLACK, hFont_main);
 
         set_bd.Draw();
         break;

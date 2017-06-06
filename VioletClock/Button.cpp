@@ -1,4 +1,4 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Button.h"
 #include "Voice.h"
 #include "Alarm.h"
@@ -25,12 +25,12 @@ RptButton::RptButton() : Area(RPT_X, RPT_Y, RPT_W, RPT_H)
 
 void RptButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET3, TRUE);
 
-    // ŒJ‚è•Ô‚µƒ{ƒ^ƒ“‚ğ•\¦
+    // ç¹°ã‚Šè¿”ã—ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤º
     DrawGraph(x1, y1, hImage, TRUE);
 }
 
@@ -52,12 +52,12 @@ CfgButton::CfgButton() : Area(CFG_X, CFG_Y, CFG_W, CFG_H)
 
 void CfgButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if (!pre_lclick_status && IsMouseOver())
         DrawBox(x1, y1, x2, y2, VIOLET3, TRUE);
 
-    // İ’èƒ{ƒ^ƒ“‚ğ•\¦
+    // è¨­å®šãƒœã‚¿ãƒ³ã‚’è¡¨ç¤º
     DrawGraph(x1, y1, hImage, TRUE);
 }
 
@@ -79,12 +79,12 @@ MuteButton::MuteButton() : Area(MUTE_X, MUTE_Y, MUTE_W, MUTE_H)
 
 void MuteButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET3, TRUE);
 
-    // ƒ~ƒ…[ƒgƒ{ƒ^ƒ“‚ğ•\¦
+    // ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³ã‚’è¡¨ç¤º
     if (pVoice->GetCfg().sound)
         DrawGraph(x1, y1, hSnd_img, TRUE);
     else
@@ -93,7 +93,7 @@ void MuteButton::Draw()
 
 void MuteButton::Update()
 {
-    // ƒNƒŠƒbƒN‚³‚ê‚½Aƒ~ƒ…[ƒg/ƒ~ƒ…[ƒg‰ğœ‚ğØ‚è‘Ö‚¦
+    // ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸæ™‚ã€ãƒŸãƒ¥ãƒ¼ãƒˆ/ãƒŸãƒ¥ãƒ¼ãƒˆè§£é™¤ã‚’åˆ‡ã‚Šæ›¿ãˆ
     if (IsClicked()) {
         if (pVoice->GetCfg().sound) {
             pVoice->StopSound();
@@ -122,23 +122,23 @@ AlmButton::AlmButton() : Area(ALM_X, ALM_Y, ALM_W, ALM_H)
 
 void AlmButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if (!pre_lclick_status && IsMouseOver())
         DrawBox(x1, y1, x2, y2, VIOLET3, TRUE);
 
-    // ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“‚ğ•\¦
+    // ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤º
     if (pAlarm->GetCfg().is_alarm_valid) {
-        DrawGraph(x1, y1, hBase, TRUE);         // jˆÈŠO‚ğ•\¦
-        // j‚ğ•\¦
+        DrawGraph(x1, y1, hBase, TRUE);         // é‡ä»¥å¤–ã‚’è¡¨ç¤º
+        // æ™‚é‡ã‚’è¡¨ç¤º
         DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0,
             (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
-        // •ªj‚ğ•\¦
+        // åˆ†é‡ã‚’è¡¨ç¤º
         DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0, 
             (pAlarm->GetCfg().alarm_m) * PI / 30, hHand, TRUE);
     }
     else {
-        SetDrawBlendMode(DX_BLENDMODE_ALPHA, 70);   // ƒAƒ‰[ƒ€ƒIƒt‚Ì‚Æ‚«‚Í”¼“§‰ß‚µ‚Ä•\¦
+        SetDrawBlendMode(DX_BLENDMODE_ALPHA, 70);   // ã‚¢ãƒ©ãƒ¼ãƒ ã‚ªãƒ•ã®ã¨ãã¯åŠé€éã—ã¦è¡¨ç¤º
         DrawGraph(x1, y1, hBase, TRUE);
         DrawRotaGraph2(x1 + SCALEX(20), y1 + SCALEY(23), SCALEX(20), SCALEY(23), 1.0,
             (pAlarm->GetCfg().alarm_h + pAlarm->GetCfg().alarm_m / 60.0) * PI / 6, hHand, TRUE);
@@ -160,12 +160,12 @@ TmrButton::TmrButton() : Area(TMR_X, TMR_Y, TMR_W, TMR_H)
 
 void TmrButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if (!pre_lclick_status && IsMouseOver())
         DrawBox(x1, y1, x2, y2, VIOLET3, TRUE);
 
-    // ƒ^ƒCƒ}[ƒ{ƒ^ƒ“‚ğ•\¦
+    // ã‚¿ã‚¤ãƒãƒ¼ãƒœã‚¿ãƒ³ã‚’è¡¨ç¤º
     DrawGraph(x1, y1, hImage, TRUE);
 }
 
@@ -176,20 +176,20 @@ TmrStartButton::TmrStartButton(int hF) : Area::Area(TMRSTART_X, TMRSTART_Y, TMRS
 
 void TmrStartButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);
 
     switch (pTimer->GetStatus()) {
     case Timer::Idle:
-        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ƒXƒ^[ƒg", BLACK, hFont);
+        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ã‚¹ã‚¿ãƒ¼ãƒˆ", BLACK, hFont);
         break;
     case Timer::Counting:
-        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ˆê’â~", BLACK, hFont);
+        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ä¸€æ™‚åœæ­¢", BLACK, hFont);
         break;
     case Timer::Pause:
-        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 2) / 2, y1 + MARGIN, "ÄŠJ", BLACK, hFont);
+        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 2) / 2, y1 + MARGIN, "å†é–‹", BLACK, hFont);
         break;
     }
 }
@@ -201,17 +201,17 @@ TmrResetButton::TmrResetButton(int hF) : Area::Area(TMRRESET_X, TMRRESET_Y, TMRR
 
 void TmrResetButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
-    // ƒ^ƒCƒ}[‚ªIdleƒXƒe[ƒ^ƒX‚Ì•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
+    // ã‚¿ã‚¤ãƒãƒ¼ãŒIdleã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®æ™‚è¡¨ç¤ºã—ãªã„
     if (((!pre_lclick_status && IsMouseOver()) || IsClicking()) && pTimer->GetStatus() != Timer::Idle)
         DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);
 
-    // ƒ^ƒCƒ}[‚ªIdleƒXƒe[ƒ^ƒX‚Ì‚Í•¶šF‚ğŠDF‚É
+    // ã‚¿ã‚¤ãƒãƒ¼ãŒIdleã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã®æ™‚ã¯æ–‡å­—è‰²ã‚’ç°è‰²ã«
     if (pTimer->GetStatus() == Timer::Idle)
-        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ƒŠƒZƒbƒg", GetColor(131, 123, 141), hFont);    // ”wŒiF€1.75
+        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ãƒªã‚»ãƒƒãƒˆ", GetColor(131, 123, 141), hFont);    // èƒŒæ™¯è‰²Ã·1.75
     else
-        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ƒŠƒZƒbƒg", BLACK, hFont);
+        DrawStringToHandle((x2 + x1 - FSIZE_MAIN * 4) / 2, y1 + MARGIN, "ãƒªã‚»ãƒƒãƒˆ", BLACK, hFont);
 }
 
 TmrVoiceChgButton::TmrVoiceChgButton() : Area::Area(TMRCHANGE_X, TMRCHANGE_Y, TMRCHANGE_W, TMRCHANGE_H)
@@ -226,12 +226,12 @@ TmrVoiceChgButton::~TmrVoiceChgButton()
 
 void TmrVoiceChgButton::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET2, TRUE);
 
-    DrawStringToHandle((x1 + x2) / 2 - SCALEX(14), y1 + SCALEY(3), "Ø‘Ö", BLACK, hFont);
+    DrawStringToHandle((x1 + x2) / 2 - SCALEX(14), y1 + SCALEY(3), "åˆ‡æ›¿", BLACK, hFont);
 }
 
 Button::Button(int x, int y, int w, string str, int hF) : Area::Area(x, y, w, 0)
@@ -248,8 +248,8 @@ Button::Button(int x, int y, int w, string str, int hF) : Area::Area(x, y, w, 0)
 
 void Button::Draw()
 {
-    // ƒJ[ƒ\ƒ‹‚ªã‚É‚ ‚é‚Æ‚«‰e‚ğ•\¦
-    // ‘¼‚ÌêŠ‚ğƒNƒŠƒbƒN‚µ‚È‚ª‚çˆÚ“®‚µ‚Ä‚«‚½ê‡‚Í•\¦‚µ‚È‚¢
+    // ã‚«ãƒ¼ã‚½ãƒ«ãŒä¸Šã«ã‚ã‚‹ã¨ãå½±ã‚’è¡¨ç¤º
+    // ä»–ã®å ´æ‰€ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãªãŒã‚‰ç§»å‹•ã—ã¦ããŸå ´åˆã¯è¡¨ç¤ºã—ãªã„
     if ((!pre_lclick_status && IsMouseOver()) || IsClicking())
         DrawBox(x1, y1, x2, y2, VIOLET3, TRUE);
 

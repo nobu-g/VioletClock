@@ -1,4 +1,4 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Main.h"
 #include "Voice.h"
 #include "Clock.h"
@@ -9,7 +9,7 @@
 #include <fstream>
 #include <new>
 
-// ƒOƒ[ƒoƒ‹ƒIƒuƒWƒFƒNƒg
+// ã‚°ãƒ­ãƒ¼ãƒãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 TimeSrc *pTimeSrc = NULL;
 Date *pDate = NULL;
 Time *pTime = NULL;
@@ -39,10 +39,10 @@ void SceneMgr::Finalize()
 
 void SceneMgr::Update()
 {
-    if (next_scene != eScene_None) {    // Ÿ‚ÌƒV[ƒ“‚ªƒZƒbƒg‚³‚ê‚Ä‚¢‚½‚ç
-        pScene->Finalize();             // Œ»İ‚ÌƒV[ƒ“‚ÌI—¹ˆ—‚ğÀs
+    if (next_scene != eScene_None) {    // æ¬¡ã®ã‚·ãƒ¼ãƒ³ãŒã‚»ãƒƒãƒˆã•ã‚Œã¦ã„ãŸã‚‰
+        pScene->Finalize();             // ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³ã®çµ‚äº†å‡¦ç†ã‚’å®Ÿè¡Œ
         delete pScene;
-        switch (next_scene) {           // Ÿ‚ÌƒV[ƒ“‚É‘Î‰‚·‚éƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚é
+        switch (next_scene) {           // æ¬¡ã®ã‚·ãƒ¼ãƒ³ã«å¯¾å¿œã™ã‚‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹
         case eScene_Clock:
             pScene = (BaseScene *) new Clock(this);
             break;
@@ -56,8 +56,8 @@ void SceneMgr::Update()
             pScene = (BaseScene *) new TimerScreen(this);
             break;
         }
-        next_scene = eScene_None;       // Ÿ‚ÌƒV[ƒ“î•ñ‚ğƒNƒŠƒA
-        pScene->Initialize();           // ƒV[ƒ“‚ğ‰Šú‰»
+        next_scene = eScene_None;       // æ¬¡ã®ã‚·ãƒ¼ãƒ³æƒ…å ±ã‚’ã‚¯ãƒªã‚¢
+        pScene->Initialize();           // ã‚·ãƒ¼ãƒ³ã‚’åˆæœŸåŒ–
     }
 
     pScene->Update();
@@ -67,19 +67,19 @@ void SceneMgr::Update()
 void Main::Init()
 {
     try {
-        // ƒfƒoƒCƒX‚ÌDPI‚ğæ“¾
+        // ãƒ‡ãƒã‚¤ã‚¹ã®DPIã‚’å–å¾—
         HDC screen = GetDC(0);
         scaleX = GetDeviceCaps(screen, LOGPIXELSX) / 96.0;
         scaleY = GetDeviceCaps(screen, LOGPIXELSY) / 96.0;
         ReleaseDC(0, screen);
 
-        // ƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚Å‚à“®ì‚³‚¹‚é
+        // ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã§ã‚‚å‹•ä½œã•ã›ã‚‹
         if (SetAlwaysRunFlag(TRUE) == -1)
             throw Exception(Exception::FuncError, "SetAlwaysRunFlag()");
-        // 2d‹N“®‚ğ‹–‰Â
+        // 2é‡èµ·å‹•ã‚’è¨±å¯
         if (SetDoubleStartValidFlag(TRUE) == -1)
             throw Exception(Exception::FuncError, "SetDoubleStartValidFlag()");
-        // ƒEƒCƒ“ƒhƒE‚ÌƒAƒCƒRƒ“‚ğİ’è
+        // ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¨­å®š
         switch (SCALEY(480)) {
         case 480:
             if (SetWindowIconID(101) == -1) throw Exception(Exception::FuncError, "SetWindowIconID()");
@@ -94,7 +94,7 @@ void Main::Init()
             throw Exception(Exception::OtherError, "Unsupported DPI");
             break;
         }
-        // ”wŒi‚ğ‚·‚İ‚êF‚É
+        // èƒŒæ™¯ã‚’ã™ã¿ã‚Œè‰²ã«
         if (SetBackgroundColor(217, 190, 248) == -1)
             throw Exception(Exception::FuncError, "SetBackgroundColor()");
         if (ChangeWindowMode(TRUE) == -1)
@@ -106,7 +106,7 @@ void Main::Init()
         if (SetDrawScreen(DX_SCREEN_BACK) == -1)
             throw Exception(Exception::FuncError, "SetDrawScreen()");
 
-        // ƒ[ƒh’†...
+        // ãƒ­ãƒ¼ãƒ‰ä¸­...
         switch (SCALEY(480)){
         case 480:   LoadGraphScreen(188, 220, "image\\96dpi\\Now Loading!!!!.png", TRUE);   break;
         case 600:   LoadGraphScreen(235, 275, "image\\120dpi\\Now Loading!!!!.png", TRUE);  break;
@@ -114,9 +114,9 @@ void Main::Init()
         }
         ScreenFlip();
 
-        SetWindowText("Œv");
+        SetWindowText("æ™‚è¨ˆ");
 
-        // ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì¶¬
+        // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ç”Ÿæˆ
         pTimeSrc = new TimeSrc;
         pDate = new Date;
         pTime = new Time;
@@ -124,28 +124,28 @@ void Main::Init()
         pAlarm = new Alarm;
         pTimer = new Timer;
 
-        // İ’èƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ
+        // è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿
         std::ifstream cfg_data(config_file, std::ios::in | std::ios::binary);
         if (cfg_data) {
             cfg_data >> *pTimeSrc >> *pDate >> *pTime >> *pVoice >> *pAlarm >> *pTimer;
             cfg_data.close();
         }
-        // İ’èƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚©‚Á‚½
+        // è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã‹ã£ãŸæ™‚
         else
-            pVoice->SetCfg(Voice::FirstTime, true);     // ‰‰ñ‹N“®‚Ìˆµ‚¢
+            pVoice->SetCfg(Voice::FirstTime, true);     // åˆå›èµ·å‹•ã®æ‰±ã„
 
     }
-    // ƒGƒ‰[‚Æ‚È‚Á‚½ê‡Aƒtƒ@ƒCƒ‹‚É‹L˜^
+    // ã‚¨ãƒ©ãƒ¼ã¨ãªã£ãŸå ´åˆã€ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨˜éŒ²
     catch (Exception e) {
         e.ExportError();
         exit(1);
     }
     catch (std::bad_alloc) {
-        Exception(Exception::FailToAlloc, "Main::Init“à").ExportError();
+        Exception(Exception::FailToAlloc, "Main::Initå†…").ExportError();
         exit(1);
     }
     catch (...) {
-        Exception(Exception::Unexpected, "Main::Init“à").ExportError();
+        Exception(Exception::Unexpected, "Main::Initå†…").ExportError();
         exit(1);
     }
 }
@@ -158,12 +158,12 @@ void Main::Run()
 
         while (!ProcessMessage() && !ScreenFlip() && !ClearDrawScreen()) {
 
-            pTimeSrc->Update();     // ‚ÌXV
-            pAlarm->Update();       // ƒAƒ‰[ƒ€ó‘Ô‚ğXV
-            pTimer->Update();       // ƒ^ƒCƒ}[ó‘Ô‚ğXV
-            scene_mgr.Update();     // ƒV[ƒ“‚ğXV
-            Area::Update();         // ‰æ–ÊƒNƒŠƒbƒNó‘Ô‚ğXV(XVˆ—‚Ì’†‚Å‚àÅŒã‚És‚¤)
-            scene_mgr.Draw();       // •`‰æ
+            pTimeSrc->Update();     // æ™‚åˆ»ã®æ›´æ–°
+            pAlarm->Update();       // ã‚¢ãƒ©ãƒ¼ãƒ çŠ¶æ…‹ã‚’æ›´æ–°
+            pTimer->Update();       // ã‚¿ã‚¤ãƒãƒ¼çŠ¶æ…‹ã‚’æ›´æ–°
+            scene_mgr.Update();     // ã‚·ãƒ¼ãƒ³ã‚’æ›´æ–°
+            Area::Update();         // ç”»é¢ã‚¯ãƒªãƒƒã‚¯çŠ¶æ…‹ã‚’æ›´æ–°(æ›´æ–°å‡¦ç†ã®ä¸­ã§ã‚‚æœ€å¾Œã«è¡Œã†)
+            scene_mgr.Draw();       // æç”»
         }
 
         scene_mgr.Finalize();
@@ -173,11 +173,11 @@ void Main::Run()
         exit(1);
     }
     catch (std::bad_alloc) {
-        Exception(Exception::FailToAlloc, "Main::Run“à").ExportError();
+        Exception(Exception::FailToAlloc, "Main::Runå†…").ExportError();
         exit(1);
     }
     catch (...) {
-        Exception(Exception::Unexpected, "Main::Run“à").ExportError();
+        Exception(Exception::Unexpected, "Main::Runå†…").ExportError();
         exit(1);
     }
 }
@@ -185,7 +185,7 @@ void Main::Run()
 void Main::End()
 {
     try {
-        // İ’è‚ğ•Û‘¶
+        // è¨­å®šã‚’ä¿å­˜
         std::ofstream cfg_data(config_file, std::ios::out | std::ios::binary);
         if (cfg_data) {
             cfg_data << *pTimeSrc << *pDate << *pTime << *pVoice << *pAlarm << *pTimer;
@@ -207,7 +207,7 @@ void Main::End()
         exit(1);
     }
     catch (...) {
-        Exception(Exception::Unexpected, "Main::End“à").ExportError();
+        Exception(Exception::Unexpected, "Main::Endå†…").ExportError();
         exit(1);
     }
 }

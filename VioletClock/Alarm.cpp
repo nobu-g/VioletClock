@@ -1,4 +1,4 @@
-#include "DxLib.h"
+Ôªø#include "DxLib.h"
 #include "Alarm.h"
 #include <cmath>
 
@@ -64,12 +64,12 @@ void AlarmTime::Update()
 
 void AlarmTime::Draw()
 {
-    static int cnt;     // èâä˙à ëäÇÕé¸ä˙ÇÃ1/4Ç…ÇµÇƒÇ®Ç≠
+    static int cnt;     // ÂàùÊúü‰ΩçÁõ∏„ÅØÂë®Êúü„ÅÆ1/4„Å´„Åó„Å¶„Åä„Åè
 
     DrawFormatStringToHandle(x1, y1, BLACK, hFont, "%2d:%02d", temp.alarm_h, temp.alarm_m);
-    // ïœçXíÜÇÕì_ñ≈Ç≥ÇπÇ»Ç¢
+    // Â§âÊõ¥‰∏≠„ÅØÁÇπÊªÖ„Åï„Åõ„Å™„ÅÑ
     if (changing == 0) {
-        // ïœçXÇ∑ÇÈïîï™Çì_ñ≈Ç≥ÇπÇÈ
+        // Â§âÊõ¥„Åô„ÇãÈÉ®ÂàÜ„ÇíÁÇπÊªÖ„Åï„Åõ„Çã
         switch (status) {
         case Invariable:
             cnt = 15;
@@ -99,11 +99,11 @@ FontMakerAlarm::FontMakerAlarm()
 AlarmScreen::AlarmScreen(ISceneChanger *changer) : BaseScene(changer), FontMakerAlarm(),
 temp(pAlarm->GetCfg()),
 alarm_time(temp),
-alarm_valid(ALARMVALID_X, ALARMVALID_Y, ALARMVALID_W, ALARMVALID_H, "ÉAÉâÅ[ÉÄ", temp.is_alarm_valid),
-mode(MODE_X, MODE_Y, MODE_W, MODE_H, "ÉÇÅ[Éh", temp.is_wakeup_mode),
+alarm_valid(ALARMVALID_X, ALARMVALID_Y, ALARMVALID_W, ALARMVALID_H, "„Ç¢„É©„Éº„É†", temp.is_alarm_valid),
+mode(MODE_X, MODE_Y, MODE_W, MODE_H, "„É¢„Éº„Éâ", temp.is_wakeup_mode),
 
-complete(COMP_X, COMP_Y, COMP_W, "äÆóπ", hFont_main),
-cancel(CANCEL_X, CANCEL_Y, CANCEL_W, "ÉLÉÉÉìÉZÉã", hFont_main)
+complete(COMP_X, COMP_Y, COMP_W, "ÂÆå‰∫Ü", hFont_main),
+cancel(CANCEL_X, CANCEL_Y, CANCEL_W, "„Ç≠„É£„É≥„Çª„É´", hFont_main)
 {
 }
 
@@ -118,22 +118,22 @@ void AlarmScreen::Initialize()
     alarm_valid.PushBack(new Choice<bool>(ALARMVALID_X + SCALEX(30),  ALARMVALID_Y + SCALEY(26), SCALEX(100), "ON", true));
     alarm_valid.PushBack(new Choice<bool>(ALARMVALID_X + SCALEX(170), ALARMVALID_Y + SCALEY(26), SCALEX(100), "OFF", false));
 
-    mode.PushBack(new Choice<bool>(MODE_X + SCALEX(30),  MODE_Y + SCALEY(26), SCALEX(100), "ñ⁄äoÇ‹Çµ", true));
-    mode.PushBack(new Choice<bool>(MODE_X + SCALEX(170), MODE_Y + SCALEY(26), SCALEX(100), "ÉmÅ[É}Éã", false));
+    mode.PushBack(new Choice<bool>(MODE_X + SCALEX(30),  MODE_Y + SCALEY(26), SCALEX(100), "ÁõÆË¶ö„Åæ„Åó", true));
+    mode.PushBack(new Choice<bool>(MODE_X + SCALEX(170), MODE_Y + SCALEY(26), SCALEX(100), "„Éé„Éº„Éû„É´", false));
 }
 
 void AlarmScreen::Update()
 {
-    // äÆóπÉ{É^ÉìÇ™âüÇ≥ÇÍÇΩÇ∆Ç´
+    // ÂÆå‰∫Ü„Éú„Çø„É≥„ÅåÊäº„Åï„Çå„Åü„Å®„Åç
     if (complete.IsClicked()) {
         pVoice->StopSound();
         pVoice->SoundSys(3);
-        Reflect();                                  // ê›íËÇîΩâf
-        pScene_changer->ChangeScene(eScene_Clock);  // ÉVÅ[ÉìÇÉÅÉCÉìâÊñ Ç…ïœçX
+        Reflect();                                  // Ë®≠ÂÆö„ÇíÂèçÊò†
+        pScene_changer->ChangeScene(eScene_Clock);  // „Ç∑„Éº„É≥„Çí„É°„Ç§„É≥ÁîªÈù¢„Å´Â§âÊõ¥
     }
-    // ÉLÉÉÉìÉZÉãÉ{É^ÉìÇ™âüÇ≥ÇÍÇΩÇ∆Ç´
+    // „Ç≠„É£„É≥„Çª„É´„Éú„Çø„É≥„ÅåÊäº„Åï„Çå„Åü„Å®„Åç
     else if (cancel.IsClicked())
-        pScene_changer->ChangeScene(eScene_Clock);  // ÉVÅ[ÉìÇÉÅÉCÉìâÊñ Ç…ïœçX
+        pScene_changer->ChangeScene(eScene_Clock);  // „Ç∑„Éº„É≥„Çí„É°„Ç§„É≥ÁîªÈù¢„Å´Â§âÊõ¥
 
     alarm_time.Update();
 
@@ -145,7 +145,7 @@ void AlarmScreen::Draw()
 {
     DrawBox(MAINAREA_X, SCALEY(5), SCALEX(157), MAINAREA_Y, VIOLET1, TRUE);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
-    DrawStringToHandle(SCALEX(20), SCALEY(13), "ÉAÉâÅ[ÉÄê›íË", BLACK, hFont_main);
+    DrawStringToHandle(SCALEX(20), SCALEY(13), "„Ç¢„É©„Éº„É†Ë®≠ÂÆö", BLACK, hFont_main);
 
     alarm_time.Draw();
     complete.Draw();
@@ -185,14 +185,14 @@ void Alarm::Update()
 
     if (is_ringing) {
         if (config.is_wakeup_mode)
-            pVoice->SoundWakeUp();      // ñ⁄äoÇ‹ÇµÉAÉâÅ[ÉÄÇñ¬ÇÁÇ∑
+            pVoice->SoundWakeUp();      // ÁõÆË¶ö„Åæ„Åó„Ç¢„É©„Éº„É†„ÇíÈ≥¥„Çâ„Åô
         else
-            pVoice->SoundAlarm();       // í èÌÉAÉâÅ[ÉÄÇñ¬ÇÁÇ∑
+            pVoice->SoundAlarm();       // ÈÄöÂ∏∏„Ç¢„É©„Éº„É†„ÇíÈ≥¥„Çâ„Åô
 
-        // âÊñ ÇÃÇ«Ç±Ç©Ç™ÉNÉäÉbÉNÇ≥ÇÍÇÈÇ©ÅAÇ¢Ç∏ÇÍÇ©ÇÃÉLÅ[Ç™âüÇ≥ÇÍÇΩÇ∆Ç´
+        // ÁîªÈù¢„ÅÆ„Å©„Åì„Åã„Åå„ÇØ„É™„ÉÉ„ÇØ„Åï„Çå„Çã„Åã„ÄÅ„ÅÑ„Åö„Çå„Åã„ÅÆ„Ç≠„Éº„ÅåÊäº„Åï„Çå„Åü„Å®„Åç
         if ((!Area::pre_lclick_status && (GetMouseInput() & MOUSE_INPUT_LEFT)) ||
             (!Area::pre_hitkey_status && CheckHitKeyAll())) {
-            pVoice->StopSound();        // ÉAÉâÅ[ÉÄÇé~ÇﬂÇÈ
+            pVoice->StopSound();        // „Ç¢„É©„Éº„É†„ÇíÊ≠¢„ÇÅ„Çã
             is_ringing = false;
             SetCfg(IsAlarmValid, false);
         }

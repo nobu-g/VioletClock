@@ -1,4 +1,4 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Timer.h"
 #include <ctime>
 
@@ -61,12 +61,12 @@ void TimerTime::Update()
 
 void TimerTime::Draw()
 {
-    static int cnt;     // ‰ŠúˆÊ‘Š‚ÍŽüŠú‚Ì1/4‚É‚µ‚Ä‚¨‚­
+    static int cnt;     // åˆæœŸä½ç›¸ã¯å‘¨æœŸã®1/4ã«ã—ã¦ãŠã
 
     DrawFormatStringToHandle(x1, y1, BLACK, hFont_hms, "%d:%02d:%02d", pTimer->Geth(), pTimer->Getm(), pTimer->Gets());
-    // •ÏX’†‚Í“_–Å‚³‚¹‚È‚¢
+    // å¤‰æ›´ä¸­ã¯ç‚¹æ»…ã•ã›ãªã„
     if (changing == 0) {
-        // •ÏX‚·‚é•”•ª‚ð“_–Å‚³‚¹‚é
+        // å¤‰æ›´ã™ã‚‹éƒ¨åˆ†ã‚’ç‚¹æ»…ã•ã›ã‚‹
         switch (status) {
         case Invariable:
             cnt = 15;
@@ -96,21 +96,21 @@ void TimerTime::Draw()
 VoiceSelect::VoiceSelect()
 {
     words = {
-        "‚µ‚ã‚¤`‚è‚å‚¤`",
-        "‚¨E‚íE‚èA‚¾‚æI",
-        "‚¨‚í‚è‚¾‚æI",
-        "‚Í‚¢A‚µ‚ã[‚è‚å[",
-        "ƒ‰[ƒƒ“‚Å‚«‚½‚æI",
-        "ƒpƒXƒ^ä¥‚Åã‚ª‚é‚æI",
-        "‚¨•—˜C•¦‚¢‚½‚æ`I",
-        "‚²”Ñ†‚¯‚½‚æ`I"
+        "ã—ã‚…ã†ï½žã‚Šã‚‡ã†ï½ž",
+        "ãŠãƒ»ã‚ãƒ»ã‚Šã€ã ã‚ˆï¼",
+        "ãŠã‚ã‚Šã ã‚ˆï¼",
+        "ã¯ã„ã€ã—ã‚…ãƒ¼ã‚Šã‚‡ãƒ¼",
+        "ãƒ©ãƒ¼ãƒ¡ãƒ³ã§ããŸã‚ˆï¼",
+        "ãƒ‘ã‚¹ã‚¿èŒ¹ã§ä¸ŠãŒã‚‹ã‚ˆï¼",
+        "ãŠé¢¨å‘‚æ²¸ã„ãŸã‚ˆï½žï¼",
+        "ã”é£¯ç‚Šã‘ãŸã‚ˆï½žï¼"
     };
 }
 
 void VoiceSelect::Update()
 {
     if (chg_btn.IsClicked()) {
-        // ‰¹º‚ð•ÏX‚·‚é
+        // éŸ³å£°ã‚’å¤‰æ›´ã™ã‚‹
         int val = pTimer->GetCfg().voice_index + 1;
 
         if (val >= OVER_VOICES)
@@ -121,7 +121,7 @@ void VoiceSelect::Update()
 
 void VoiceSelect::Draw()
 {
-    DrawFormatStringToHandle(SCALEX(300), SCALEY(390), BLACK, hFont_vselect, "I—¹Žž: u%sv", words[pTimer->GetCfg().voice_index].c_str());
+    DrawFormatStringToHandle(SCALEX(300), SCALEY(390), BLACK, hFont_vselect, "çµ‚äº†æ™‚: ã€Œ%sã€", words[pTimer->GetCfg().voice_index].c_str());
 
     chg_btn.Draw();
 }
@@ -137,7 +137,7 @@ TimerScreen::TimerScreen(ISceneChanger * changer) : BaseScene(changer), FontMake
 timer_time(pTimer->GetCfg()),
 start_btn(hFont_main),
 reset_btn(hFont_main),
-back(BACK_X, BACK_Y, BACK_W, "–ß‚é", hFont_main)
+back(BACK_X, BACK_Y, BACK_W, "æˆ»ã‚‹", hFont_main)
 {
 }
 
@@ -177,7 +177,7 @@ void TimerScreen::Draw()
 {
     DrawBox(MAINAREA_X, SCALEY(5), SCALEX(117), MAINAREA_Y, VIOLET1, TRUE);
     DrawBox(MAINAREA_X, MAINAREA_Y, MAINAREA_X + MAINAREA_W, MAINAREA_Y + MAINAREA_H, VIOLET1, TRUE);
-    DrawStringToHandle(SCALEX(20), SCALEY(13), "ƒ^ƒCƒ}[", BLACK, hFont_main);
+    DrawStringToHandle(SCALEX(20), SCALEY(13), "ã‚¿ã‚¤ãƒžãƒ¼", BLACK, hFont_main);
         
     start_btn.Draw();
     reset_btn.Draw();
@@ -316,7 +316,7 @@ void Timer::Update()
         remaining_s = config.second;
         break;
     case Counting:
-        // 1000msŒo‰ß‚µ‚½‚çŽc‚èŽžŠÔ1•bŒ¸‚ç‚·
+        // 1000msçµŒéŽã—ãŸã‚‰æ®‹ã‚Šæ™‚é–“1ç§’æ¸›ã‚‰ã™
         if (GetNowCount() - base_ms > 1000) {
             base_ms += 1000;
             remaining_s--;
@@ -328,12 +328,12 @@ void Timer::Update()
                 remaining_m = 59;
                 remaining_h--;
             }
-            // ƒJƒEƒ“ƒgƒ_ƒEƒ“ƒ{ƒCƒX‚ðÄ¶‚·‚é
+            // ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ãƒœã‚¤ã‚¹ã‚’å†ç”Ÿã™ã‚‹
             SoundCount();
         }
-        // ƒJƒEƒ“ƒg‚ª0‚É‚È‚Á‚½‚Æ‚«
+        // ã‚«ã‚¦ãƒ³ãƒˆãŒ0ã«ãªã£ãŸã¨ã
         if (remaining_h == 0 && remaining_m == 0 && remaining_s == 0) {
-            // I—¹Žž‰¹º‚ð—¬‚·
+            // çµ‚äº†æ™‚éŸ³å£°ã‚’æµã™
             pVoice->StopSound();
             switch (config.voice_index) {
             case 0: pVoice->SoundTimer(Voice::Over1);   break;

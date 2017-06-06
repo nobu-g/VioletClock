@@ -1,4 +1,4 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Character.h"
 #include "Voice.h"
 #include "Exception.h"
@@ -74,34 +74,34 @@ Chr::Chr() : Area::Area(CHR_X, CHR_Y, CHR_W, CHR_H)
 
 void Chr::Draw()
 {
-    static int quiet_cnt = 1;       // ‰¹‚Ì–Â‚Á‚Ä‚¢‚È‚¢ƒtƒŒ[ƒ€”‚ğ”‚¦‚é
+    static int quiet_cnt = 1;       // éŸ³ã®é³´ã£ã¦ã„ãªã„ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ã‚’æ•°ãˆã‚‹
 
     DrawGraph(x1, y1, hBase, TRUE);
 
-    // ‰¹‚ª–Â‚Á‚Ä‚¢‚é‚Æ‚«‚Æ‚»‚Ì1ƒ‹[ƒvŒã‚Í•\î‚ğ•Ï‚¦‚é
+    // éŸ³ãŒé³´ã£ã¦ã„ã‚‹ã¨ãã¨ãã®1ãƒ«ãƒ¼ãƒ—å¾Œã¯è¡¨æƒ…ã‚’å¤‰ãˆã‚‹
     if (pVoice->IsPlaying() || quiet_cnt == 0)
         DrawGraph(x1, y1, hFace.at(pVoice->GetFace()), TRUE);
 
 
-    static int wait_frame;          // ‰¹‚ª–Â‚ç‚È‚¢ƒtƒŒ[ƒ€”‚ª‚±‚Ì’l‚É’B‚µ‚½‚çu‚«‚·‚é
-    static int blink_frame = 0;     // u‚«‚Å–Ú‚ğáÒ‚Á‚Ä‚¢‚éƒtƒŒ[ƒ€”‚ğ”‚¦‚é
+    static int wait_frame;          // éŸ³ãŒé³´ã‚‰ãªã„ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ãŒã“ã®å€¤ã«é”ã—ãŸã‚‰ç¬ãã™ã‚‹
+    static int blink_frame = 0;     // ç¬ãã§ç›®ã‚’ç‘ã£ã¦ã„ã‚‹ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ã‚’æ•°ãˆã‚‹
 
     if (quiet_cnt == 1)
         wait_frame = GetRand(25 * 60) + 30;
 
-    // ‰¹‚ª–Â‚Á‚Ä‚¢‚È‚¢‚Æ‚«quiet_cnt‚ğƒCƒ“ƒNƒŠƒƒ“ƒg
+    // éŸ³ãŒé³´ã£ã¦ã„ãªã„ã¨ãquiet_cntã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ
     if (!pVoice->IsPlaying())
         quiet_cnt++;
     else
         quiet_cnt = 0;
 
-    // wait_frameƒtƒŒ[ƒ€‚ÌŠÔ‰¹‚ª–Â‚Á‚Ä‚¢‚È‚¯‚ê‚Îu‚«‚ğ‚·‚é
+    // wait_frameãƒ•ãƒ¬ãƒ¼ãƒ ã®é–“éŸ³ãŒé³´ã£ã¦ã„ãªã‘ã‚Œã°ç¬ãã‚’ã™ã‚‹
     if (quiet_cnt == wait_frame) {
         blink_frame = 1;
     }
 
     if (blink_frame > 0) {
-        // 6ƒtƒŒ[ƒ€(0.1•b)‚ÌŠÔ–Ú‚ğ•Â‚¶‚é
+        // 6ãƒ•ãƒ¬ãƒ¼ãƒ (0.1ç§’)ã®é–“ç›®ã‚’é–‰ã˜ã‚‹
         if (blink_frame <= 6) {
             DrawGraph(x1, y1, hFace.at(Blink), TRUE);
             blink_frame++;
@@ -120,7 +120,7 @@ void Chr::DrawBackImg()
     SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 }
 
-// Œ»İ‚ÌƒoƒbƒeƒŠ[c—Ê‚ğ%‚Å•Ô‚·
+// ç¾åœ¨ã®ãƒãƒƒãƒ†ãƒªãƒ¼æ®‹é‡ã‚’%ã§è¿”ã™
 int BatteryPercent()
 {
     SYSTEM_POWER_STATUS pw_stat;
@@ -133,13 +133,13 @@ int BatteryPercent()
 void Chr::Update()
 {
     if (!pVoice->IsPlaying()) {
-        // ƒNƒŠƒbƒN‚³‚ê‚½‚ç‰¹º‚ğ—¬‚·
+        // ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã‚‰éŸ³å£°ã‚’æµã™
         if (IsClicked())
             pVoice->SoundWords();
 
 
         if (pVoice->GetCfg().sound && pVoice->GetCfg().auto_repro) {
-            // ‚à‚µ“dŒ¹‚ª‚È‚©‚Á‚½‚çƒVƒXƒeƒ€ƒTƒEƒ“ƒh‚ğ—¬‚·
+            // ã‚‚ã—é›»æºãŒãªã‹ã£ãŸã‚‰ã‚·ã‚¹ãƒ†ãƒ ã‚µã‚¦ãƒ³ãƒ‰ã‚’æµã™
             static int bat_charge;
             static int pre_bat_charge = 100;
 
@@ -152,7 +152,7 @@ void Chr::Update()
         }
 
 
-        // ‚à‚µƒL[ƒ{[ƒh‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚ç‚»‚ÌƒL[‚ğÄ¶‚·‚é
+        // ã‚‚ã—ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‚‰ãã®ã‚­ãƒ¼ã‚’å†ç”Ÿã™ã‚‹
         char key_state[256];
 
         GetHitKeyStateAll(key_state);

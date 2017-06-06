@@ -1,8 +1,8 @@
-#include "Exception.h"
+﻿#include "Exception.h"
 #include <fstream>
 #include <vector>
 
-// �G���[�o�̓t�@�C��
+// エラー出力ファイル
 std::ofstream ferr("error.log");
 
 Exception::Exception(eErrorCode code)
@@ -37,13 +37,13 @@ void Exception::ExportError()
         exit(1);
 
     static const std::vector<string> error_statement = {
-        "�\�����ʃG���[",
-        "���������蓖�Ď��s",
-        "���[�h�̒��f",
-        "�֐��G���[",
-        "���̓G���[",
-        "�o�̓G���[",
-        "���̑��̃G���["
+        "予期せぬエラー",
+        "メモリ割り当て失敗",
+        "ロードの中断",
+        "関数エラー",
+        "入力エラー",
+        "出力エラー",
+        "その他のエラー"
     };
 
     ferr << error_statement[error_code];

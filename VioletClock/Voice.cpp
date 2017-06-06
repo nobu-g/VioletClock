@@ -1,4 +1,4 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Voice.h"
 #include "Clock.h"
 #include "Exception.h"
@@ -13,7 +13,7 @@ Voice::Voice()
     std::ostringstream file_name;
     const std::string empty_string;
 
-    // ”N‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // å¹´ã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     hYear[0] = LoadSoundMem("sound\\voice_B\\kei2_voice_001.wav");
     hYear[1] = LoadSoundMem("sound\\voice_B\\kei2_voice_002.wav");
     hYear[2] = LoadSoundMem("sound\\voice_B\\kei2_voice_003.wav");
@@ -23,7 +23,7 @@ Voice::Voice()
     hYear[6] = LoadSoundMem("sound\\voice_B\\kei2_voice_003_4.wav");
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 1);
 
-    // Œ‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // æœˆã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < MONTH; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 4 << ".wav";
@@ -31,7 +31,7 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 2);
     }
 
-    // “ú‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // æ—¥ã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < DAY; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 16 << ".wav";
@@ -39,7 +39,7 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 3);
     }
 
-    // —j“ú‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // æ›œæ—¥ã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < WEEK; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 47 << ".wav";
@@ -47,7 +47,7 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 4);
     }
 
-    // Œß‘OEŒßŒã‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // åˆå‰ãƒ»åˆå¾Œã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < NOON; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 54 << ".wav";
@@ -55,7 +55,7 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 5);
     }
 
-    // ‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // æ™‚ã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < HOUR; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 56 << ".wav";
@@ -63,7 +63,7 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 6);
     }
 
-    // •ñ‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // æ™‚å ±ã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < HOUR; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 81 << ".wav";
@@ -71,7 +71,7 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 7);
     }
 
-    // •ª‚ğ“Ç‚İã‚°‚é‰¹º‚ğƒ[ƒh
+    // åˆ†ã‚’èª­ã¿ä¸Šã’ã‚‹éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     for (int i = 0; i < MINUTE; i++) {
         file_name.str(empty_string);
         file_name << "sound\\voice_B\\kei2_voice_" << std::setw(3) << std::setfill('0') << i + 106 << ".wav";
@@ -79,44 +79,44 @@ Voice::Voice()
         if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 8);
     }
 
-    // Œê”ö‚Ì‰¹º‚ğƒ[ƒh
-    hTail[0] = LoadSoundMem("sound\\voice_B\\kei2_voice_166.wav");          // c‚¾‚ËI
-    hTail[1] = LoadSoundMem("sound\\voice_B\\kei2_voice_167.wav");          // c‚¾‚æI
-    hTail[2] = LoadSoundMem("sound\\voice_B\\kei2_voice_168.wav");          // c‚É‚È‚Á‚½‚æI
-    hTail[3] = LoadSoundMem("sound\\voice_B\\kei2_voice_247.wav");          // c‚¾‚Á‚ÄI
+    // èªå°¾ã®éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
+    hTail[0] = LoadSoundMem("sound\\voice_B\\kei2_voice_166.wav");          // â€¦ã ã­ï¼
+    hTail[1] = LoadSoundMem("sound\\voice_B\\kei2_voice_167.wav");          // â€¦ã ã‚ˆï¼
+    hTail[2] = LoadSoundMem("sound\\voice_B\\kei2_voice_168.wav");          // â€¦ã«ãªã£ãŸã‚ˆï¼
+    hTail[3] = LoadSoundMem("sound\\voice_B\\kei2_voice_247.wav");          // â€¦ã ã£ã¦ï¼
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 9);
 
-    // “ú•tˆË‘¶‚Ì‘äŒ‚ğƒ[ƒh
-    hSeason[0] = LoadSoundMem("sound\\voice_A\\kei_voice_041_1.wav");       // ‚ ‚¯‚Ü‚µ‚Ä‚¨‚ß‚Å‚Æ‚¤I@¡”N‚à‚æ‚ë‚µ‚­‚ËB
-    hSeason[1] = LoadSoundMem("sound\\voice_A\\kei_voice_053.wav");         // ƒgƒŠƒbƒNƒIƒAƒgƒŠ[ƒgI
-    hSeason[2] = LoadSoundMem("sound\\voice_A\\kei_voice_054.wav");         // ƒƒŠ[ƒNƒŠƒXƒ}ƒXI
-    hSeason[3] = LoadSoundMem("sound\\voice_B\\kei2_voice_212.wav");        // ‚¨’a¶“ú‚¨‚ß‚Å‚Æ‚¤I
-    hSeason[4] = LoadSoundMem("sound\\voice_B\\kei2_voice_213.wav");        // ƒnƒbƒs[ƒo[ƒXƒf[I
-    hSeason[5] = LoadSoundMem("sound\\voice_B\\kei2_voice_251.wav");        // ‚ ‚½‚½‚©‚¢ŠiD‚µ‚Äo‚©‚¯‚æ‚¤I
-    hSeason[6] = LoadSoundMem("sound\\voice_B\\kei2_voice_252.wav");        // …•ª•â‹‹‚ğ‚±‚Ü‚ß‚É‚Æ‚é‚Æ‚¢‚¢‚æ
-    hSeason[7] = LoadSoundMem("sound\\voice_B\\kei2_voice_253.wav");        // ”M’†Ç‚É‹C‚ğ•t‚¯‚Ä‚Ë
-    hSeason[8] = LoadSoundMem("sound\\voice_B\\kei2_voice_255.wav");        // •—×‚Ğ‚©‚È‚¢‚æ‚¤‹C‚ğ•t‚¯‚Ä‚Ë
-    hSeason[9] = LoadSoundMem("sound\\voice_B\\kei2_voice_263.wav");        // ‹A‚Á‚½‚çèô‚¢‚¤‚ª‚¢‚¾‚æI
+    // æ—¥ä»˜ä¾å­˜ã®å°è©ã‚’ãƒ­ãƒ¼ãƒ‰
+    hSeason[0] = LoadSoundMem("sound\\voice_A\\kei_voice_041_1.wav");       // ã‚ã‘ã¾ã—ã¦ãŠã‚ã§ã¨ã†ï¼ã€€ä»Šå¹´ã‚‚ã‚ˆã‚ã—ãã­ã€‚
+    hSeason[1] = LoadSoundMem("sound\\voice_A\\kei_voice_053.wav");         // ãƒˆãƒªãƒƒã‚¯ã‚ªã‚¢ãƒˆãƒªãƒ¼ãƒˆï¼
+    hSeason[2] = LoadSoundMem("sound\\voice_A\\kei_voice_054.wav");         // ãƒ¡ãƒªãƒ¼ã‚¯ãƒªã‚¹ãƒã‚¹ï¼
+    hSeason[3] = LoadSoundMem("sound\\voice_B\\kei2_voice_212.wav");        // ãŠèª•ç”Ÿæ—¥ãŠã‚ã§ã¨ã†ï¼
+    hSeason[4] = LoadSoundMem("sound\\voice_B\\kei2_voice_213.wav");        // ãƒãƒƒãƒ”ãƒ¼ãƒãƒ¼ã‚¹ãƒ‡ãƒ¼ï¼
+    hSeason[5] = LoadSoundMem("sound\\voice_B\\kei2_voice_251.wav");        // ã‚ãŸãŸã‹ã„æ ¼å¥½ã—ã¦å‡ºã‹ã‘ã‚ˆã†ï¼
+    hSeason[6] = LoadSoundMem("sound\\voice_B\\kei2_voice_252.wav");        // æ°´åˆ†è£œçµ¦ã‚’ã“ã¾ã‚ã«ã¨ã‚‹ã¨ã„ã„ã‚ˆ
+    hSeason[7] = LoadSoundMem("sound\\voice_B\\kei2_voice_253.wav");        // ç†±ä¸­ç—‡ã«æ°—ã‚’ä»˜ã‘ã¦ã­
+    hSeason[8] = LoadSoundMem("sound\\voice_B\\kei2_voice_255.wav");        // é¢¨é‚ªã²ã‹ãªã„ã‚ˆã†æ°—ã‚’ä»˜ã‘ã¦ã­
+    hSeason[9] = LoadSoundMem("sound\\voice_B\\kei2_voice_263.wav");        // å¸°ã£ãŸã‚‰æ‰‹æ´—ã„ã†ãŒã„ã ã‚ˆï¼
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 10);
 
-    // ƒVƒXƒeƒ€‰¹º‚ğƒ[ƒh
-    hSystem[0] = LoadSoundMem("sound\\voice_A\\kei_voice_088.wav");         // ‚ñ[cƒoƒbƒeƒŠ[Œ¸‚Á‚Ä‚«‚Ä‚é ‚±‚Ü‚ß‚ÉƒZ[ƒu‚µ‚Ä‚Ë
-    hSystem[1] = LoadSoundMem("sound\\voice_A\\kei_voice_089.wav");         // ‚ [I@‚à‚¤ŒÀŠE‚ÁI ƒoƒbƒeƒŠ[Ø‚ê‚¿‚á‚¤‚æI
-    hSystem[2] = LoadSoundMem("sound\\voice_A\\kei_voice_037.wav");         // İ’è•Ï‚¦‚Ä‚İ‚éH
-    hSystem[3] = LoadSoundMem("sound\\voice_B\\kei2_voice_310.wav");        // Š®—¹I
+    // ã‚·ã‚¹ãƒ†ãƒ éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
+    hSystem[0] = LoadSoundMem("sound\\voice_A\\kei_voice_088.wav");         // ã‚“ãƒ¼â€¦ãƒãƒƒãƒ†ãƒªãƒ¼æ¸›ã£ã¦ãã¦ã‚‹ ã“ã¾ã‚ã«ã‚»ãƒ¼ãƒ–ã—ã¦ã­
+    hSystem[1] = LoadSoundMem("sound\\voice_A\\kei_voice_089.wav");         // ã‚ãƒ¼ï¼ã€€ã‚‚ã†é™ç•Œã£ï¼ ãƒãƒƒãƒ†ãƒªãƒ¼åˆ‡ã‚Œã¡ã‚ƒã†ã‚ˆï¼
+    hSystem[2] = LoadSoundMem("sound\\voice_A\\kei_voice_037.wav");         // è¨­å®šå¤‰ãˆã¦ã¿ã‚‹ï¼Ÿ
+    hSystem[3] = LoadSoundMem("sound\\voice_B\\kei2_voice_310.wav");        // å®Œäº†ï¼
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 11);
 
-    // ƒAƒ‰[ƒ€ŠÖŒW‚Ì‰¹º‚ğƒ[ƒh
-    hAlarm[0] = LoadSoundMem("sound\\alarm1.wav");                          // ƒsƒsƒsƒsƒsƒb~4
-    hAlarm[1] = LoadSoundMem("sound\\voice_A\\kei_voice_062.wav");          // ŠÔ‚¾‚æI
-    hAlarm[2] = LoadSoundMem("sound\\voice_A\\kei_voice_059_2.wav");        // ‘‚­‘‚­I
-    hAlarm[3] = LoadSoundMem("sound\\voice_A\\kei_voice_067.wav");          // ‘‚­‹N‚«‚Ä‚æI
-    hAlarm[4] = LoadSoundMem("sound\\voice_B\\kei2_voice_088_2.wav");       // ‚³‚Ÿ‹N‚«‚½‹N‚«‚½`
-    hAlarm[5] = LoadSoundMem("sound\\voice_B\\kei2_voice_089_2.wav");       // ‚Ù‚ç‘‚­‹N‚«‚È‚æ`
-    hAlarm[6] = LoadSoundMem("sound\\voice_B\\kei2_voice_173.wav");         // ‚¨‚Í‚æ‚¤I
+    // ã‚¢ãƒ©ãƒ¼ãƒ é–¢ä¿‚ã®éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
+    hAlarm[0] = LoadSoundMem("sound\\alarm1.wav");                          // ãƒ”ãƒ”ãƒ”ãƒ”ãƒ”ãƒƒÃ—4
+    hAlarm[1] = LoadSoundMem("sound\\voice_A\\kei_voice_062.wav");          // æ™‚é–“ã ã‚ˆï¼
+    hAlarm[2] = LoadSoundMem("sound\\voice_A\\kei_voice_059_2.wav");        // æ—©ãæ—©ãï¼
+    hAlarm[3] = LoadSoundMem("sound\\voice_A\\kei_voice_067.wav");          // æ—©ãèµ·ãã¦ã‚ˆï¼
+    hAlarm[4] = LoadSoundMem("sound\\voice_B\\kei2_voice_088_2.wav");       // ã•ãèµ·ããŸèµ·ããŸï½
+    hAlarm[5] = LoadSoundMem("sound\\voice_B\\kei2_voice_089_2.wav");       // ã»ã‚‰æ—©ãèµ·ããªã‚ˆï½
+    hAlarm[6] = LoadSoundMem("sound\\voice_B\\kei2_voice_173.wav");         // ãŠã¯ã‚ˆã†ï¼
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 12);
 
-    // ƒ^ƒCƒ}[ŠÖŒW‚Ì‰¹º‚ğƒ[ƒh
+    // ã‚¿ã‚¤ãƒãƒ¼é–¢ä¿‚ã®éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     hTimer[0]  = LoadSoundMem("sound\\voice_A\\kei_voice_055.wav");
     hTimer[1]  = LoadSoundMem("sound\\voice_A\\kei_voice_056.wav");
     hTimer[2]  = LoadSoundMem("sound\\voice_A\\kei_voice_058.wav");
@@ -141,7 +141,7 @@ Voice::Voice()
     hTimer[21] = LoadSoundMem("sound\\voice_B\\kei2_voice_275.wav");
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 13);
 
-    // ƒL[ƒ{[ƒhƒL[‚Ì‰¹º‚ğƒ[ƒh
+    // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã‚­ãƒ¼ã®éŸ³å£°ã‚’ãƒ­ãƒ¼ãƒ‰
     keyboard.insert(pair<KeyCode, int>(KEY_INPUT_SPACE,  LoadSoundMem("sound\\voice_A\\kei_voice_103.wav")));
     keyboard.insert(pair<KeyCode, int>(KEY_INPUT_RETURN, LoadSoundMem("sound\\voice_A\\kei_voice_104.wav")));
     keyboard.insert(pair<KeyCode, int>(KEY_INPUT_BACK,   LoadSoundMem("sound\\voice_A\\kei_voice_105.wav")));
@@ -164,7 +164,7 @@ Voice::Voice()
     keyboard.insert(pair<KeyCode, int>(KEY_INPUT_LEFT,   LoadSoundMem("sound\\voice_A\\kei_voice_122.wav")));
     if (ProcessMessage() == -1) throw Exception(Exception::LoadingNotDone, 14);
 
-    // ƒLƒƒƒ‰‚Ì‘äŒ‚ğƒ[ƒh
+    // ã‚­ãƒ£ãƒ©ã®å°è©ã‚’ãƒ­ãƒ¼ãƒ‰
     words[0]   = Words(0,    24,   true,  eFace::Laugh,     LoadSoundMem("sound\\voice_A\\kei_voice_005.wav"));
     words[1]   = Words(0,    24,   false, eFace::Wink,      LoadSoundMem("sound\\voice_A\\kei_voice_005_2.wav"));
     words[2]   = Words(0,    24,   true,  eFace::Speaking,  LoadSoundMem("sound\\voice_A\\kei_voice_006.wav"));
@@ -372,7 +372,7 @@ void Voice::SoundTime(eTmData data, int index)
 void Voice::SoundWords()
 {
     if (config.sound) {
-        // ‰‰ñ‹N“®‚ÌÅ‰‚ÌÄ¶‚ÍŒÅ’è
+        // åˆå›èµ·å‹•æ™‚ã®æœ€åˆã®å†ç”Ÿã¯å›ºå®š
         if (config.first_time) {
             hPlaying = words[18].GetHandle();
             face = eFace::Laugh;
@@ -381,14 +381,14 @@ void Voice::SoundWords()
             return;
         }
 
-        std::vector<Words> cand;                // Ä¶‚³‚ê‚é‰¹º‚ÌŒó•â
+        std::vector<Words> cand;                // å†ç”Ÿã•ã‚Œã‚‹éŸ³å£°ã®å€™è£œ
 
-        // Œó•â‚É‚É‰‚¶‚½‰¹º‚ğ’Ç‰Á
+        // å€™è£œã«æ™‚åˆ»ã«å¿œã˜ãŸéŸ³å£°ã‚’è¿½åŠ 
         for (int i = 0; i < WORDS; i++)
             if (words[i].IsAppropriate())
                 cand.push_back(words[i]);
 
-        // “ú•t‚É‰‚¶‚½‰¹º‚ğ’Ç‰Á(oŒ»Šm—¦10”{)
+        // æ—¥ä»˜ã«å¿œã˜ãŸéŸ³å£°ã‚’è¿½åŠ (å‡ºç¾ç¢ºç‡10å€)
         if (pDate->IsNewYear())
             for (int i = 0; i < 10; i++)
                 cand.push_back(Words(eFace::Doya, hSeason[0]));
@@ -404,7 +404,7 @@ void Voice::SoundWords()
             for (int i = 0; i < 10; i++)
                 cand.push_back(Words(eFace::Excited, hSeason[4]));
         }
-        // ‹Gß‚É‰‚¶‚½‰¹º‚ğ’Ç‰Á
+        // å­£ç¯€ã«å¿œã˜ãŸéŸ³å£°ã‚’è¿½åŠ 
         if (pDate->IsSummer()) {
             cand.push_back(Words(eFace::Normal, hSeason[6]));
             cand.push_back(Words(eFace::Normal, hSeason[7]));
@@ -415,7 +415,7 @@ void Voice::SoundWords()
             cand.push_back(Words(eFace::Wink, hSeason[9]));
         }
 
-        // ŠÔ‚É‡‚Á‚½ƒZƒŠƒt‚ğƒ‰ƒ“ƒ_ƒ€‚ÅÄ¶
+        // æ™‚é–“ã«åˆã£ãŸã‚»ãƒªãƒ•ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã§å†ç”Ÿ
         Words chosen = cand[GetRand(cand.size() - 1)];
         hPlaying = chosen.GetHandle();
         face = chosen.GetFace();
@@ -462,11 +462,11 @@ void Voice::SoundKey(KeyCode key)
     }
 }
 
-// ƒAƒ‰[ƒ€‰¹‚Æƒ{ƒCƒX‚ğŒğŒİ‚ÉÄ¶
+// ã‚¢ãƒ©ãƒ¼ãƒ éŸ³ã¨ãƒœã‚¤ã‚¹ã‚’äº¤äº’ã«å†ç”Ÿ
 void Voice::SoundAlarm()
 {
     if (config.sound && config.auto_repro) {
-        static int status = 0;          // 0:ƒ{ƒCƒXÄ¶’†@1:ƒAƒ‰[ƒ€‰¹Ä¶’†
+        static int status = 0;          // 0:ãƒœã‚¤ã‚¹å†ç”Ÿä¸­ã€€1:ã‚¢ãƒ©ãƒ¼ãƒ éŸ³å†ç”Ÿä¸­
 
         if (!IsPlaying()) {
             if (status == 0) {
@@ -484,12 +484,12 @@ void Voice::SoundAlarm()
     }
 }
 
-// ƒAƒ‰[ƒ€‰¹‚Æƒ{ƒCƒX‚ğŒğŒİ‚ÉÄ¶
-// ƒ{ƒCƒX‚Í•¡”í—Ş‚©‚çƒ‰ƒ“ƒ_ƒ€‚É‘I‚Î‚ê‚é
+// ã‚¢ãƒ©ãƒ¼ãƒ éŸ³ã¨ãƒœã‚¤ã‚¹ã‚’äº¤äº’ã«å†ç”Ÿ
+// ãƒœã‚¤ã‚¹ã¯è¤‡æ•°ç¨®é¡ã‹ã‚‰ãƒ©ãƒ³ãƒ€ãƒ ã«é¸ã°ã‚Œã‚‹
 void Voice::SoundWakeUp()
 {
     if (config.sound && config.auto_repro) {
-        static int status = 0;          // 0:ƒ{ƒCƒXÄ¶’†@1:ƒAƒ‰[ƒ€Ä¶’†
+        static int status = 0;          // 0:ãƒœã‚¤ã‚¹å†ç”Ÿä¸­ã€€1:ã‚¢ãƒ©ãƒ¼ãƒ å†ç”Ÿä¸­
 
         if (!IsPlaying()) {
             if (status == 0) {
@@ -499,7 +499,7 @@ void Voice::SoundWakeUp()
                 status = 1;
             }
             else {
-                hPlaying = hAlarm[GetRand(4) + 2];          // hAlarm[2`6]‚ğƒ‰ƒ“ƒ_ƒ€‚ÅÄ¶
+                hPlaying = hAlarm[GetRand(4) + 2];          // hAlarm[2ï½6]ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã§å†ç”Ÿ
                 PlaySoundMem(hPlaying, DX_PLAYTYPE_BACK);
                 status = 0;
             }
@@ -703,11 +703,11 @@ bool Words::IsAppropriate()
     int h = pTime->Geth();
     int m = pTime->Getm();
 
-    // İ’è‚ªƒvƒƒOƒ‰ƒ}—p‚Å‚Í‚È‚¢‚Æ‚«‚ÍƒvƒƒOƒ‰ƒ}—p‰¹º‚ğƒJƒbƒg
+    // è¨­å®šãŒãƒ—ãƒ­ã‚°ãƒ©ãƒç”¨ã§ã¯ãªã„ã¨ãã¯ãƒ—ãƒ­ã‚°ãƒ©ãƒç”¨éŸ³å£°ã‚’ã‚«ãƒƒãƒˆ
     if (programmer && !pVoice->GetCfg().for_prg)
         return false;
 
-    // ŠÔ‚Ì”ÍˆÍ‚ª“ú•t‚ğ‚Ü‚½‚ª‚È‚¢
+    // æ™‚é–“ã®ç¯„å›²ãŒæ—¥ä»˜ã‚’ã¾ãŸãŒãªã„æ™‚
     if (min_hour < max_hour || (min_hour == max_hour && min_minute <= max_minute)) {
         if (h < min_hour || max_hour < h)
             return false;
@@ -718,7 +718,7 @@ bool Words::IsAppropriate()
 
         return true;
     }
-    // ŠÔ‚Ì”ÍˆÍ‚ª“ú•t‚ğ‚Ü‚½‚®
+    // æ™‚é–“ã®ç¯„å›²ãŒæ—¥ä»˜ã‚’ã¾ãŸãæ™‚
     else {
         if (h > min_hour || max_hour > h)
             return true;

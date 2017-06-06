@@ -1,9 +1,9 @@
-#include "DxLib.h"
+ï»¿#include "DxLib.h"
 #include "Clock.h"
 #include "Exception.h"
 
-// extern‚ğ•t‚¯‚È‚¯‚ê‚Îconst•Ï”‚ÍƒfƒtƒHƒ‹ƒg‚Å“à•”ƒŠƒ“ƒP[ƒW‚ğ‚Â
-extern const array<char *, WEEK> week_name = { "“ú", "Œ", "‰Î", "…", "–Ø", "‹à", "“y" };
+// externã‚’ä»˜ã‘ãªã‘ã‚Œã°constå¤‰æ•°ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§å†…éƒ¨ãƒªãƒ³ã‚±ãƒ¼ã‚¸ã‚’æŒã¤
+extern const array<char *, WEEK> week_name = { "æ—¥", "æœˆ", "ç«", "æ°´", "æœ¨", "é‡‘", "åœŸ" };
 extern std::ofstream ferr;
 
 void Clock::Initialize()
@@ -25,16 +25,16 @@ void Clock::Update()
     mute_btn.Update();
 
     if (cfg_btn.IsClicked())
-        pScene_changer->ChangeScene(eScene_Config);     // ƒV[ƒ“‚ğİ’è‰æ–Ê‚É•ÏX
+        pScene_changer->ChangeScene(eScene_Config);     // ã‚·ãƒ¼ãƒ³ã‚’è¨­å®šç”»é¢ã«å¤‰æ›´
     else if (alm_btn.IsClicked())
-        pScene_changer->ChangeScene(eScene_Alarm);      // ƒV[ƒ“‚ğƒAƒ‰[ƒ€‰æ–Ê‚É•ÏX
+        pScene_changer->ChangeScene(eScene_Alarm);      // ã‚·ãƒ¼ãƒ³ã‚’ã‚¢ãƒ©ãƒ¼ãƒ ç”»é¢ã«å¤‰æ›´
     else if (tmr_btn.IsClicked())
-        pScene_changer->ChangeScene(eScene_Timer);      // ƒV[ƒ“‚ğƒ^ƒCƒ}[‰æ–Ê‚É•ÏX
+        pScene_changer->ChangeScene(eScene_Timer);      // ã‚·ãƒ¼ãƒ³ã‚’ã‚¿ã‚¤ãƒãƒ¼ç”»é¢ã«å¤‰æ›´
 }
 
 void Clock::Draw()
 {
-    // ‰æ–Ê‚Ì•`‰æ
+    // ç”»é¢ã®æç”»
     pTime->Draw();
     pDate->Draw();
     character.Draw();
@@ -74,7 +74,7 @@ Date::Date() :
     config.sound_year = true;
     config.sound_week = true;
     config.tail = Tail_None;
-    // ƒfƒtƒHƒ‹ƒg‚ÍCV:ãâ‚·‚İ‚ê‚Ì’a¶“ú(12/19)
+    // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯CV:ä¸Šå‚ã™ã¿ã‚Œã®èª•ç”Ÿæ—¥(12/19)
     config.birthmonth = 12;
     config.birthday = 19;
 }
@@ -92,37 +92,37 @@ Time::Time() :
 
 void Date::Draw()
 {
-    DrawFormatStringToHandle(x1, y1, BLACK, hFont_d, "%d”N%dŒ%d“ú(%s)", Gety(), Getm(), Getd(), week_name[Getw()]);
+    DrawFormatStringToHandle(x1, y1, BLACK, hFont_d, "%då¹´%dæœˆ%dæ—¥(%s)", Gety(), Getm(), Getd(), week_name[Getw()]);
 }
 
 void Time::Draw()
 {
     int hour = Geth();
 
-    // 0-12•\¦‚Ì
+    // 0-12è¡¨ç¤ºã®æ™‚
     if (config.h_form == Form12h) {
-        // ŠÔ‚ğ0`12‚É
+        // æ™‚é–“ã‚’0ï½12ã«
         if (Getn())
             hour -= HOUR / 2;
 
-        // AM/PM‚ğ•\¦
+        // AM/PMã‚’è¡¨ç¤º
         DrawFormatStringToHandle(x1 + STOW(FSIZE_HM) * 5 + SPACE_MS, y1 + 10, BLACK, hFont_ap, Getn() ? "PM" : "AM");
     }
 
-    // A•ª‚ğ•\¦
+    // æ™‚ã€åˆ†ã‚’è¡¨ç¤º
     DrawFormatStringToHandle(x1, y1, BLACK, hFont_hm, "%2d:%02d", hour, Getm());
-    // •b‚ğ•\¦
+    // ç§’ã‚’è¡¨ç¤º
     DrawFormatStringToHandle(x1 + STOW(FSIZE_HM) * 5 + SPACE_MS, y1 + FSIZE_HM - FSIZE_S - 15, BLACK, hFont_s, "%02d", Gets());
 }
 
 void Date::Update()
 {
-    // •\¦•‚ÌXV
-    SetWidth(GetDrawFormatStringWidthToHandle(hFont_d, "%d”N%dŒ%d“ú(%s)", Gety(), Getm(), Getd(), week_name[Getw()]));
+    // è¡¨ç¤ºå¹…ã®æ›´æ–°
+    SetWidth(GetDrawFormatStringWidthToHandle(hFont_d, "%då¹´%dæœˆ%dæ—¥(%s)", Gety(), Getm(), Getd(), week_name[Getw()]));
 
-    const int year_offset = 2014;   // ‰¹º‚Í2014”N‚©‚ç
+    const int year_offset = 2014;   // éŸ³å£°ã¯2014å¹´ã‹ã‚‰
 
-    // Œ»İ‚Ì“ú•t‚Ì‰¹º‚ğÄ¶‚·‚é
+    // ç¾åœ¨ã®æ—¥ä»˜ã®éŸ³å£°ã‚’å†ç”Ÿã™ã‚‹
     if (!pVoice->IsPlaying()) {
         if (IsClicked() && speaking == None) {
             if (config.sound_year)
@@ -155,7 +155,7 @@ void Date::Update()
 void Time::Update()
 {
     if (!pVoice->IsPlaying()) {
-        // Œ»İ‚Ì‰¹º‚ğÄ¶‚·‚é
+        // ç¾åœ¨æ™‚åˆ»ã®éŸ³å£°ã‚’å†ç”Ÿã™ã‚‹
         if (IsClicked() && speaking == None) {
             if (config.h_form == Form12h)
                 pVoice->SoundTime(Noon, Getn());
@@ -180,7 +180,7 @@ void Time::Update()
         else if (speaking == Tail || speaking == TimeSignal)
             speaking = None;
 
-        // •ñ‚ğ–Â‚ç‚·
+        // æ™‚å ±ã‚’é³´ã‚‰ã™
         else if (time_signal_flag && !pVoice->IsPlaying()) {
             if (pVoice->GetCfg().auto_repro) {
                 pVoice->SoundTime(TimeSignal, Geth());
@@ -190,7 +190,7 @@ void Time::Update()
         }
     }
 
-    // ›‚¿‚å‚¤‚Ç‚É‚È‚Á‚½‚Æ‚«•ñ‚ğ–Â‚ç‚·
+    // â—‹æ™‚ã¡ã‚‡ã†ã©ã«ãªã£ãŸã¨ãæ™‚å ±ã‚’é³´ã‚‰ã™
     if (Getm() == 0 && Gets() == 0 && speaking != TimeSignal)
         time_signal_flag = true;
 }
