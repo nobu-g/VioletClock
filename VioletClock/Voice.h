@@ -1,4 +1,4 @@
-#ifndef VOICE_H
+ï»¿#ifndef VOICE_H
 #define VOICE_H
 
 #include "Base.h"
@@ -12,33 +12,33 @@ using std::unordered_map;
 
 enum eTmData { None, Year, Month, Day, Week, Noon, Hour, TimeSignal, Minute, Tail };
 
-// VoiceŠÖŒW‚Ì’è”
-#define YEAR        7       // ”N‚Ì‰¹º‚Ì”(2014`2020)
-#define MONTH       12      // Œ‚Ì‰¹º‚Ì”(1`12Œ)
-#define DAY         31      // “ú‚Ì‰¹º‚Ì”(1`31“ú)
-#define WEEK        7       // —j“ú‚Ì‰¹º‚Ì”(“ú`“y—j“ú)
-#define NOON        2       // Œß‘OEŒßŒã‚Ì‰¹º‚Ì”
-#define HOUR        24      // ‚Ì‰¹º‚Ì”(0`23)
-#define MINUTE      60      // •ª‚Ì‰¹º‚Ì”(0`59•ª)
-#define TAIL        4       // Œê”ö‚Ìí—Ş(c‚¾‚ËIc‚¾‚æ!c‚É‚È‚Á‚½‚æ!)
-#define SEASON      10      // ƒLƒƒƒ‰‚ª’‚é“ú•tˆË‘¶‚Ì‘äŒ‚Ìí—Ş
-#define SYSTEM      4       // ƒVƒXƒeƒ€‰¹º‚Ìí—Ş
-#define ALARM       7       // ƒAƒ‰[ƒ€ŠÖŒW‚Ì‰¹º‚Ìí—Ş
-#define TIMER       22      // ƒ^ƒCƒ}[ŠÖŒW‚Ì‰¹º‚Ìí—Ş
-#define WORDS       132     // ƒLƒƒƒ‰‚Ì‘äŒ‚Ìí—Ş
+// Voiceé–¢ä¿‚ã®å®šæ•°
+#define YEAR        7       // å¹´ã®éŸ³å£°ã®æ•°(2014ï½2020)
+#define MONTH       12      // æœˆã®éŸ³å£°ã®æ•°(1ï½12æœˆ)
+#define DAY         31      // æ—¥ã®éŸ³å£°ã®æ•°(1ï½31æ—¥)
+#define WEEK        7       // æ›œæ—¥ã®éŸ³å£°ã®æ•°(æ—¥ï½åœŸæ›œæ—¥)
+#define NOON        2       // åˆå‰ãƒ»åˆå¾Œã®éŸ³å£°ã®æ•°
+#define HOUR        24      // æ™‚ã®éŸ³å£°ã®æ•°(0ï½23æ™‚)
+#define MINUTE      60      // åˆ†ã®éŸ³å£°ã®æ•°(0ï½59åˆ†)
+#define TAIL        4       // èªå°¾ã®ç¨®é¡(â€¦ã ã­ï¼â€¦ã ã‚ˆ!â€¦ã«ãªã£ãŸã‚ˆ!)
+#define SEASON      10      // ã‚­ãƒ£ãƒ©ãŒå–‹ã‚‹æ—¥ä»˜ä¾å­˜ã®å°è©ã®ç¨®é¡
+#define SYSTEM      4       // ã‚·ã‚¹ãƒ†ãƒ éŸ³å£°ã®ç¨®é¡
+#define ALARM       7       // ã‚¢ãƒ©ãƒ¼ãƒ é–¢ä¿‚ã®éŸ³å£°ã®ç¨®é¡
+#define TIMER       22      // ã‚¿ã‚¤ãƒãƒ¼é–¢ä¿‚ã®éŸ³å£°ã®ç¨®é¡
+#define WORDS       132     // ã‚­ãƒ£ãƒ©ã®å°è©ã®ç¨®é¡
 
-// ƒLƒƒƒ‰‚Ì‘äŒƒNƒ‰ƒX
+// ã‚­ãƒ£ãƒ©ã®å°è©ã‚¯ãƒ©ã‚¹
 class Words {
-    int hWord;              // ‘äŒ‰¹º‚Ö‚Ìƒnƒ“ƒhƒ‹
+    int hWord;              // å°è©éŸ³å£°ã¸ã®ãƒãƒ³ãƒ‰ãƒ«
 
-    // min_hourmin_minute•ª‚©‚çAmax_hourmax_minute•ª‚ÌŠÔA‘äŒ‚ğ’‚é‚±‚Æ‚ª‚Å‚«‚é
+    // min_houræ™‚min_minuteåˆ†ã‹ã‚‰ã€max_houræ™‚max_minuteåˆ†ã®é–“ã€å°è©ã‚’å–‹ã‚‹ã“ã¨ãŒã§ãã‚‹
     int min_hour;
     int min_minute;
     int max_hour;
     int max_minute;
 
-    bool programmer;        // ƒvƒƒOƒ‰ƒ}—p‚Ì‘äŒ‚©‚Ç‚¤‚©
-    eFace face;             // ‚±‚Ì‘äŒ‚É‡‚Á‚½•\î
+    bool programmer;        // ãƒ—ãƒ­ã‚°ãƒ©ãƒç”¨ã®å°è©ã‹ã©ã†ã‹
+    eFace face;             // ã“ã®å°è©ã«åˆã£ãŸè¡¨æƒ…
 public:
     Words() {}
     Words(eFace f, int hw);
@@ -46,22 +46,22 @@ public:
     Words(double minh, double maxh, bool prg, eFace f, int hw);
     int GetHandle() { return hWord; }
     eFace GetFace() { return face; }
-    // Œ»‚ªmin_hourmin_minute•ª‚©‚çAmax_hourmax_minute•ª‚ÌŠÔ‚É‚ ‚é‚©
+    // ç¾æ™‚åˆ»ãŒmin_houræ™‚min_minuteåˆ†ã‹ã‚‰ã€max_houræ™‚max_minuteåˆ†ã®é–“ã«ã‚ã‚‹ã‹
     bool IsAppropriate();
 };
 
-// ƒTƒEƒ“ƒhİ’è•Û‘¶\‘¢‘Ì
+// ã‚µã‚¦ãƒ³ãƒ‰è¨­å®šä¿å­˜æ§‹é€ ä½“
 struct VoiceCfg {
-    bool sound;                 // ƒTƒEƒ“ƒhON/OFF
-    bool auto_repro;            // ©“®Ä¶ON/OFF
-    bool for_prg;               // ƒvƒƒOƒ‰ƒ}—pƒ{ƒCƒX‚ğ—¬‚·‚©‚Ç‚¤‚©
-    bool first_time;            // ‰‰ñ‹N“®‚©‚Ç‚¤‚©
-    void Check() {}             // ƒƒ“ƒo‚ª•s³‚È’l‚ÌC³‚·‚é
+    bool sound;                 // ã‚µã‚¦ãƒ³ãƒ‰ON/OFF
+    bool auto_repro;            // è‡ªå‹•å†ç”ŸON/OFF
+    bool for_prg;               // ãƒ—ãƒ­ã‚°ãƒ©ãƒç”¨ãƒœã‚¤ã‚¹ã‚’æµã™ã‹ã©ã†ã‹
+    bool first_time;            // åˆå›èµ·å‹•ã‹ã©ã†ã‹
+    void Check() {}             // ãƒ¡ãƒ³ãƒãŒä¸æ­£ãªå€¤ã®æ™‚ä¿®æ­£ã™ã‚‹
 };
 
-// ‰¹ºŠÇ—ƒNƒ‰ƒX
+// éŸ³å£°ç®¡ç†ã‚¯ãƒ©ã‚¹
 class Voice : public IOBase<VoiceCfg> {
-    // ‚»‚ê‚¼‚ê‰¹º‚Ìƒnƒ“ƒhƒ‹‚ğŠi”[
+    // ãã‚Œãã‚ŒéŸ³å£°ã®ãƒãƒ³ãƒ‰ãƒ«ã‚’æ ¼ç´
     array<int, YEAR>    hYear;
     array<int, MONTH>   hMonth;
     array<int, DAY>     hDay;
@@ -82,32 +82,32 @@ class Voice : public IOBase<VoiceCfg> {
 
     array<Words, WORDS> words;
 
-    int hPlaying;               // ÅŒã‚ÉÄ¶‚µ‚½‰¹º‚Ìƒnƒ“ƒhƒ‹
-    eFace face;                 // ÅŒã‚ÉÄ¶‚µ‚½‰¹º‚É‡‚Á‚½•\î
+    int hPlaying;               // æœ€å¾Œã«å†ç”Ÿã—ãŸéŸ³å£°ã®ãƒãƒ³ãƒ‰ãƒ«
+    eFace face;                 // æœ€å¾Œã«å†ç”Ÿã—ãŸéŸ³å£°ã«åˆã£ãŸè¡¨æƒ…
 public:
-    Voice();                                    // ‰¹ºƒtƒ@ƒCƒ‹‚Ìƒ[ƒh‚È‚Ç
+    Voice();                                    // éŸ³å£°ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ­ãƒ¼ãƒ‰ãªã©
 
-    void SoundTime(eTmData data, int index);    // ŠÔŠÖ˜A‚Ì‰¹‚ğÄ¶‚·‚é
-    void SoundWords();                          // ƒLƒƒƒ‰‚ÌƒZƒŠƒt‚ğÄ¶‚·‚é
-    void SoundSys(int index);                   // ƒVƒXƒeƒ€‰¹º‚ğÄ¶‚·‚é
-    void SoundKey(KeyCode key);                 // ƒL[‚ğ“Ç‚İã‚°‚é
-    void SoundAlarm();                          // ’Êí‚ÌƒAƒ‰[ƒ€‰¹‚ğÄ¶‚·‚é
-    void SoundWakeUp();                         // –ÚŠo‚Ü‚µ‚ÌƒAƒ‰[ƒ€‰¹‚ğÄ¶‚·‚é
+    void SoundTime(eTmData data, int index);    // æ™‚é–“é–¢é€£ã®éŸ³ã‚’å†ç”Ÿã™ã‚‹
+    void SoundWords();                          // ã‚­ãƒ£ãƒ©ã®ã‚»ãƒªãƒ•ã‚’å†ç”Ÿã™ã‚‹
+    void SoundSys(int index);                   // ã‚·ã‚¹ãƒ†ãƒ éŸ³å£°ã‚’å†ç”Ÿã™ã‚‹
+    void SoundKey(KeyCode key);                 // ã‚­ãƒ¼ã‚’èª­ã¿ä¸Šã’ã‚‹
+    void SoundAlarm();                          // é€šå¸¸ã®ã‚¢ãƒ©ãƒ¼ãƒ éŸ³ã‚’å†ç”Ÿã™ã‚‹
+    void SoundWakeUp();                         // ç›®è¦šã¾ã—ã®ã‚¢ãƒ©ãƒ¼ãƒ éŸ³ã‚’å†ç”Ÿã™ã‚‹
 
     enum eTimerVoice {
         Start1, Start2,
         Last1m, Last30, Last1, Last2, Last3, Last4, Last5, Last6, Last7, Last8, Last9, Last10,
         Over1, Over2, Over3, Over4, Over5, Over6, Over7, Over8
     };
-    void SoundTimer(eTimerVoice voice);         // ƒ^ƒCƒ}[ŠÖŒW‚Ì‰¹‚ğÄ¶‚·‚é
+    void SoundTimer(eTimerVoice voice);         // ã‚¿ã‚¤ãƒãƒ¼é–¢ä¿‚ã®éŸ³ã‚’å†ç”Ÿã™ã‚‹
 
-    bool IsPlaying();                           // Œ»İ‰¹º‚ªÄ¶’†‚©
-    bool IsTimerPlaying();                      // Œ»İƒ^ƒCƒ}[ŠÖŒW‚Ì‰¹º‚ªÄ¶’†‚©
-    void Repeat();                              // ’¼‘O‚ÉÄ¶‚µ‚½‰¹º‚ğ‚à‚¤ˆê“xÄ¶
-    void StopSound();                           // Œ»İ–Â‚Á‚Ä‚¢‚éƒTƒEƒ“ƒh‚ğ~‚ß‚é
+    bool IsPlaying();                           // ç¾åœ¨éŸ³å£°ãŒå†ç”Ÿä¸­ã‹
+    bool IsTimerPlaying();                      // ç¾åœ¨ã‚¿ã‚¤ãƒãƒ¼é–¢ä¿‚ã®éŸ³å£°ãŒå†ç”Ÿä¸­ã‹
+    void Repeat();                              // ç›´å‰ã«å†ç”Ÿã—ãŸéŸ³å£°ã‚’ã‚‚ã†ä¸€åº¦å†ç”Ÿ
+    void StopSound();                           // ç¾åœ¨é³´ã£ã¦ã„ã‚‹ã‚µã‚¦ãƒ³ãƒ‰ã‚’æ­¢ã‚ã‚‹
     enum eCfg { Sound, AutoRepro, ForPrg, FirstTime };
-    void SetCfg(eCfg cfg, int value);           // İ’è‚ğ•ÏX‚·‚é
-    eFace GetFace() { return face; }            // –Â‚Á‚Ä‚¢‚éƒTƒEƒ“ƒh‚É‚Ó‚³‚í‚µ‚¢ƒLƒƒƒ‰‚Ì•\î‚ğ•Ô‚·
+    void SetCfg(eCfg cfg, int value);           // è¨­å®šã‚’å¤‰æ›´ã™ã‚‹
+    eFace GetFace() { return face; }            // é³´ã£ã¦ã„ã‚‹ã‚µã‚¦ãƒ³ãƒ‰ã«ãµã•ã‚ã—ã„ã‚­ãƒ£ãƒ©ã®è¡¨æƒ…ã‚’è¿”ã™
 };
 
 extern Voice *pVoice;

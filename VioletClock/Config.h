@@ -1,4 +1,4 @@
-#ifndef CONFIG_H
+ï»¿#ifndef CONFIG_H
 #define CONFIG_H
 
 #include "Main.h"
@@ -10,28 +10,28 @@
 using std::string;
 using std::vector;
 
-// ƒfƒUƒCƒ“ŠÖŒW‚Ì’è”
-#define FSIZE_CHOICE        SCALEY(17)          // ‘I‘ğˆƒ{ƒ^ƒ“‚ÌƒtƒHƒ“ƒgƒTƒCƒY
-#define FSIZE_MAIN          SCALEY(20)          // İ’è‰æ–Ê“™‚Åg‚¤å—vƒtƒHƒ“ƒgƒTƒCƒY
+// ãƒ‡ã‚¶ã‚¤ãƒ³é–¢ä¿‚ã®å®šæ•°
+#define FSIZE_CHOICE        SCALEY(17)          // é¸æŠè‚¢ãƒœã‚¿ãƒ³ã®ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
+#define FSIZE_MAIN          SCALEY(20)          // è¨­å®šç”»é¢ç­‰ã§ä½¿ã†ä¸»è¦ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 
-// ƒ{ƒ^ƒ“‚ÌÀ•WŠÖŒW‚Ì’è”
-#define COMP_X              SCALEX(370)         // Š®—¹ƒ{ƒ^ƒ“‚ÌxÀ•W
-#define COMP_Y              SCALEY(435)         // Š®—¹ƒ{ƒ^ƒ“‚ÌyÀ•W
-#define COMP_W              SCALEX(120)         // Š®—¹ƒ{ƒ^ƒ“‚Ì•
-#define CANCEL_X            SCALEX(500)         // ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‚ÌxÀ•W
-#define CANCEL_Y            SCALEY(435)         // ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‚ÌyÀ•W
-#define CANCEL_W            SCALEX(120)         // ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‚Ì•
-#define RESET_X             SCALEX(25)          // Šù’è’l‚É–ß‚·ƒ{ƒ^ƒ“‚ÌxÀ•W
-#define RESET_Y             SCALEY(435)         // Šù’è’l‚É–ß‚·ƒ{ƒ^ƒ“‚ÌyÀ•W
-#define RESET_W             SCALEX(150)         // Šù’è’l‚É–ß‚·ƒ{ƒ^ƒ“‚Ì•
+// ãƒœã‚¿ãƒ³ã®åº§æ¨™é–¢ä¿‚ã®å®šæ•°
+#define COMP_X              SCALEX(370)         // å®Œäº†ãƒœã‚¿ãƒ³ã®xåº§æ¨™
+#define COMP_Y              SCALEY(435)         // å®Œäº†ãƒœã‚¿ãƒ³ã®yåº§æ¨™
+#define COMP_W              SCALEX(120)         // å®Œäº†ãƒœã‚¿ãƒ³ã®å¹…
+#define CANCEL_X            SCALEX(500)         // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ã®xåº§æ¨™
+#define CANCEL_Y            SCALEY(435)         // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ã®yåº§æ¨™
+#define CANCEL_W            SCALEX(120)         // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ã®å¹…
+#define RESET_X             SCALEX(25)          // æ—¢å®šå€¤ã«æˆ»ã™ãƒœã‚¿ãƒ³ã®xåº§æ¨™
+#define RESET_Y             SCALEY(435)         // æ—¢å®šå€¤ã«æˆ»ã™ãƒœã‚¿ãƒ³ã®yåº§æ¨™
+#define RESET_W             SCALEX(150)         // æ—¢å®šå€¤ã«æˆ»ã™ãƒœã‚¿ãƒ³ã®å¹…
 
-// İ’è‰æ–Ê“™‚Ìì‹Æ—Ìˆæ(F‚ª”–‚¢ƒGƒŠƒA)ŠÖŒW‚Ì’è”
-#define MAINAREA_X          SCALEX(5)           // ì‹Æ—Ìˆæ‚ÌxÀ•W
-#define MAINAREA_Y          SCALEY(37)          // ì‹Æ—Ìˆæ‚ÌyÀ•W
-#define MAINAREA_W          SCALEX(630)         // ì‹Æ—Ìˆæ‚Ì•
-#define MAINAREA_H          SCALEY(389)         // ì‹Æ—Ìˆæ‚Ì‚‚³
+// è¨­å®šç”»é¢ç­‰ã®ä½œæ¥­é ˜åŸŸ(è‰²ãŒè–„ã„ã‚¨ãƒªã‚¢)é–¢ä¿‚ã®å®šæ•°
+#define MAINAREA_X          SCALEX(5)           // ä½œæ¥­é ˜åŸŸã®xåº§æ¨™
+#define MAINAREA_Y          SCALEY(37)          // ä½œæ¥­é ˜åŸŸã®yåº§æ¨™
+#define MAINAREA_W          SCALEX(630)         // ä½œæ¥­é ˜åŸŸã®å¹…
+#define MAINAREA_H          SCALEY(389)         // ä½œæ¥­é ˜åŸŸã®é«˜ã•
 
-// ‘I‘ğ€–Ú‚ÌÀ•WŠÖŒW‚Ì’è”
+// é¸æŠé …ç›®ã®åº§æ¨™é–¢ä¿‚ã®å®šæ•°
 #define HFORM_X             (MAINAREA_X + SCALEX(15))
 #define HFORM_Y             (MAINAREA_Y + SCALEY(15))
 #define HFORM_W             SCALEX(280)
@@ -61,7 +61,7 @@ using std::vector;
 #define FORPRG_W            SCALEX(280)
 #define FORPRG_H            SCALEY(57)
 
-// ƒ^ƒuŠÖŒW‚Ì’è”
+// ã‚¿ãƒ–é–¢ä¿‚ã®å®šæ•°
 #define TAB_X               MAINAREA_X
 #define TAB_Y               SCALEY(7)
 #define TAB_H               (MAINAREA_Y - TAB_Y)
@@ -74,31 +74,31 @@ using std::vector;
 #define TAB_SETBIRTHDAY_W   (TAB_SPACE * 2 + FSIZE_MAIN * 5)
 #define TAB_STRING_Y        SCALEY(14)
 
-// ’a¶“úİ’èŠÖŒW‚Ì’è”
-#define BIRTHDAY_X          SCALEX(95)          // •\¦‚³‚ê‚½’a¶“ú‚ÌxÀ•W
-#define BIRTHDAY_Y          SCALEY(181)         // •\¦‚³‚ê‚½’a¶“ú‚ÌyÀ•W
-#define FSIZE_BD            SCALEY(100)         // ’a¶“ú‚ÌƒtƒHƒ“ƒgƒTƒCƒY
+// èª•ç”Ÿæ—¥è¨­å®šé–¢ä¿‚ã®å®šæ•°
+#define BIRTHDAY_X          SCALEX(95)          // è¡¨ç¤ºã•ã‚ŒãŸèª•ç”Ÿæ—¥ã®xåº§æ¨™
+#define BIRTHDAY_Y          SCALEY(181)         // è¡¨ç¤ºã•ã‚ŒãŸèª•ç”Ÿæ—¥ã®yåº§æ¨™
+#define FSIZE_BD            SCALEY(100)         // èª•ç”Ÿæ—¥ã®ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 
-// İ’èƒf[ƒ^ˆê•Û‘¶ƒNƒ‰ƒX
+// è¨­å®šãƒ‡ãƒ¼ã‚¿ä¸€æ™‚ä¿å­˜ã‚¯ãƒ©ã‚¹
 class CfgData {
 public:
     VoiceCfg vcfg;
     DateCfg dcfg;
     TimeCfg tcfg;
 
-    CfgData();                  // Œ»İ‚Ìİ’è‚ğ“Ç‚İ‚Ş
-    void Default();             // (’a¶“úˆÈŠO‚Ì)ƒƒ“ƒo‚ğƒfƒtƒHƒ‹ƒg’l‚É–ß‚·
-    void DefaultBd();           // ’a¶“ú‚ğƒfƒtƒHƒ‹ƒg’l‚É–ß‚·
+    CfgData();                  // ç¾åœ¨ã®è¨­å®šã‚’èª­ã¿è¾¼ã‚€
+    void Default();             // (èª•ç”Ÿæ—¥ä»¥å¤–ã®)ãƒ¡ãƒ³ãƒã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã«æˆ»ã™
+    void DefaultBd();           // èª•ç”Ÿæ—¥ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã«æˆ»ã™
 };
 
 template <class DataType> class Choice;
-// İ’è€–ÚƒNƒ‰ƒX
+// è¨­å®šé …ç›®ã‚¯ãƒ©ã‚¹
 template <class DataType>
 class Item : public Area {
-    int x, y;                               // €–Ú–¼‚ğ•\¦‚·‚éÀ•W
-    string name;                            // €–Ú–¼
-    DataType &data;                         // ‚±‚Ì€–Ú‚ªQÆ‚·‚éİ’èƒf[ƒ^
-    vector<Choice<DataType> *> pChoice;     // ‘I‘ğˆ
+    int x, y;                               // é …ç›®åã‚’è¡¨ç¤ºã™ã‚‹åº§æ¨™
+    string name;                            // é …ç›®å
+    DataType &data;                         // ã“ã®é …ç›®ãŒå‚ç…§ã™ã‚‹è¨­å®šãƒ‡ãƒ¼ã‚¿
+    vector<Choice<DataType> *> pChoice;     // é¸æŠè‚¢
 public:
     Item(int x0, int y0, int w, int h, string str, DataType &ref);
     ~Item();
@@ -107,23 +107,23 @@ public:
     void Draw();
 };
 
-// İ’è€–Ú‚Ì‘I‘ğˆƒNƒ‰ƒX
+// è¨­å®šé …ç›®ã®é¸æŠè‚¢ã‚¯ãƒ©ã‚¹
 template <class DataType>
 class Choice : public Area {
-    string name;                    // ‘I‘ğˆ–¼(ON/OFF‚È‚Ç)
-    int str_width;                  // •\¦‚³‚ê‚é‘I‘ğˆ–¼‚Ì•
-    DataType value;                 // ‘I‘ğˆŒÅ—L‚Ì’l
+    string name;                    // é¸æŠè‚¢å(ON/OFFãªã©)
+    int str_width;                  // è¡¨ç¤ºã•ã‚Œã‚‹é¸æŠè‚¢åã®å¹…
+    DataType value;                 // é¸æŠè‚¢å›ºæœ‰ã®å€¤
 public:
     Choice(int x, int y, int w, string str, DataType val);
-    void Set(DataType &data);       // data‚ğ’lvalue‚Éİ’è‚·‚é                  
-    void Draw(DataType &data);      // ‘I‘ğˆ‚Ì•¶š‚âƒ}[ƒJ[‚ğ•\¦v
+    void Set(DataType &data);       // dataã‚’å€¤valueã«è¨­å®šã™ã‚‹                  
+    void Draw(DataType &data);      // é¸æŠè‚¢ã®æ–‡å­—ã‚„ãƒãƒ¼ã‚«ãƒ¼ã‚’è¡¨ç¤ºã€
 };
 
-// ’²®ƒNƒ‰ƒX
+// æ™‚åˆ»èª¿æ•´ã‚¯ãƒ©ã‚¹
 class ConfigTime : public TimeSrc {
     enum eTimeCfgStatus { Invariable, HVariable, MinVariable, YVariable, MonVariable, DVariable };
     eTimeCfgStatus status;
-    int changing;       // ”’l•ÏX‚©‚ç30ƒtƒŒ[ƒ€‚ğ”‚¦‚é
+    int changing;       // æ•°å€¤å¤‰æ›´ã‹ã‚‰30ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æ•°ãˆã‚‹
 public:
     ConfigTime();
     void Update();
@@ -131,13 +131,13 @@ public:
     void ResetStatus() { status = Invariable; }
 };
 
-// ’a¶“úİ’èƒNƒ‰ƒX
+// èª•ç”Ÿæ—¥è¨­å®šã‚¯ãƒ©ã‚¹
 class SetBirthday : public Area {
     DateCfg &dcfg;
 
     enum eDateCfgStatus { Invariable, MVariable, DVariable };
     eDateCfgStatus status;
-    int changing;       // ”’l•ÏX‚©‚ç30ƒtƒŒ[ƒ€”‚¦‚é
+    int changing;       // æ•°å€¤å¤‰æ›´ã‹ã‚‰30ãƒ•ãƒ¬ãƒ¼ãƒ æ•°ãˆã‚‹
 public:
     SetBirthday(DateCfg &ref);
     void Update();
@@ -145,20 +145,20 @@ public:
     void ResetStatus() { status = Invariable; }
 };
 
-// ƒtƒHƒ“ƒgƒf[ƒ^‚ğì‚é‚½‚ß‚ÌƒNƒ‰ƒX
+// ãƒ•ã‚©ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ä½œã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹
 class FontMaker {
 public:
     FontMaker();
 };
 
-// İ’è‰æ–ÊƒNƒ‰ƒX
+// è¨­å®šç”»é¢ã‚¯ãƒ©ã‚¹
 class Config : public BaseScene, public FontMaker {
     enum eTab { Tab_MainCfg, Tab_TimeAdj, Tab_SetBirthday };
-    eTab tab;                   // Œ»İ•\¦‚µ‚Ä‚¢‚éƒ^ƒu
-    CfgData temp;               // •ÏXƒf[ƒ^‚ğˆê•Û‘¶
+    eTab tab;                   // ç¾åœ¨è¡¨ç¤ºã—ã¦ã„ã‚‹ã‚¿ãƒ–
+    CfgData temp;               // å¤‰æ›´ãƒ‡ãƒ¼ã‚¿ã‚’ä¸€æ™‚ä¿å­˜
 
-    ConfigTime cfg_time;        // İ’è—pƒIƒuƒWƒFƒNƒg
-    SetBirthday set_bd;         // ’a¶“úİ’è—pƒIƒuƒWƒFƒNƒg
+    ConfigTime cfg_time;        // æ™‚åˆ»è¨­å®šç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+    SetBirthday set_bd;         // èª•ç”Ÿæ—¥è¨­å®šç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
     Item<eHourForm> h_form;
     Item<bool> auto_repro;
@@ -168,9 +168,9 @@ class Config : public BaseScene, public FontMaker {
     Item<eTail> tail_time;
     Item<bool> for_prg;
 
-    Button reset;               // Šù’è’l‚É–ß‚·ƒ{ƒ^ƒ“
-    Button complete;            // İ’èŠ®—¹ƒ{ƒ^ƒ“
-    Button cancel;              // ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+    Button reset;               // æ—¢å®šå€¤ã«æˆ»ã™ãƒœã‚¿ãƒ³
+    Button complete;            // è¨­å®šå®Œäº†ãƒœã‚¿ãƒ³
+    Button cancel;              // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 public:
     Config(ISceneChanger *changer);
     ~Config();
@@ -178,7 +178,7 @@ public:
     void Finalize() {}
     void Update();
     void Draw();
-    void Reflect();             // temp‚ª‚Âİ’è‚ğ”½‰f‚³‚¹‚é
+    void Reflect();             // tempãŒæŒã¤è¨­å®šã‚’åæ˜ ã•ã›ã‚‹
 };
 
 #endif // !CONFIG_H

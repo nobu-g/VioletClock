@@ -1,55 +1,55 @@
-#ifndef BUTTON_H
+ï»¿#ifndef BUTTON_H
 #define BUTTON_H
 
 #include "Base.h"
 #include <string>
 using std::string;
 
-#define PI 3.141592653589793        // ‰~Žü—¦
+#define PI 3.141592653589793        // å††å‘¨çŽ‡
 
-// Ý’èƒ{ƒ^ƒ“ŠÖŒW‚Ì’è”
-#define CFG_X           SCALEX(570)         // Ý’èƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define CFG_Y           SCALEY(400)         // Ý’èƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define CFG_W           SCALEX(40)          // Ý’èƒ{ƒ^ƒ“‚Ì•
-#define CFG_H           SCALEY(40)          // Ý’èƒ{ƒ^ƒ“‚Ì‚‚³
+// è¨­å®šãƒœã‚¿ãƒ³é–¢ä¿‚ã®å®šæ•°
+#define CFG_X           SCALEX(570)         // è¨­å®šãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define CFG_Y           SCALEY(400)         // è¨­å®šãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define CFG_W           SCALEX(40)          // è¨­å®šãƒœã‚¿ãƒ³ã®å¹…
+#define CFG_H           SCALEY(40)          // è¨­å®šãƒœã‚¿ãƒ³ã®é«˜ã•
 
-// ‚à‚¤ˆê“xÄ¶ƒ{ƒ^ƒ“ŠÖŒW‚Ì’è”
-#define RPT_X           SCALEX(500)         // ‚à‚¤ˆê“xÄ¶ƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define RPT_Y           SCALEY(400)         // ‚à‚¤ˆê“xÄ¶ƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define RPT_W           SCALEX(40)          // ‚à‚¤ˆê“xÄ¶ƒ{ƒ^ƒ“‚Ì•
-#define RPT_H           SCALEY(40)          // ‚à‚¤ˆê“xÄ¶ƒ{ƒ^ƒ“‚Ì‚‚³
+// ã‚‚ã†ä¸€åº¦å†ç”Ÿãƒœã‚¿ãƒ³é–¢ä¿‚ã®å®šæ•°
+#define RPT_X           SCALEX(500)         // ã‚‚ã†ä¸€åº¦å†ç”Ÿãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define RPT_Y           SCALEY(400)         // ã‚‚ã†ä¸€åº¦å†ç”Ÿãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define RPT_W           SCALEX(40)          // ã‚‚ã†ä¸€åº¦å†ç”Ÿãƒœã‚¿ãƒ³ã®å¹…
+#define RPT_H           SCALEY(40)          // ã‚‚ã†ä¸€åº¦å†ç”Ÿãƒœã‚¿ãƒ³ã®é«˜ã•
 
-// ƒ~ƒ…[ƒgƒ{ƒ^ƒ“ŠÖŒW‚Ì’è”
-#define MUTE_X          SCALEX(430)         // ƒ~ƒ…[ƒgƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define MUTE_Y          SCALEY(400)         // ƒ~ƒ…[ƒgƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define MUTE_W          SCALEX(40)          // ƒ~ƒ…[ƒgƒ{ƒ^ƒ“‚Ì•
-#define MUTE_H          SCALEY(40)          // ƒ~ƒ…[ƒgƒ{ƒ^ƒ“‚Ì‚‚³
+// ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³é–¢ä¿‚ã®å®šæ•°
+#define MUTE_X          SCALEX(430)         // ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define MUTE_Y          SCALEY(400)         // ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define MUTE_W          SCALEX(40)          // ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³ã®å¹…
+#define MUTE_H          SCALEY(40)          // ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³ã®é«˜ã•
 
-// ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“ŠÖŒW‚Ì’è”
-#define ALM_X           SCALEX(360)         // ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define ALM_Y           SCALEY(400)         // ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define ALM_W           SCALEX(40)          // ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“‚Ì•
-#define ALM_H           SCALEY(40)          // ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“‚Ì‚‚³
+// ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³é–¢ä¿‚ã®å®šæ•°
+#define ALM_X           SCALEX(360)         // ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define ALM_Y           SCALEY(400)         // ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define ALM_W           SCALEX(40)          // ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³ã®å¹…
+#define ALM_H           SCALEY(40)          // ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³ã®é«˜ã•
 
-// ƒ^ƒCƒ}[ŠÖŒW‚Ì’è”
-#define TMR_X           SCALEX(290)         // ƒ^ƒCƒ}[ƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define TMR_Y           SCALEY(400)         // ƒ^ƒCƒ}[ƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define TMR_W           SCALEX(40)          // ƒ^ƒCƒ}[ƒ{ƒ^ƒ“‚Ì•
-#define TMR_H           SCALEY(40)          // ƒ^ƒCƒ}[ƒ{ƒ^ƒ“‚Ì‚‚³
-#define TMRSTART_X      SCALEX(400)         // ƒXƒ^[ƒgƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define TMRSTART_Y      SCALEY(300)         // ƒXƒ^[ƒgƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define TMRSTART_W      SCALEX(100)         // ƒXƒ^[ƒgƒ{ƒ^ƒ“‚Ì•
-#define TMRRESET_X      SCALEX(140)         // ƒŠƒZƒbƒgƒ{ƒ^ƒ“¶ã‚ÌxÀ•W
-#define TMRRESET_Y      SCALEY(300)         // ƒŠƒZƒbƒgƒ{ƒ^ƒ“¶ã‚ÌyÀ•W
-#define TMRRESET_W      SCALEX(100)         // ƒŠƒZƒbƒgƒ{ƒ^ƒ“‚Ì•
-#define TMRCHANGE_X     SCALEX(560)         // ƒ{ƒCƒX•ÏXƒ{ƒ^ƒ“‚ÌxÀ•W
-#define TMRCHANGE_Y     SCALEY(388)         // ƒ{ƒCƒX•ÏXƒ{ƒ^ƒ“‚ÌyÀ•W
-#define TMRCHANGE_W     SCALEX(48)          // ƒ{ƒCƒX•ÏXƒ{ƒ^ƒ“‚Ì•
-#define TMRCHANGE_H     SCALEY(20)          // ƒ{ƒCƒX•ÏXƒ{ƒ^ƒ“‚Ì‚‚³
+// ã‚¿ã‚¤ãƒžãƒ¼é–¢ä¿‚ã®å®šæ•°
+#define TMR_X           SCALEX(290)         // ã‚¿ã‚¤ãƒžãƒ¼ãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define TMR_Y           SCALEY(400)         // ã‚¿ã‚¤ãƒžãƒ¼ãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define TMR_W           SCALEX(40)          // ã‚¿ã‚¤ãƒžãƒ¼ãƒœã‚¿ãƒ³ã®å¹…
+#define TMR_H           SCALEY(40)          // ã‚¿ã‚¤ãƒžãƒ¼ãƒœã‚¿ãƒ³ã®é«˜ã•
+#define TMRSTART_X      SCALEX(400)         // ã‚¹ã‚¿ãƒ¼ãƒˆãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define TMRSTART_Y      SCALEY(300)         // ã‚¹ã‚¿ãƒ¼ãƒˆãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define TMRSTART_W      SCALEX(100)         // ã‚¹ã‚¿ãƒ¼ãƒˆãƒœã‚¿ãƒ³ã®å¹…
+#define TMRRESET_X      SCALEX(140)         // ãƒªã‚»ãƒƒãƒˆãƒœã‚¿ãƒ³å·¦ä¸Šã®xåº§æ¨™
+#define TMRRESET_Y      SCALEY(300)         // ãƒªã‚»ãƒƒãƒˆãƒœã‚¿ãƒ³å·¦ä¸Šã®yåº§æ¨™
+#define TMRRESET_W      SCALEX(100)         // ãƒªã‚»ãƒƒãƒˆãƒœã‚¿ãƒ³ã®å¹…
+#define TMRCHANGE_X     SCALEX(560)         // ãƒœã‚¤ã‚¹å¤‰æ›´ãƒœã‚¿ãƒ³ã®xåº§æ¨™
+#define TMRCHANGE_Y     SCALEY(388)         // ãƒœã‚¤ã‚¹å¤‰æ›´ãƒœã‚¿ãƒ³ã®yåº§æ¨™
+#define TMRCHANGE_W     SCALEX(48)          // ãƒœã‚¤ã‚¹å¤‰æ›´ãƒœã‚¿ãƒ³ã®å¹…
+#define TMRCHANGE_H     SCALEY(20)          // ãƒœã‚¤ã‚¹å¤‰æ›´ãƒœã‚¿ãƒ³ã®é«˜ã•
 
-#define MARGIN          SCALEY(8)           // ƒ{ƒ^ƒ“‚Ì•¶Žš‚Ìã‰º‚ÌƒXƒy[ƒX
+#define MARGIN          SCALEY(8)           // ãƒœã‚¿ãƒ³ã®æ–‡å­—ã®ä¸Šä¸‹ã®ã‚¹ãƒšãƒ¼ã‚¹
 
-// ‚à‚¤ˆê“xÄ¶ƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// ã‚‚ã†ä¸€åº¦å†ç”Ÿãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class RptButton : public Area {
     static int hImage;
 public:
@@ -58,7 +58,7 @@ public:
     void Update();
 };
 
-// Ý’èƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// è¨­å®šãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class CfgButton : public Area {
     static int hImage;
 public:
@@ -66,7 +66,7 @@ public:
     void Draw();
 };
 
-// ƒ~ƒ…[ƒgƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// ãƒŸãƒ¥ãƒ¼ãƒˆãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class MuteButton : public Area {
     static int hSnd_img;
     static int hMute_img;
@@ -76,7 +76,7 @@ public:
     void Update();
 };
 
-// ƒAƒ‰[ƒ€ƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// ã‚¢ãƒ©ãƒ¼ãƒ ãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class AlmButton : public Area {
     static int hBase;
     static int hHand;
@@ -85,7 +85,7 @@ public:
     void Draw();
 };
 
-// ƒ^ƒCƒ}[ƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// ã‚¿ã‚¤ãƒžãƒ¼ãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class TmrButton : public Area {
     static int hImage;
 public:
@@ -93,36 +93,36 @@ public:
     void Draw();
 };
 
-// ƒ^ƒCƒ}[‰æ–Ê‚ÌƒXƒ^[ƒg/ˆêŽž’âŽ~ƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// ã‚¿ã‚¤ãƒžãƒ¼ç”»é¢ã®ã‚¹ã‚¿ãƒ¼ãƒˆ/ä¸€æ™‚åœæ­¢ãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class TmrStartButton : public Area {
-    int hFont;                  // •\Ž¦‚·‚é•¶Žš—ñ‚ÌƒtƒHƒ“ƒg
+    int hFont;                  // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã®ãƒ•ã‚©ãƒ³ãƒˆ
 public:
     TmrStartButton(int hF);
     void Draw();
 };
 
-// ƒ^ƒCƒ}[‰æ–Ê‚ÌƒŠƒZƒbƒgƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// ã‚¿ã‚¤ãƒžãƒ¼ç”»é¢ã®ãƒªã‚»ãƒƒãƒˆãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class TmrResetButton : public Area {
-    int hFont;                  // •\Ž¦‚·‚é•¶Žš—ñ‚ÌƒtƒHƒ“ƒg
+    int hFont;                  // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã®ãƒ•ã‚©ãƒ³ãƒˆ
 public:
     TmrResetButton(int hF);
     void Draw();
 };
 
-// ƒ^ƒCƒ}[‰æ–Ê‚ÌI—¹Žž‰¹º•ÏXƒ{ƒ^ƒ“
+// ã‚¿ã‚¤ãƒžãƒ¼ç”»é¢ã®çµ‚äº†æ™‚éŸ³å£°å¤‰æ›´ãƒœã‚¿ãƒ³
 class TmrVoiceChgButton : public Area {
-    int hFont;                  // •\Ž¦‚·‚é•¶Žš—ñ‚ÌƒtƒHƒ“ƒg
+    int hFont;                  // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã®ãƒ•ã‚©ãƒ³ãƒˆ
 public:
     TmrVoiceChgButton();
     ~TmrVoiceChgButton();
     void Draw();
 };
 
-// Ý’è‰æ–Ê‚»‚Ì‘¼‚Ìƒ{ƒ^ƒ“ƒNƒ‰ƒX
+// è¨­å®šç”»é¢ãã®ä»–ã®ãƒœã‚¿ãƒ³ã‚¯ãƒ©ã‚¹
 class Button : public Area {
-    string name;                // ƒ{ƒ^ƒ“‚É•\Ž¦‚·‚é•¶Žš—ñ
-    int str_width;              // •\Ž¦‚³‚ê‚é•¶Žš—ñ‚Ì•
-    int hFont;                  // •\Ž¦‚·‚é•¶Žš—ñ‚ÌƒtƒHƒ“ƒg
+    string name;                // ãƒœã‚¿ãƒ³ã«è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—
+    int str_width;              // è¡¨ç¤ºã•ã‚Œã‚‹æ–‡å­—åˆ—ã®å¹…
+    int hFont;                  // è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã®ãƒ•ã‚©ãƒ³ãƒˆ
 public:
     Button(int x, int y, int w, string str, int hF);
     Button() : Area(0, 0, 0, 0) {}

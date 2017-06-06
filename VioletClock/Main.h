@@ -1,12 +1,12 @@
-#ifndef MAIN_H
+ï»¿#ifndef MAIN_H
 #define MAIN_H
 
 #include "Base.h"
 
-// ƒV[ƒ“ŠÇ—ƒNƒ‰ƒX
+// ã‚·ãƒ¼ãƒ³ç®¡ç†ã‚¯ãƒ©ã‚¹
 class SceneMgr : public ISceneChanger {
-    BaseScene *pScene;      // ƒV[ƒ“ŠÇ—•Ï”
-    eScene next_scene;      // Ÿ‚ÌƒV[ƒ“ŠÇ—•Ï”
+    BaseScene *pScene;      // ã‚·ãƒ¼ãƒ³ç®¡ç†å¤‰æ•°
+    eScene next_scene;      // æ¬¡ã®ã‚·ãƒ¼ãƒ³ç®¡ç†å¤‰æ•°
 public:
     SceneMgr();
     void Initialize();
@@ -14,10 +14,10 @@ public:
     void Update();
     void Draw() { pScene->Draw(); }
 
-    void ChangeScene(eScene next) { next_scene = next;  /* Ÿ‚ÌƒV[ƒ“‚ğƒZƒbƒg‚·‚é */ }
+    void ChangeScene(eScene next) { next_scene = next;  /* æ¬¡ã®ã‚·ãƒ¼ãƒ³ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ */ }
 };
 
-// ƒƒCƒ“ƒNƒ‰ƒX
+// ãƒ¡ã‚¤ãƒ³ã‚¯ãƒ©ã‚¹
 class Main {
 public:
     void Init();

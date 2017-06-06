@@ -1,34 +1,34 @@
-#ifndef TIMER_H
+ï»¿#ifndef TIMER_H
 #define TIMER_H
 
 #include "Base.h"
 #include "Config.h"
 #include "Button.h"
 
-// ƒtƒHƒ“ƒgƒTƒCƒY
+// ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 #define FSIZE_HMS       SCALEY(100)
 #define FSIZE_VSELECT   SCALEY(16)
 
-// ŠÔ•\¦•”•ªŠÖŒW‚Ì’è”
+// æ™‚é–“è¡¨ç¤ºéƒ¨åˆ†é–¢ä¿‚ã®å®šæ•°
 #define TMRTIME_X       SCALEX(145)
 #define TMRTIME_Y       SCALEY(150)
 #define TMRTIME_W       (STOW(FSIZE_HMS) * 7)
 #define TMRTIME_H       FSIZE_HMS
 
-// –ß‚éƒ{ƒ^ƒ“ŠÖŒW‚Ì’è”
+// æˆ»ã‚‹ãƒœã‚¿ãƒ³é–¢ä¿‚ã®å®šæ•°
 #define BACK_X          COMP_X
 #define BACK_Y          COMP_Y
 #define BACK_W          COMP_W
 
-// ƒ^ƒCƒ}[I—¹‚Ì‰¹º‚Ìí—Ş
+// ã‚¿ã‚¤ãƒãƒ¼çµ‚äº†æ™‚ã®éŸ³å£°ã®ç¨®é¡
 #define OVER_VOICES     8
 
-// ƒ^ƒCƒ}[İ’è•Û‘¶\‘¢‘Ì
+// ã‚¿ã‚¤ãƒãƒ¼è¨­å®šä¿å­˜æ§‹é€ ä½“
 struct TimerCfg {
     int hour;
     int minute;
     int second;
-    int voice_index;    // ƒ^ƒCƒ}[I—¹‚Ç‚Ì‰¹º‚ğÄ¶‚·‚é‚©
+    int voice_index;    // ã‚¿ã‚¤ãƒãƒ¼çµ‚äº†æ™‚ã©ã®éŸ³å£°ã‚’å†ç”Ÿã™ã‚‹ã‹
     void Check()
     {
         if (hour < 0 || hour > 23)  hour = 0;
@@ -38,19 +38,19 @@ struct TimerCfg {
     }
 };
 
-// ŠÔ•\¦•”•ª‚Ì§Œä
+// æ™‚é–“è¡¨ç¤ºéƒ¨åˆ†ã®åˆ¶å¾¡
 class TimerTime : public Area {
     enum eTimerCfgStatus { Invariable, HVariable, MVariable, SVariable };
-    eTimerCfgStatus status;                         // A•ªA•bA‚Ç‚Ì•”•ª‚ª•ÏX‰Â”\‚©
-    int changing;                                   // İ’èŠÔ•ÏX‚©‚ç30ƒtƒŒ[ƒ€‚ğ”‚¦‚é
+    eTimerCfgStatus status;                         // æ™‚ã€åˆ†ã€ç§’ã€ã©ã®éƒ¨åˆ†ãŒå¤‰æ›´å¯èƒ½ã‹
+    int changing;                                   // è¨­å®šæ™‚é–“å¤‰æ›´ã‹ã‚‰30ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æ•°ãˆã‚‹
 public:
     TimerTime(TimerCfg &ref);
-    void ResetStatus() { status = Invariable; }     // ƒXƒe[ƒ^ƒX‚ğInvariable‚Éİ’è‚·‚é
+    void ResetStatus() { status = Invariable; }     // ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’Invariableã«è¨­å®šã™ã‚‹
     void Update();
     void Draw();
 };
 
-// I—¹‰¹º‘I‘ğUI
+// çµ‚äº†æ™‚éŸ³å£°é¸æŠUI
 class VoiceSelect {
     array<string, OVER_VOICES> words;
     TmrVoiceChgButton chg_btn;
@@ -60,13 +60,13 @@ public:
     void Draw();
 };
 
-// ƒ^ƒCƒ}[‰æ–Ê‚Åg‚¤ƒtƒHƒ“ƒgì¬ƒNƒ‰ƒX
+// ã‚¿ã‚¤ãƒãƒ¼ç”»é¢ã§ä½¿ã†ãƒ•ã‚©ãƒ³ãƒˆä½œæˆã‚¯ãƒ©ã‚¹
 class FontMakerTimer {
 public:
     FontMakerTimer();
 };
 
-// ƒ^ƒCƒ}[‰æ–ÊƒNƒ‰ƒX
+// ã‚¿ã‚¤ãƒãƒ¼ç”»é¢ã‚¯ãƒ©ã‚¹
 class TimerScreen : public BaseScene, public FontMakerTimer {
     TimerTime timer_time;
     TmrStartButton start_btn;
@@ -82,16 +82,16 @@ public:
     void Draw();
 };
 
-// ƒ^ƒCƒ}[‚ÌƒJƒEƒ“ƒg‚ğs‚¤ƒNƒ‰ƒX
+// ã‚¿ã‚¤ãƒãƒ¼ã®ã‚«ã‚¦ãƒ³ãƒˆã‚’è¡Œã†ã‚¯ãƒ©ã‚¹
 class Timer : public IOBase<TimerCfg> {
 public:
     enum eTimerStatus { Idle, Counting, Pause };
 private:
-    int base_ms;            // 1•bŒo‰ß‚µ‚½‚©’²‚×‚é‚½‚ß‚ÌŠî€(ƒ~ƒŠ•b)
-    int stop_ms;            // ƒ^ƒCƒ}[‚ªˆê’â~‚µ‚½(ƒ~ƒŠ•b)
-    int remaining_h;        // c‚èŠÔ()
-    int remaining_m;        // c‚èŠÔ(•ª)
-    int remaining_s;        // c‚èŠÔ(•b)
+    int base_ms;            // 1ç§’çµŒéã—ãŸã‹èª¿ã¹ã‚‹ãŸã‚ã®åŸºæº–(ãƒŸãƒªç§’)
+    int stop_ms;            // ã‚¿ã‚¤ãƒãƒ¼ãŒä¸€æ™‚åœæ­¢ã—ãŸæ™‚åˆ»(ãƒŸãƒªç§’)
+    int remaining_h;        // æ®‹ã‚Šæ™‚é–“(æ™‚)
+    int remaining_m;        // æ®‹ã‚Šæ™‚é–“(åˆ†)
+    int remaining_s;        // æ®‹ã‚Šæ™‚é–“(ç§’)
     eTimerStatus status;
 public:
     Timer();

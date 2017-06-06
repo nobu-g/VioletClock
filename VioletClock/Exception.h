@@ -1,4 +1,4 @@
-#ifndef EXCEPTION_H
+ï»¿#ifndef EXCEPTION_H
 #define EXCEPTION_H
 
 #include <string>
@@ -7,13 +7,13 @@ using std::string;
 class Exception {
 public:
     enum eErrorCode {
-        Unexpected,         // —\Šú‚¹‚ÊƒGƒ‰[
-        FailToAlloc,        // ƒƒ‚ƒŠŠ„‚è“–‚Ä¸”s
-        LoadingNotDone,     // ƒ[ƒh‚Ì’†’f
-        FuncError,          // ŠÖ”ƒGƒ‰[
-        InputError,         // “ü—ÍƒGƒ‰[
-        OutputError,        // o—ÍƒGƒ‰[
-        OtherError          // ‚»‚Ì‘¼‚ÌƒGƒ‰[
+        Unexpected,         // äºˆæœŸã›ã¬ã‚¨ãƒ©ãƒ¼
+        FailToAlloc,        // ãƒ¡ãƒ¢ãƒªå‰²ã‚Šå½“ã¦å¤±æ•—
+        LoadingNotDone,     // ãƒ­ãƒ¼ãƒ‰ã®ä¸­æ–­
+        FuncError,          // é–¢æ•°ã‚¨ãƒ©ãƒ¼
+        InputError,         // å…¥åŠ›ã‚¨ãƒ©ãƒ¼
+        OutputError,        // å‡ºåŠ›ã‚¨ãƒ©ãƒ¼
+        OtherError          // ãã®ä»–ã®ã‚¨ãƒ©ãƒ¼
     };
 private:
     eErrorCode error_code;
@@ -24,7 +24,7 @@ public:
     Exception(eErrorCode code, unsigned int val);
     Exception(eErrorCode code, string str);
     Exception(eErrorCode code, unsigned int val, string str);
-    void ExportError();         // ƒGƒ‰[î•ñ‚ğƒtƒ@ƒCƒ‹‚É‹L˜^‚·‚é
+    void ExportError();         // ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«è¨˜éŒ²ã™ã‚‹
 };
 
 #endif // !EXCEPTION_H

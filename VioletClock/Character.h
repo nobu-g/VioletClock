@@ -1,34 +1,34 @@
-#ifndef CHARACTER_H
+ï»¿#ifndef CHARACTER_H
 #define CHARACTER_H
 
 #include "Base.h"
 #include <unordered_map>
 using std::unordered_map;
 
-// ƒLƒƒƒ‰ƒNƒ^ŠÖŒW‚Ì’è”
-#define CHR_X               SCALEX(10)      // ƒLƒƒƒ‰ƒNƒ^¶ã‚ÌxÀ•W
-#define CHR_Y               SCALEY(148)     // ƒLƒƒƒ‰ƒNƒ^¶ã‚ÌyÀ•W
-#define CHR_W               SCALEX(120)     // ƒLƒƒƒ‰ƒNƒ^‚Ì•
-#define CHR_H               SCALEY(290)     // ƒLƒƒƒ‰ƒNƒ^‚Ì‚‚³
+// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿é–¢ä¿‚ã®å®šæ•°
+#define CHR_X               SCALEX(10)      // ã‚­ãƒ£ãƒ©ã‚¯ã‚¿å·¦ä¸Šã®xåº§æ¨™
+#define CHR_Y               SCALEY(148)     // ã‚­ãƒ£ãƒ©ã‚¯ã‚¿å·¦ä¸Šã®yåº§æ¨™
+#define CHR_W               SCALEX(120)     // ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã®å¹…
+#define CHR_H               SCALEY(290)     // ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã®é«˜ã•
 
-// ƒoƒbƒeƒŠ[ŠÖŒW‚Ì’è”
-#define BAT_LOW             20              // ƒoƒbƒeƒŠ[‚ªŒ¸‚Á‚½‚Æ‚İ‚È‚·c—Ê(%)
-#define BAT_CRISIS          10              // ƒoƒbƒeƒŠ[ŒÀŠE‚Æ‚İ‚È‚·c—Ê(%)
+// ãƒãƒƒãƒ†ãƒªãƒ¼é–¢ä¿‚ã®å®šæ•°
+#define BAT_LOW             20              // ãƒãƒƒãƒ†ãƒªãƒ¼ãŒæ¸›ã£ãŸã¨ã¿ãªã™æ®‹é‡(%)
+#define BAT_CRISIS          10              // ãƒãƒƒãƒ†ãƒªãƒ¼é™ç•Œã¨ã¿ãªã™æ®‹é‡(%)
 
-// ƒL[ƒ{[ƒhŠÖŒW‚Ì’è”
-#define KEY_INPUT_WIN       (0xDA)          // ¶‰EWindowsƒL[
-#define KEY_INPUT_CTRL      (0x5D)          // ¶‰EControlƒL[
-#define KEY_INPUT_ALT       (0x78)          // ¶‰EAltƒL[
-#define KEY_INPUT_SHIFT     (0x29)          // ¶‰EShiftƒL[
+// ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰é–¢ä¿‚ã®å®šæ•°
+#define KEY_INPUT_WIN       (0xDA)          // å·¦å³Windowsã‚­ãƒ¼
+#define KEY_INPUT_CTRL      (0x5D)          // å·¦å³Controlã‚­ãƒ¼
+#define KEY_INPUT_ALT       (0x78)          // å·¦å³Altã‚­ãƒ¼
+#define KEY_INPUT_SHIFT     (0x29)          // å·¦å³Shiftã‚­ãƒ¼
 
-// ƒLƒƒƒ‰‚Ì•\î
+// ã‚­ãƒ£ãƒ©ã®è¡¨æƒ…
 enum eFace { Confident, Doya, Excited, Kyoton, Laugh, Normal, Shocked, Speaking, Tearful, Wink, Blink };
 
-// ƒLƒƒƒ‰ƒNƒ^ƒNƒ‰ƒX
+// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚¯ãƒ©ã‚¹
 class Chr : public Area {
-    static int hBase;                           // ƒx[ƒX‰æ‘œ‚Ö‚Ìƒnƒ“ƒhƒ‹
-    static unordered_map<eFace, int> hFace;     // •\î‚Ì·•ª‰æ‘œ‚Ö‚Ìƒnƒ“ƒhƒ‹
-    static int hBackground;                     // ”wŒi‰æ‘œ‚Ö‚Ìƒnƒ“ƒhƒ‹
+    static int hBase;                           // ãƒ™ãƒ¼ã‚¹ç”»åƒã¸ã®ãƒãƒ³ãƒ‰ãƒ«
+    static unordered_map<eFace, int> hFace;     // è¡¨æƒ…ã®å·®åˆ†ç”»åƒã¸ã®ãƒãƒ³ãƒ‰ãƒ«
+    static int hBackground;                     // èƒŒæ™¯ç”»åƒã¸ã®ãƒãƒ³ãƒ‰ãƒ«
 public:
     Chr();
     void Draw();

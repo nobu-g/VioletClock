@@ -1,4 +1,4 @@
-#ifndef CLOCK_H
+ï»¿#ifndef CLOCK_H
 #define CLOCK_H
 
 #include "Main.h"
@@ -7,21 +7,21 @@
 #include "Voice.h"
 #include <ctime>
 
-// Time, DateŠÖŒW‚Ì’è”
-#define DATE_X      SCALEX(270)     // “ú•t¶ã‚ÌxÀ•W
-#define DATE_Y      SCALEY(330)     // “ú•t¶ã‚ÌyÀ•W
-#define TIME_X      SCALEX(150)     // ¶ã‚ÌxÀ•W
-#define TIME_Y      SCALEY(150)     // ¶ã‚ÌyÀ•W
-#define FSIZE_D     SCALEY(30)      // “ú•t•\¦—pƒtƒHƒ“ƒg‚ÌƒTƒCƒY
-#define FSIZE_HM    SCALEY(150)     // A•ª—pƒtƒHƒ“ƒg‚ÌƒTƒCƒY
-#define FSIZE_S     SCALEY(50)      // •b—pƒtƒHƒ“ƒg‚ÌƒTƒCƒY
-#define FSIZE_AP    SCALEY(35)      // AM/PM—pƒtƒHƒ“ƒg‚ÌƒTƒCƒY
-#define SPACE_MS    SCALEX(10)      // •ª‚Æ•b‚ÌŠÔ‚ÌŠÔŠu(ƒsƒNƒZƒ‹)
+// Time, Dateé–¢ä¿‚ã®å®šæ•°
+#define DATE_X      SCALEX(270)     // æ—¥ä»˜å·¦ä¸Šã®xåº§æ¨™
+#define DATE_Y      SCALEY(330)     // æ—¥ä»˜å·¦ä¸Šã®yåº§æ¨™
+#define TIME_X      SCALEX(150)     // æ™‚åˆ»å·¦ä¸Šã®xåº§æ¨™
+#define TIME_Y      SCALEY(150)     // æ™‚åˆ»å·¦ä¸Šã®yåº§æ¨™
+#define FSIZE_D     SCALEY(30)      // æ—¥ä»˜è¡¨ç¤ºç”¨ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º
+#define FSIZE_HM    SCALEY(150)     // æ™‚ã€åˆ†ç”¨ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º
+#define FSIZE_S     SCALEY(50)      // ç§’ç”¨ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º
+#define FSIZE_AP    SCALEY(35)      // AM/PMç”¨ãƒ•ã‚©ãƒ³ãƒˆã®ã‚µã‚¤ã‚º
+#define SPACE_MS    SCALEX(10)      // åˆ†ã¨ç§’ã®é–“ã®é–“éš”(ãƒ”ã‚¯ã‚»ãƒ«)
 
 enum eHourForm { Form12h, Form24h };
 enum eTail { Tail_Dane, Tail_Dayo, Tail_Ninattayo, Tail_Datte, Tail_None };
 
-// ƒƒCƒ“‰æ–ÊƒNƒ‰ƒX
+// ãƒ¡ã‚¤ãƒ³ç”»é¢ã‚¯ãƒ©ã‚¹
 class Clock : public BaseScene {
     Chr character;
     RptButton rpt_btn;
@@ -37,38 +37,38 @@ public:
     void Draw();
 };
 
-// ·İ’è•Û‘¶\‘¢‘Ì
+// æ™‚å·®è¨­å®šä¿å­˜æ§‹é€ ä½“
 struct TimeSrcCfg {
-    time_t offset;          // •W€‚Æ‚Ì‚¸‚ê(•b)
-    void Check()            // ƒƒ“ƒo‚ª•s³‚È’l‚ÌC³‚·‚é
+    time_t offset;          // æ¨™æº–æ™‚ã¨ã®ãšã‚Œ(ç§’)
+    void Check()            // ãƒ¡ãƒ³ãƒãŒä¸æ­£ãªå€¤ã®æ™‚ä¿®æ­£ã™ã‚‹
     {
-        // 1970”N‚©‚ç3000”N‚Ü‚Å‚Ì•b”
+        // 1970å¹´ã‹ã‚‰3000å¹´ã¾ã§ã®ç§’æ•°
         if (offset < -32535244799 || offset > 32535244799)
             offset = 0;
     }
 };
 
-// •W€‚ğ’ñ‹Ÿ‚·‚éŠÔƒNƒ‰ƒX
+// æ¨™æº–æ™‚ã‚’æä¾›ã™ã‚‹æ™‚é–“ã‚¯ãƒ©ã‚¹
 class TimeSrc : public IOBase<TimeSrcCfg> {
 protected:
-    tm local;           // ŠÔ‚ğŠi”[‚·‚é\‘¢‘Ì
+    tm local;           // æ™‚é–“ã‚’æ ¼ç´ã™ã‚‹æ§‹é€ ä½“
 public:
     TimeSrc();
-    void Update();                  // Œ»İ‚ğXV
-    void SetCfg(time_t t);          // İ’è‚ğ•ÏX‚·‚é
-    friend class Date;              // local‚ÉƒAƒNƒZƒX‚µ‚½‚¢
-    friend class Time;              // local‚ÉƒAƒNƒZƒX‚µ‚½‚¢
+    void Update();                  // ç¾åœ¨æ™‚åˆ»ã‚’æ›´æ–°
+    void SetCfg(time_t t);          // è¨­å®šã‚’å¤‰æ›´ã™ã‚‹
+    friend class Date;              // localã«ã‚¢ã‚¯ã‚»ã‚¹ã—ãŸã„
+    friend class Time;              // localã«ã‚¢ã‚¯ã‚»ã‚¹ã—ãŸã„
 };
 extern TimeSrc *pTimeSrc;
 
-// “ú•tİ’è•Û‘¶\‘¢‘Ì
+// æ—¥ä»˜è¨­å®šä¿å­˜æ§‹é€ ä½“
 struct DateCfg {
-    bool sound_year;        // ”N‚ğ“Ç‚İã‚°‚é‚©‚Ç‚¤‚©
-    bool sound_week;        // —j“ú‚ğ“Ç‚İã‚°‚é‚©‚Ç‚¤‚©
-    eTail tail;             // “ú•t“Ç‚İã‚°‚ÌŒê”ö
-    int birthmonth;         // ’a¶Œ
-    int birthday;           // ’a¶“ú
-    void Check()            // ƒƒ“ƒo‚ª•s³‚È’l‚ÌC³‚·‚é
+    bool sound_year;        // å¹´ã‚’èª­ã¿ä¸Šã’ã‚‹ã‹ã©ã†ã‹
+    bool sound_week;        // æ›œæ—¥ã‚’èª­ã¿ä¸Šã’ã‚‹ã‹ã©ã†ã‹
+    eTail tail;             // æ—¥ä»˜èª­ã¿ä¸Šã’æ™‚ã®èªå°¾
+    int birthmonth;         // èª•ç”Ÿæœˆ
+    int birthday;           // èª•ç”Ÿæ—¥
+    void Check()            // ãƒ¡ãƒ³ãƒãŒä¸æ­£ãªå€¤ã®æ™‚ä¿®æ­£ã™ã‚‹
     {
         switch (tail) {
         case Tail_Dane:  case Tail_Dayo:  case Tail_Ninattayo:  case Tail_Datte:  case Tail_None:  break;
@@ -79,47 +79,47 @@ struct DateCfg {
     }
 };
 
-// “ú•tƒNƒ‰ƒX
+// æ—¥ä»˜ã‚¯ãƒ©ã‚¹
 class Date : public Area, public IOBase<DateCfg> {
-    int hFont_d;                // “ú•t•\¦—pƒtƒHƒ“ƒg
-    eTmData speaking;           // Œ»İÄ¶‚³‚ê‚Ä‚¢‚é‰¹º
+    int hFont_d;                // æ—¥ä»˜è¡¨ç¤ºç”¨ãƒ•ã‚©ãƒ³ãƒˆ
+    eTmData speaking;           // ç¾åœ¨å†ç”Ÿã•ã‚Œã¦ã„ã‚‹éŸ³å£°
 public:
     Date();
-    int Gety() { return pTimeSrc->local.tm_year + 1900; }   // ”N‚ğ•Ô‚·
-    int Getm() { return pTimeSrc->local.tm_mon + 1; }       // Œ‚ğ•Ô‚·
-    int Getd() { return pTimeSrc->local.tm_mday; }          // “ú‚ğ•Ô‚·
-    int Getw() { return pTimeSrc->local.tm_wday; }          // —j“ú‚ğ•Ô‚·
-    int Gett() { return config.tail; }                      // Œê”ö‚ğ•Ô‚·
+    int Gety() { return pTimeSrc->local.tm_year + 1900; }   // å¹´ã‚’è¿”ã™
+    int Getm() { return pTimeSrc->local.tm_mon + 1; }       // æœˆã‚’è¿”ã™
+    int Getd() { return pTimeSrc->local.tm_mday; }          // æ—¥ã‚’è¿”ã™
+    int Getw() { return pTimeSrc->local.tm_wday; }          // æ›œæ—¥ã‚’è¿”ã™
+    int Gett() { return config.tail; }                      // èªå°¾ã‚’è¿”ã™
     void Draw();
-    void Update();                          // ƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚Ì“®ì
-    void ResetSpeaking();                   // “ú•t‚Ì“Ç‚İã‚°‚ğƒŠƒZƒbƒg
-    bool IsNewYear() {                      // ¡“ú‚ªŒ³“ú(1/1)‚©‚Ç‚¤‚©
+    void Update();                          // ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã®å‹•ä½œ
+    void ResetSpeaking();                   // æ—¥ä»˜ã®èª­ã¿ä¸Šã’ã‚’ãƒªã‚»ãƒƒãƒˆ
+    bool IsNewYear() {                      // ä»Šæ—¥ãŒå…ƒæ—¥(1/1)ã‹ã©ã†ã‹
         return Getm() == 1 && Getd() == 1;
     }
-    bool IsHalloween() {                    // ¡“ú‚ªƒnƒƒEƒBƒ“(10/31)‚©‚Ç‚¤‚©
+    bool IsHalloween() {                    // ä»Šæ—¥ãŒãƒãƒ­ã‚¦ã‚£ãƒ³(10/31)ã‹ã©ã†ã‹
         return Getm() == 10 && Getd() == 31;
     }
-    bool IsChristmas() {                    // ¡“ú‚ªƒNƒŠƒXƒ}ƒX(12/25)‚©‚Ç‚¤‚©
+    bool IsChristmas() {                    // ä»Šæ—¥ãŒã‚¯ãƒªã‚¹ãƒã‚¹(12/25)ã‹ã©ã†ã‹
         return Getm() == 12 && Getd() == 25;
     }
-    bool IsBirthday() {                     // ¡“ú‚ª’a¶“ú‚©
+    bool IsBirthday() {                     // ä»Šæ—¥ãŒèª•ç”Ÿæ—¥ã‹
         return Getm() == config.birthmonth && Getd() == config.birthday;
     }
-    bool IsSummer() {                       // ¡‚ª‰Ä(6Œ`8Œ)‚©‚Ç‚¤‚©
+    bool IsSummer() {                       // ä»ŠãŒå¤(6æœˆï½8æœˆ)ã‹ã©ã†ã‹
         return Getm() >= 6 && Getm() <= 8;
     }
-    bool IsWinter() {                       // ¡‚ª“~(12Œ`3Œ)‚©‚Ç‚¤‚©
+    bool IsWinter() {                       // ä»ŠãŒå†¬(12æœˆï½3æœˆ)ã‹ã©ã†ã‹
         return Getm() >= 12 || Getm() <= 3;
     }
     enum eCfg { SoundYear, SoundWeek, TailDate, BirthMonth, BirthDay };
-    void SetCfg(eCfg cfg, int value);                               // İ’è‚ğ•ÏX‚·‚é
+    void SetCfg(eCfg cfg, int value);                               // è¨­å®šã‚’å¤‰æ›´ã™ã‚‹
 };
 
-// İ’è•Û‘¶\‘¢‘Ì
+// æ™‚åˆ»è¨­å®šä¿å­˜æ§‹é€ ä½“
 struct TimeCfg {
-    eHourForm h_form;       // ‚ğ0-12Œ`®/0-24Œ`®‚Ì‚Ç‚¿‚ç‚Å•\¦‚·‚é‚©
-    eTail tail;             // “Ç‚İã‚°‚ÌŒê”ö
-    void Check()            // ƒƒ“ƒo‚ª•s³‚È’l‚ÌC³‚·‚é
+    eHourForm h_form;       // æ™‚åˆ»ã‚’0-12å½¢å¼/0-24å½¢å¼ã®ã©ã¡ã‚‰ã§è¡¨ç¤ºã™ã‚‹ã‹
+    eTail tail;             // æ™‚åˆ»èª­ã¿ä¸Šã’æ™‚ã®èªå°¾
+    void Check()            // ãƒ¡ãƒ³ãƒãŒä¸æ­£ãªå€¤ã®æ™‚ä¿®æ­£ã™ã‚‹
     {
         if (h_form != Form12h && h_form != Form24h) h_form = Form24h;
         switch (tail) {
@@ -129,27 +129,27 @@ struct TimeCfg {
     }
 };
 
-// ƒNƒ‰ƒX
+// æ™‚åˆ»ã‚¯ãƒ©ã‚¹
 class Time : public Area, public IOBase<TimeCfg> {
-    int hFont_hm;               // A•ª—pƒtƒHƒ“ƒg
-    int hFont_s;                // •b—pƒtƒHƒ“ƒg
-    int hFont_ap;               // AM/PM—pƒtƒHƒ“ƒg
+    int hFont_hm;               // æ™‚ã€åˆ†ç”¨ãƒ•ã‚©ãƒ³ãƒˆ
+    int hFont_s;                // ç§’ç”¨ãƒ•ã‚©ãƒ³ãƒˆ
+    int hFont_ap;               // AM/PMç”¨ãƒ•ã‚©ãƒ³ãƒˆ
 
-    eTmData speaking;           // Œ»İÄ¶‚³‚ê‚Ä‚¢‚é‰¹º
-    bool time_signal_flag;      // •ñ‚ğ–Â‚ç‚³‚È‚¯‚ê‚Î‚È‚ç‚È‚¢‚©
+    eTmData speaking;           // ç¾åœ¨å†ç”Ÿã•ã‚Œã¦ã„ã‚‹éŸ³å£°
+    bool time_signal_flag;      // æ™‚å ±ã‚’é³´ã‚‰ã•ãªã‘ã‚Œã°ãªã‚‰ãªã„ã‹
 public:
     Time();
-    void Init() { time_signal_flag = false; }                       // ‰Šú‰»ˆ—
-    int Getn() { return (pTimeSrc->local.tm_hour < 12) ? 0 : 1; }   // Œß‘O:0AŒßŒã:1‚ğ•Ô‚·
-    int Geth() { return pTimeSrc->local.tm_hour; }                  // ‚ğ•Ô‚·
-    int Getm() { return pTimeSrc->local.tm_min; }                   // •ª‚ğ•Ô‚·
-    int Gets() { return pTimeSrc->local.tm_sec; }                   // •b‚ğ•Ô‚·
-    int Gett() { return config.tail; }                              // Œê”ö‚ğ•Ô‚·
+    void Init() { time_signal_flag = false; }                       // åˆæœŸåŒ–å‡¦ç†
+    int Getn() { return (pTimeSrc->local.tm_hour < 12) ? 0 : 1; }   // åˆå‰:0ã€åˆå¾Œ:1ã‚’è¿”ã™
+    int Geth() { return pTimeSrc->local.tm_hour; }                  // æ™‚ã‚’è¿”ã™
+    int Getm() { return pTimeSrc->local.tm_min; }                   // åˆ†ã‚’è¿”ã™
+    int Gets() { return pTimeSrc->local.tm_sec; }                   // ç§’ã‚’è¿”ã™
+    int Gett() { return config.tail; }                              // èªå°¾ã‚’è¿”ã™
     void Draw();
-    void Update();                                                  // ƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚Ì“®ì
-    void ResetSpeaking();                                           // ‚Ì“Ç‚İã‚°‚ğƒŠƒZƒbƒg
+    void Update();                                                  // ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã®å‹•ä½œ
+    void ResetSpeaking();                                           // æ™‚åˆ»ã®èª­ã¿ä¸Šã’ã‚’ãƒªã‚»ãƒƒãƒˆ
     enum eCfg { HForm, TailTime };
-    void SetCfg(eCfg cfg, int value);                               // İ’è‚ğ•ÏX‚·‚é
+    void SetCfg(eCfg cfg, int value);                               // è¨­å®šã‚’å¤‰æ›´ã™ã‚‹
 };
 
 extern Date *pDate;

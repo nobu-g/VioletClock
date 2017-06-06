@@ -1,13 +1,13 @@
-#ifndef ALARM_H
+ï»¿#ifndef ALARM_H
 #define ALARM_H
 
 #include "Main.h"
 #include "Button.h"
 #include "Config.h"
 
-#define ALMTIME_X       SCALEX(170)     // İ’è‚ÌxÀ•W
-#define ALMTIME_Y       SCALEY(150)     // İ’è‚ÌyÀ•W
-#define FSIZE_T         SCALEY(120)     // İ’è‚ÌƒtƒHƒ“ƒgƒTƒCƒY
+#define ALMTIME_X       SCALEX(170)     // è¨­å®šæ™‚åˆ»ã®xåº§æ¨™
+#define ALMTIME_Y       SCALEY(150)     // è¨­å®šæ™‚åˆ»ã®yåº§æ¨™
+#define FSIZE_T         SCALEY(120)     // è¨­å®šæ™‚åˆ»ã®ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚º
 
 #define ALARMVALID_X    (MAINAREA_X + SCALEX(15))
 #define ALARMVALID_Y    (MAINAREA_Y + SCALEY(297))
@@ -18,27 +18,27 @@
 #define MODE_W          SCALEX(280)
 #define MODE_H          SCALEY(65)
 
-// ƒAƒ‰[ƒ€İ’è•Û‘¶\‘¢‘Ì
+// ã‚¢ãƒ©ãƒ¼ãƒ è¨­å®šä¿å­˜æ§‹é€ ä½“
 struct AlarmCfg {
-    int alarm_h;                    // ƒAƒ‰[ƒ€‚ğ–Â‚ç‚·ŠÔ
-    int alarm_m;                    // ƒAƒ‰[ƒ€‚ğ–Â‚ç‚·•ª
-    bool is_alarm_valid;            // ƒAƒ‰[ƒ€‚ªƒIƒ“ó‘Ô‚©
-    bool is_wakeup_mode;            // true:–ÚŠo‚Ü‚µƒ‚[ƒhCfalse:’Êíƒ‚[ƒh
-    void Check()                    // ƒƒ“ƒo‚ª•s³‚È’l‚ÌC³‚·‚é
+    int alarm_h;                    // ã‚¢ãƒ©ãƒ¼ãƒ ã‚’é³´ã‚‰ã™æ™‚é–“
+    int alarm_m;                    // ã‚¢ãƒ©ãƒ¼ãƒ ã‚’é³´ã‚‰ã™åˆ†
+    bool is_alarm_valid;            // ã‚¢ãƒ©ãƒ¼ãƒ ãŒã‚ªãƒ³çŠ¶æ…‹ã‹
+    bool is_wakeup_mode;            // true:ç›®è¦šã¾ã—ãƒ¢ãƒ¼ãƒ‰ï¼Œfalse:é€šå¸¸ãƒ¢ãƒ¼ãƒ‰
+    void Check()                    // ãƒ¡ãƒ³ãƒãŒä¸æ­£ãªå€¤ã®æ™‚ä¿®æ­£ã™ã‚‹
     {
         if (alarm_h < 0 || alarm_h > 23)    alarm_h = 0;
         if (alarm_m < 0 || alarm_m > 59)    alarm_m = 0;
     }
 };
 
-// •\¦•”•ª‚Ì§Œä
+// æ™‚åˆ»è¡¨ç¤ºéƒ¨åˆ†ã®åˆ¶å¾¡
 class AlarmTime : public Area {
     AlarmCfg &temp;
 
     enum eTimeCfgStatus { Invariable, HVariable, MVariable };
     eTimeCfgStatus status;
-    int changing;           // İ’è•ÏX‚©‚ç30ƒtƒŒ[ƒ€‚ğ”‚¦‚é
-    int hFont;              // İ’è‚ğ•\¦‚·‚éƒtƒHƒ“ƒg
+    int changing;           // è¨­å®šæ™‚åˆ»å¤‰æ›´ã‹ã‚‰30ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’æ•°ãˆã‚‹
+    int hFont;              // è¨­å®šæ™‚åˆ»ã‚’è¡¨ç¤ºã™ã‚‹ãƒ•ã‚©ãƒ³ãƒˆ
 public:
     AlarmTime(AlarmCfg &ref);
     ~AlarmTime();
@@ -46,22 +46,22 @@ public:
     void Draw();
 };
 
-// ƒAƒ‰[ƒ€‰æ–Ê‚Åg‚¤ƒtƒHƒ“ƒgì¬ƒNƒ‰ƒX
+// ã‚¢ãƒ©ãƒ¼ãƒ ç”»é¢ã§ä½¿ã†ãƒ•ã‚©ãƒ³ãƒˆä½œæˆã‚¯ãƒ©ã‚¹
 class FontMakerAlarm {
 public:
     FontMakerAlarm();
 };
 
-// ƒAƒ‰[ƒ€‰æ–ÊƒNƒ‰ƒX
+// ã‚¢ãƒ©ãƒ¼ãƒ ç”»é¢ã‚¯ãƒ©ã‚¹
 class AlarmScreen : public BaseScene, public FontMakerAlarm {
-    AlarmCfg temp;                  // ƒAƒ‰[ƒ€İ’èˆê•Û‘¶ƒIƒuƒWƒFƒNƒg
+    AlarmCfg temp;                  // ã‚¢ãƒ©ãƒ¼ãƒ è¨­å®šä¸€æ™‚ä¿å­˜ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
-    AlarmTime alarm_time;           // İ’èƒIƒuƒWƒFƒNƒg
-    Item<bool> alarm_valid;         // ƒAƒ‰[ƒ€ON/OFFØ‚è‘Ö‚¦UI
-    Item<bool> mode;                // ƒAƒ‰[ƒ€İ’èØ‚è‘Ö‚¦UI
+    AlarmTime alarm_time;           // è¨­å®šæ™‚åˆ»ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+    Item<bool> alarm_valid;         // ã‚¢ãƒ©ãƒ¼ãƒ ON/OFFåˆ‡ã‚Šæ›¿ãˆUI
+    Item<bool> mode;                // ã‚¢ãƒ©ãƒ¼ãƒ è¨­å®šåˆ‡ã‚Šæ›¿ãˆUI
 
-    Button complete;                // İ’èŠ®—¹ƒ{ƒ^ƒ“
-    Button cancel;                  // ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“
+    Button complete;                // è¨­å®šå®Œäº†ãƒœã‚¿ãƒ³
+    Button cancel;                  // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³
 public:
     AlarmScreen(ISceneChanger *changer);
     ~AlarmScreen();
@@ -69,17 +69,17 @@ public:
     void Finalize() {}
     void Update();
     void Draw();
-    void Reflect();                 // temp‚ª‚Âİ’è‚ğ”½‰f‚³‚¹‚é
+    void Reflect();                 // tempãŒæŒã¤è¨­å®šã‚’åæ˜ ã•ã›ã‚‹
 };
 
-// ƒAƒ‰[ƒ€‚ÌƒoƒbƒNƒOƒ‰ƒEƒ“ƒhˆ—‚ğs‚¤
+// ã‚¢ãƒ©ãƒ¼ãƒ ã®ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰å‡¦ç†ã‚’è¡Œã†
 class Alarm : public IOBase<AlarmCfg> {
-    bool is_ringing;            // ƒAƒ‰[ƒ€‚ªŒ»İ–Â‚Á‚Ä‚¢‚é‚©
+    bool is_ringing;            // ã‚¢ãƒ©ãƒ¼ãƒ ãŒç¾åœ¨é³´ã£ã¦ã„ã‚‹ã‹
 public:
     Alarm();
-    void Update();                                              // ƒAƒ‰[ƒ€‚ğ–Â‚ç‚·ˆ—‚È‚Ç
+    void Update();                                              // ã‚¢ãƒ©ãƒ¼ãƒ ã‚’é³´ã‚‰ã™å‡¦ç†ãªã©
     enum eCfg { AlarmH, AlarmM, IsAlarmValid, IsWakeupMode };
-    void SetCfg(eCfg cfg, int value);                           // İ’è‚ğ•ÏX‚·‚é
+    void SetCfg(eCfg cfg, int value);                           // è¨­å®šã‚’å¤‰æ›´ã™ã‚‹
 };
 
 extern Alarm *pAlarm;

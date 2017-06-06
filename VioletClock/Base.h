@@ -1,47 +1,47 @@
-#ifndef AREA_H
+ï»¿#ifndef AREA_H
 #define AREA_H
 
 #include <fstream>
 using std::ofstream;
 using std::ifstream;
 
-// DPI‚É‰‚¶‚Äƒp[ƒc‚ğƒXƒP[ƒŠƒ“ƒO
+// DPIã«å¿œã˜ã¦ãƒ‘ãƒ¼ãƒ„ã‚’ã‚¹ã‚±ãƒ¼ãƒªãƒ³ã‚°
 extern double scaleX;
 extern double scaleY;
 #define SCALEX(argX)    ((int) ((argX) * scaleX))
 #define SCALEY(argY)    ((int) ((argY) * scaleY))
 
-// ƒtƒHƒ“ƒgƒTƒCƒY¨”¼Šp•¶š•
+// ãƒ•ã‚©ãƒ³ãƒˆã‚µã‚¤ã‚ºâ†’åŠè§’æ–‡å­—å¹…
 #define STOW(arg)       ((int) (((arg) + 1) / 2))
 
-// Fw’è
-#define BLACK               0x000000    // •¶šF
-#define VIOLET1             0xE5D7F7    // İ’èƒGƒŠƒA‚Ì”wŒiF(229, 215, 247)
-#define VIOLET2             0xD1B2F7    // İ’è€–Úƒ{ƒ^ƒ“”wŒiF
-#define VIOLET3             0xC399F7    // å—vƒ{ƒ^ƒ“‚Ì”wŒiF
-#define VIOLET4             0x9442F7    // ƒJ[ƒ\ƒ‹‚ÌêŠ‚ğ¦‚·˜g‚ÌF
-/*FƒR[ƒhƒ}ƒNƒ‚ÍˆÈ‰º‚ÌƒTƒCƒg‚ğQl‚ÉA”–‚¢‡‚É•À‚ñ‚Å‚¢‚é
+// è‰²æŒ‡å®š
+#define BLACK               0x000000    // æ–‡å­—è‰²
+#define VIOLET1             0xE5D7F7    // è¨­å®šã‚¨ãƒªã‚¢ã®èƒŒæ™¯è‰²(229, 215, 247)
+#define VIOLET2             0xD1B2F7    // è¨­å®šé …ç›®ãƒœã‚¿ãƒ³èƒŒæ™¯è‰²
+#define VIOLET3             0xC399F7    // ä¸»è¦ãƒœã‚¿ãƒ³ã®èƒŒæ™¯è‰²
+#define VIOLET4             0x9442F7    // ã‚«ãƒ¼ã‚½ãƒ«ã®å ´æ‰€ã‚’ç¤ºã™æ ã®è‰²
+/*è‰²ã‚³ãƒ¼ãƒ‰ãƒã‚¯ãƒ­ã¯ä»¥ä¸‹ã®ã‚µã‚¤ãƒˆã‚’å‚è€ƒã«ã€è–„ã„é †ã«ä¸¦ã‚“ã§ã„ã‚‹
 http://www.color-sample.com/colors/d9bef8/
 */
 
 enum eScene {
-    eScene_Clock,       // ƒƒCƒ“‰æ–Ê
-    eScene_Config,      // İ’è‰æ–Ê
-    eScene_Alarm,       // ƒAƒ‰[ƒ€İ’è‰æ–Ê
-    eScene_Timer,       // ƒ^ƒCƒ}[‰æ–Ê
-    eScene_None         // –³‚µ
+    eScene_Clock,       // ãƒ¡ã‚¤ãƒ³ç”»é¢
+    eScene_Config,      // è¨­å®šç”»é¢
+    eScene_Alarm,       // ã‚¢ãƒ©ãƒ¼ãƒ è¨­å®šç”»é¢
+    eScene_Timer,       // ã‚¿ã‚¤ãƒãƒ¼ç”»é¢
+    eScene_None         // ç„¡ã—
 };
 
-// ƒV[ƒ“‚ğ•ÏX‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^[ƒtƒFƒCƒXƒNƒ‰ƒX
+// ã‚·ãƒ¼ãƒ³ã‚’å¤‰æ›´ã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹ã‚¯ãƒ©ã‚¹
 class ISceneChanger {
 public:
     virtual void ChangeScene(eScene next) = 0;
 };
 
-// ƒV[ƒ“‚ÌŠî’êƒNƒ‰ƒX
+// ã‚·ãƒ¼ãƒ³ã®åŸºåº•ã‚¯ãƒ©ã‚¹
 class BaseScene {
 protected:
-    // ƒNƒ‰ƒXŠ—LŒ³‚ÉƒV[ƒ“Ø‚è‘Ö‚¦‚ğ“`‚¦‚éƒCƒ“ƒ^[ƒtƒFƒCƒX
+    // ã‚¯ãƒ©ã‚¹æ‰€æœ‰å…ƒã«ã‚·ãƒ¼ãƒ³åˆ‡ã‚Šæ›¿ãˆã‚’ä¼ãˆã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ã‚¤ã‚¹
     ISceneChanger *pScene_changer;
 public:
     BaseScene(ISceneChanger *pChanger) { pScene_changer = pChanger; }
@@ -52,43 +52,43 @@ public:
     virtual void Draw() {}
 };
 
-// ‰æ–Ê‚Ì\¬—v‘f‚ÌŠî–{ƒNƒ‰ƒX
+// ç”»é¢ã®æ§‹æˆè¦ç´ ã®åŸºæœ¬ã‚¯ãƒ©ã‚¹
 class Area {
-    bool is_clicking;               // ƒGƒŠƒA“à‚ÅƒNƒŠƒbƒN‚³‚êA¡‚à‚»‚Ìó‘Ô‚©‚Ç‚¤‚©
+    bool is_clicking;               // ã‚¨ãƒªã‚¢å†…ã§ã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã€ä»Šã‚‚ãã®çŠ¶æ…‹ã‹ã©ã†ã‹
 protected:
-    int x1, y1, x2, y2;             // ƒIƒuƒWƒFƒNƒg‚ÌÀ•W
-    static bool pre_lclick_status;  // ‘Oƒ‹[ƒv‚Å¶ƒNƒŠƒbƒN‚³‚ê‚Ä‚¢‚½‚©‚Ç‚¤‚©
-    static bool pre_hitkey_status;  // ‘Oƒ‹[ƒv‚ÅƒL[ƒ{[ƒh‚ª‰Ÿ‚³‚ê‚Ä‚¢‚½‚©‚Ç‚¤‚©
+    int x1, y1, x2, y2;             // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åº§æ¨™
+    static bool pre_lclick_status;  // å‰ãƒ«ãƒ¼ãƒ—ã§å·¦ã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã¦ã„ãŸã‹ã©ã†ã‹
+    static bool pre_hitkey_status;  // å‰ãƒ«ãƒ¼ãƒ—ã§ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ãŒæŠ¼ã•ã‚Œã¦ã„ãŸã‹ã©ã†ã‹
 public:
     Area(int x, int y, int w = 0, int h = 0)
     {
         x1 = x; y1 = y; x2 = x + w; y2 = y + h;
     }
-    void SetWidth(int w) { x2 = x1 + w; }       // •‚ªw‚Æ‚È‚é‚æ‚¤x2‚ğ•ÏX
-    void SetHeight(int h) { y2 = y1 + h; }      // ‚‚³‚ªh‚Æ‚È‚é‚æ‚¤y2‚ğ•ÏX
-    static void Update();                       // ƒNƒŠƒbƒNó‘Ô‚ÌXVD1ƒ‹[ƒv‚É1‰ñ‚µ‚©Às‚µ‚Ä‚Í‚¢‚¯‚È‚¢
-    bool IsMouseOver();                         // ƒIƒuƒWƒFƒNƒgã‚Éƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ª‚ ‚é‚©
-    bool IsClicked();                           // ƒIƒuƒWƒFƒNƒgã‚Å¶ƒNƒŠƒbƒN‚ª‚³‚ê‚½uŠÔ‚Ì‚İtrue‚ğ•Ô‚·
-    bool IsClicking();                          // ƒGƒŠƒA“à‚ÅƒNƒŠƒbƒN‚³‚êA¡‚à‚»‚Ìó‘Ô‚©‚Ç‚¤‚©
-    friend class Alarm;                         // AlarmƒNƒ‰ƒX“à‚Å‚àpre_lclick_status‚ªg‚¦‚é‚æ‚¤‚É
-    friend class ConfigTime;                    // ConfigTimeƒNƒ‰ƒX“à‚Å‚àpre_hitkey_status‚ªg‚¦‚é‚æ‚¤‚É
+    void SetWidth(int w) { x2 = x1 + w; }       // å¹…ãŒwã¨ãªã‚‹ã‚ˆã†x2ã‚’å¤‰æ›´
+    void SetHeight(int h) { y2 = y1 + h; }      // é«˜ã•ãŒhã¨ãªã‚‹ã‚ˆã†y2ã‚’å¤‰æ›´
+    static void Update();                       // ã‚¯ãƒªãƒƒã‚¯çŠ¶æ…‹ã®æ›´æ–°ï¼1ãƒ«ãƒ¼ãƒ—ã«1å›ã—ã‹å®Ÿè¡Œã—ã¦ã¯ã„ã‘ãªã„
+    bool IsMouseOver();                         // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä¸Šã«ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ãŒã‚ã‚‹ã‹
+    bool IsClicked();                           // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆä¸Šã§å·¦ã‚¯ãƒªãƒƒã‚¯ãŒã•ã‚ŒãŸç¬é–“ã®ã¿trueã‚’è¿”ã™
+    bool IsClicking();                          // ã‚¨ãƒªã‚¢å†…ã§ã‚¯ãƒªãƒƒã‚¯ã•ã‚Œã€ä»Šã‚‚ãã®çŠ¶æ…‹ã‹ã©ã†ã‹
+    friend class Alarm;                         // Alarmã‚¯ãƒ©ã‚¹å†…ã§ã‚‚pre_lclick_statusãŒä½¿ãˆã‚‹ã‚ˆã†ã«
+    friend class ConfigTime;                    // ConfigTimeã‚¯ãƒ©ã‚¹å†…ã§ã‚‚pre_hitkey_statusãŒä½¿ãˆã‚‹ã‚ˆã†ã«
 };
 
-// ‘}“üq‚Æ’Šoq‚ğƒeƒ“ƒvƒŒ[ƒgŠÖ”‚Æ‚µ‚ÄéŒ¾‚·‚é
+// æŒ¿å…¥å­ã¨æŠ½å‡ºå­ã‚’ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆé–¢æ•°ã¨ã—ã¦å®£è¨€ã™ã‚‹
 template<class CfgType> class IOBase;
 template<class CfgType>
 ofstream& operator << (ofstream &stream, const IOBase<CfgType> &rhs);
 template<class CfgType>
 ifstream& operator >> (ifstream &stream, IOBase<CfgType> &rhs);
 
-// ƒtƒ@ƒCƒ‹“üo—Í‚Ì‚½‚ß‚Ì‘}“üqE’Šoq‚ğ’ñ‹Ÿ‚·‚éŠî–{ƒNƒ‰ƒX
+// ãƒ•ã‚¡ã‚¤ãƒ«å…¥å‡ºåŠ›ã®ãŸã‚ã®æŒ¿å…¥å­ãƒ»æŠ½å‡ºå­ã‚’æä¾›ã™ã‚‹åŸºæœ¬ã‚¯ãƒ©ã‚¹
 template<class CfgType> class IOBase {
 protected:
     CfgType config;
 public:
     friend ofstream& operator << <CfgType> (ofstream &stream, const IOBase<CfgType> &rhs);
     friend ifstream& operator >> <CfgType> (ifstream&, IOBase<CfgType>&);
-    CfgType GetCfg() { return config; }                                 // İ’è‚ğ•Ô‚·
+    CfgType GetCfg() { return config; }                                 // è¨­å®šã‚’è¿”ã™
 };
 
 template<class CfgType>
@@ -110,7 +110,7 @@ template<class CfgType>
 ifstream &operator >> (ifstream& stream, IOBase<CfgType>& rhs)
 {
     stream.read((char *)&rhs.config, sizeof(CfgType));
-    rhs.config.Check();     // “Ç‚İ‚ñ‚¾’l‚ª“K³‚©ƒ`ƒFƒbƒN‹y‚ÑC³‚·‚é
+    rhs.config.Check();     // èª­ã¿è¾¼ã‚“ã å€¤ãŒé©æ­£ã‹ãƒã‚§ãƒƒã‚¯åŠã³ä¿®æ­£ã™ã‚‹
 
     if (stream.bad())
         throw Exception(Exception::InputError, "ios::badbit");
